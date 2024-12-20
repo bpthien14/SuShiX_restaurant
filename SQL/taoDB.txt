@@ -134,6 +134,12 @@ CREATE TABLE ONLINE_BOOKING (
     BookingDate DATE,
     ArrivalTime TIME,
     Notes VARCHAR(255),
+    GuestName VARCHAR(255),
+    GuestPhone VARCHAR(255),
+    DeliveryType VARCHAR(50),
+    DeliveryAddress VARCHAR(255),
+    DeliveryFee FLOAT DEFAULT 0,
+    Status VARCHAR(50) DEFAULT 'PENDING',  -- PENDING, CONFIRMED, CANCELLED
     FOREIGN KEY (CustomerID) REFERENCES CUSTOMER(CustomerID),
     FOREIGN KEY (BranchID) REFERENCES BRANCH(BranchID)
 );
@@ -191,3 +197,4 @@ CREATE TABLE REVIEW (
     Comment VARCHAR(255),
     FOREIGN KEY (InvoiceID) REFERENCES INVOICE(InvoiceID)
 );
+
