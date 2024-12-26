@@ -84,7 +84,7 @@ o xem doanh thu mỗi ngày/mỗi tháng/ mỗi quý / mỗi năm
 o xem danh sách nhân viên, điểm phục vụ của mỗi nhân viên cuối mỗi
 ngày/tháng/quý/năm
 o tìm kiếm thông tin nhân viên, xem danh sách nhân viên theo chi nhánh
-
+- Cấp nhân viên chi nhánh:
 o Thêm/xoá/cập nhật phiếu đặt món; tìm kiếm hoá đơn theo khách hàng, theo
 ngày
 o Thêm/xoá/cập nhật thông tin thẻ khách hàng
