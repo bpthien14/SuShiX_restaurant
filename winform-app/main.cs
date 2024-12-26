@@ -81,4 +81,11 @@ public partial class MainForm : Form
         path.CloseAllFigures();
         button.Region = new Region(path);
     }
+
+    private void buttonLogin_Click(object sender, EventArgs e)
+    {
+        LoginForm loginForm = new LoginForm();
+        loginForm.Show();
+        this.Hide();
+    }
 }

@@ -83,6 +83,7 @@ partial class MainForm
         buttonLogin.TabIndex = 1;
         buttonLogin.Text = "Đăng nhập";
         buttonLogin.UseVisualStyleBackColor = false;
+        buttonLogin.Click += buttonLogin_Click;
         // 
         // buttonRegister
         // 
@@ -243,6 +244,7 @@ partial class MainForm
         Controls.Add(labelTitle);
         Controls.Add(buttonLogin);
         Controls.Add(buttonRegister);
+        FormBorderStyle = FormBorderStyle.FixedSingle;
         Name = "MainForm";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Main Page";
