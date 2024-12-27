@@ -1,0 +1,196 @@
+
+1. Màn hình chính
++------------------------------------------------------------------+
+|  [Logo] SuShiX Management System                         [User▼]   |
++------------------------------------------------------------------+
+|                                                                    |
+| [Menu]                                                            |
+| ├── Thống kê doanh thu chi nhánh                                          |
+| ├── Thống kê doanh thu theo món ăn                                              |
+| ├── Quản lý nhân sự    
+| └── Cập nhật lương nhân viên
+|                                                                    |
+|  [Content Area - MDI Child Forms]                                 |
+|                                                                    |
++------------------------------------------------------------------+
+
+2. Màn hình  xem thống kê doanh thu từng chi nhánh mỗi ngày/tháng/quý/năm
++------------------------------------------------------------------+
+|  THỐNG KÊ DOANH THU CHI NHÁNH                                     |
++------------------------------------------------------------------+
+|  Khu vực:    [ComboBox▼]    Chi nhánh: [ComboBox▼]               |
+|  Từ ngày:    [DatePicker]   Đến ngày:  [DatePicker]             |
+|  Thống kê theo: ○ Ngày ○ Tháng ○ Quý ○ Năm                      |
+|                                                                    |
+|  [Xem thống kê] [Xuất Excel]                                      |
+|                                                                    |
+|  +----------------------------------------------------------+   |
+|  |                     Chart Doanh Thu                       |   |
+|  |                                                          |   |
+|  +----------------------------------------------------------+   |
+|                                                                    |
+|  +----------------------------------------------------------+   |
+|  |                  DataGridView Kết Quả                     |   |
+|  | Thời gian | Chi nhánh | Doanh thu | Số đơn | Trung bình  |   |
+|  |           |           |           |        |             |   |
+|  +----------------------------------------------------------+   |
++------------------------------------------------------------------+
+
+Khi người dùng:
+Chọn Khu vực: ComboBox Chi nhánh sẽ lọc theo khu vực đó
+Không chọn Chi nhánh: Hiển thị tất cả chi nhánh trong khu vực
+Chọn Chi nhánh: Chỉ hiển thị dữ liệu của chi nhánh đó
+
+3. Thống kê doanh thu theo món ăn
++------------------------------------------------------------------+
+|  THỐNG KÊ DOANH THU MÓN ĂN                                        |
++------------------------------------------------------------------+
+|  Khu vực:    [ComboBox▼]    Chi nhánh: [ComboBox▼]               |
+|  Từ ngày:    [DatePicker]   Đến ngày:  [DatePicker]             |
+|  Thống kê theo: ○ Ngày ○ Tháng ○ Quý ○ Năm                      |
+|                                                                    |
+|  Danh mục món: [ComboBox▼]  [Tìm kiếm món...]                    |
+|                                                                    |
+|  [Xem thống kê] [Xuất Excel]                                      |
+|                                                                    |
+|  +----------------------------------------------------------+   |
+|  |                     Chart Top 10 Món                      |   |
+|  |                                                          |   |
+|  +----------------------------------------------------------+   |
+|                                                                    |
+|  +----------------------------------------------------------+   |
+|  |                  DataGridView Kết Quả                     |   |
+|  | Tên món | Số lượng | Doanh thu | Xếp hạng | Trạng thái  |   |
+|  |         |          |           |          | (Chạy/Chậm)  |   |
+|  +----------------------------------------------------------+   |
+|                                                                    |
+|  Ghi chú:                                                         |
+|  - Món chạy: Top 20% món có doanh thu cao nhất                   |
+|  - Món chậm: 20% món có doanh thu thấp nhất                      |
++------------------------------------------------------------------+
+
+Ví dụ:
++----------------------------------------------------------+
+|                  DataGridView Kết Quả                     |
+| Tên món | Số lượng | Doanh thu | Xếp hạng | Trạng thái  |
+| Sushi A |    150   | 15,000,000|    1     | Món chạy    |
+| Sushi B |    100   | 12,000,000|    2     | Món chạy    |
+| ...     |    ...   |    ...    |   ...    | ...         |
+| Sushi Y |     5    |    500,000|    49    | Món chậm    |
+| Sushi Z |     2    |    200,000|    50    | Món chậm    |
++----------------------------------------------------------+
+
+Ghi chú:
+- Món chạy (xanh): Top 20% món có doanh thu cao nhất
+- Món bình thường (vàng): 60% món có doanh thu trung bình
+- Món chậm (đỏ): 20% món có doanh thu thấp nhất
+
+
+3. Quản lý nhân sự
+Màn hình Danh sách nhân viên (màn hình chính):
++------------------------------------------------------------------+
+|  QUẢN LÝ NHÂN VIÊN                                                |
++------------------------------------------------------------------+
+|  [Thêm mới]  [Xuất Excel]                                         |
+|                                                                    |
+|  Tìm kiếm: [                  ]                                    |
+|  Khu vực:  [ComboBox▼]  Chi nhánh: [ComboBox▼]  Bộ phận: [ComboBox▼] |
+|                                                                    |
+|  +----------------------------------------------------------+   |
+|  |                  DataGridView Nhân Viên                    |   |
+|  | Mã NV | Họ tên | Chi nhánh | Bộ phận | Lương | Thao tác  |   |
+|  |       |        |           |         |       |[Chi tiết]  |   |
+|  +----------------------------------------------------------+   |
++------------------------------------------------------------------+
+
+Form Chi tiết nhân viên (popup khi click Chi tiết):
++------------------------------------------------------------------+
+|  THÔNG TIN NHÂN VIÊN                                     [X]      |
++------------------------------------------------------------------+
+|  Thông tin cá nhân:                                               |
+|    Mã NV:     [         ]  Họ tên:    [                ]         |
+|    Ngày sinh: [DatePicker] Giới tính: ○ Nam ○ Nữ                 |
+|    SĐT:       [         ]  Email:     [                ]         |
+|    Địa chỉ:   [                                        ]         |
+|                                                                    |
+|  Thông tin công việc:                                             |
+|    Chi nhánh: [ComboBox▼]  Bộ phận:   [ComboBox▼]               |
+|    Ngày vào:  [DatePicker] Lương:     [Readonly] VNĐ             |
+|                                                                    |
+|  [Lịch sử làm việc] [Điều chuyển] [Lưu][Xóa]                    |
++------------------------------------------------------------------+
+
+Form Lịch sử làm việc (popup từ [Lịch sử làm việc]):
++------------------------------------------------------------------+
+|  LỊCH SỬ LÀM VIỆC                                        [X]      |
++------------------------------------------------------------------+
+|  Mã NV: [   ]  Họ tên: [            ]                             |
+|                                                                    |
+|  +----------------------------------------------------------+   |
+|  |                  DataGridView Lịch sử                     |   |
+|  | Từ ngày | Đến ngày | Chi nhánh | Bộ phận | Lương        |   |
+|  |         |          |           |         |              |   |
+|  +----------------------------------------------------------+   |
+|                                                                    |
+|                                              [Đóng]               |
++------------------------------------------------------------------+
+
+ Form Điều chuyển nhân viên (popup từ [Điều chuyển]):**
++------------------------------------------------------------------+
+|  ĐIỀU CHUYỂN NHÂN VIÊN                                   [X]      |
++------------------------------------------------------------------+
+|  Mã NV: [   ]  Họ tên: [            ]                             |
+|                                                                    |
+|  Chi nhánh hiện tại: [          ]                                 |
+|  Chi nhánh mới:      [ComboBox▼]                                  |
+|  Bộ phận mới:        [ComboBox▼]                                  |
+|                                                                    |
+|  Ngày điều chuyển:   [DatePicker]                                |
+|  Ghi chú:            [                              ]             |
+|                                                                    |
+|                                         [Hủy][Xác nhận]           |
++------------------------------------------------------------------+
+
+
+
+
+Flow hoạt động:
+Từ màn hình chính, người dùng có thể:
+Xem danh sách nhân viên
+Lọc theo khu vực/chi nhánh/bộ phận
+Thêm nhân viên mới
+Xem chi tiết nhân viên
+Từ form Chi tiết nhân viên:
+Xem/cập nhật thông tin cá nhân
+Xem lịch sử làm việc
+Thực hiện điều chuyển
+Cập nhật lương
+Xóa nhân viên
+Các form popup khác:
+Lịch sử làm việc: xem quá trình công tác
+Điều chuyển: chuyển nhân viên sang chi nhánh khác
+
+4. Form Cập nhật lương (popup từ Chi tiết):**
++------------------------------------------------------------------+
+|  CẬP NHẬT LƯƠNG THEO BỘ PHẬN                             [X]      |
++------------------------------------------------------------------+
+|  Khu vực:    [ComboBox▼]                                          |
+|  Chi nhánh:  [ComboBox▼]                                          |
+|  Bộ phận:    [ComboBox▼]                                          |
+|                                                                    |
+|  +----------------------------------------------------------+   |
+|  |              DataGridView Nhân viên bộ phận              |   |
+|  | Mã NV | Họ tên | Bộ phận | Lương hiện tại               |   |
+|  |  NV01 | Nam    | Bếp     | 10,000,000                   |   |
+|  |  NV02 | Hùng   | Bếp     | 10,000,000                   |   |
+|  +----------------------------------------------------------+   |
+|                                                                    |
+|  Lương mới:      [         ] VNĐ                                  |
+|  Ngày áp dụng:   [DatePicker]                                    |
+|  Ghi chú:        [                              ]                 |
+|                                                                    |
+|  Lưu ý: Thao tác này sẽ cập nhật lương cho TẤT CẢ nhân viên     |
+|         thuộc bộ phận đã chọn tại chi nhánh.                      |
+|                                                                    |
+|                                         [Hủy][Xác nhận]           |
++------------------------------------------------------------------+
