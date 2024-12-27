@@ -1,6 +1,6 @@
 ﻿namespace winform_app.Forms.Khách_hàng
 {
-    partial class MainForm
+    partial class KH_MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KH_MainForm));
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
@@ -38,10 +38,10 @@
             buttonReserveTable = new Button();
             buttonOrderTakeout = new Button();
             buttonFindBranch = new Button();
+            buttonLogout = new Button();
             labelTitle = new Label();
             buttonLogin = new Button();
             buttonRegister = new Button();
-            buttonLogout = new Button();
             labelOngoingDeliveries = new Label();
             labelPendingReservations = new Label();
             labelCurrentOrders = new Label();
@@ -62,7 +62,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(53, 18);
+            pictureBox3.Location = new Point(12, 13);
             pictureBox3.Margin = new Padding(3, 4, 3, 4);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(69, 73);
@@ -73,7 +73,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(452, 155);
+            pictureBox2.Location = new Point(95, 94);
             pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(259, 227);
@@ -84,21 +84,22 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(785, 3);
+            pictureBox1.Location = new Point(677, 3);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(43, 40);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // panel1
             // 
             panel1.Controls.Add(tableLayoutPanel1);
-            panel1.Location = new Point(664, 51);
+            panel1.Location = new Point(595, 51);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(229, 200);
+            panel1.Size = new Size(137, 218);
             panel1.TabIndex = 14;
             panel1.Visible = false;
             // 
@@ -106,20 +107,23 @@
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(buttonViewMenu, 0, 3);
-            tableLayoutPanel1.Controls.Add(buttonReserveTable, 0, 1);
+            tableLayoutPanel1.Controls.Add(buttonFindBranch, 0, 1);
+            tableLayoutPanel1.Controls.Add(buttonReserveTable, 0, 0);
             tableLayoutPanel1.Controls.Add(buttonOrderTakeout, 0, 2);
-            tableLayoutPanel1.Controls.Add(buttonFindBranch, 0, 0);
+            tableLayoutPanel1.Controls.Add(buttonLogout, 0, 5);
+            tableLayoutPanel1.Controls.Add(buttonViewMenu, 0, 4);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowCount = 6;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 43F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 43F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 43F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel1.Size = new Size(229, 200);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 43F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 21F));
+            tableLayoutPanel1.Size = new Size(137, 218);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // buttonViewMenu
@@ -134,7 +138,7 @@
             buttonViewMenu.Location = new Point(3, 129);
             buttonViewMenu.Margin = new Padding(3, 0, 3, 0);
             buttonViewMenu.Name = "buttonViewMenu";
-            buttonViewMenu.Size = new Size(161, 40);
+            buttonViewMenu.Size = new Size(125, 35);
             buttonViewMenu.TabIndex = 4;
             buttonViewMenu.Text = "Xem Menu";
             buttonViewMenu.UseVisualStyleBackColor = false;
@@ -148,10 +152,10 @@
             buttonReserveTable.FlatStyle = FlatStyle.Flat;
             buttonReserveTable.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonReserveTable.ForeColor = Color.White;
-            buttonReserveTable.Location = new Point(3, 43);
+            buttonReserveTable.Location = new Point(3, 0);
             buttonReserveTable.Margin = new Padding(3, 0, 3, 0);
             buttonReserveTable.Name = "buttonReserveTable";
-            buttonReserveTable.Size = new Size(161, 40);
+            buttonReserveTable.Size = new Size(125, 33);
             buttonReserveTable.TabIndex = 3;
             buttonReserveTable.Text = "Đặt bàn";
             buttonReserveTable.UseVisualStyleBackColor = false;
@@ -168,7 +172,7 @@
             buttonOrderTakeout.Location = new Point(3, 86);
             buttonOrderTakeout.Margin = new Padding(3, 0, 3, 0);
             buttonOrderTakeout.Name = "buttonOrderTakeout";
-            buttonOrderTakeout.Size = new Size(161, 40);
+            buttonOrderTakeout.Size = new Size(125, 33);
             buttonOrderTakeout.TabIndex = 5;
             buttonOrderTakeout.Text = "Đặt giao hàng";
             buttonOrderTakeout.UseVisualStyleBackColor = false;
@@ -182,20 +186,38 @@
             buttonFindBranch.FlatStyle = FlatStyle.Flat;
             buttonFindBranch.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonFindBranch.ForeColor = Color.White;
-            buttonFindBranch.Location = new Point(3, 0);
+            buttonFindBranch.Location = new Point(3, 43);
             buttonFindBranch.Margin = new Padding(3, 0, 3, 0);
             buttonFindBranch.Name = "buttonFindBranch";
-            buttonFindBranch.Size = new Size(161, 40);
+            buttonFindBranch.Size = new Size(125, 33);
             buttonFindBranch.TabIndex = 6;
             buttonFindBranch.Text = "Tìm chi nhánh";
             buttonFindBranch.UseVisualStyleBackColor = false;
+            // 
+            // buttonLogout
+            // 
+            buttonLogout.BackColor = Color.IndianRed;
+            buttonLogout.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
+            buttonLogout.FlatAppearance.BorderSize = 0;
+            buttonLogout.FlatAppearance.MouseOverBackColor = Color.Brown;
+            buttonLogout.FlatStyle = FlatStyle.Flat;
+            buttonLogout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonLogout.ForeColor = Color.White;
+            buttonLogout.Location = new Point(3, 176);
+            buttonLogout.Margin = new Padding(3, 4, 3, 4);
+            buttonLogout.Name = "buttonLogout";
+            buttonLogout.Size = new Size(125, 35);
+            buttonLogout.TabIndex = 2;
+            buttonLogout.Text = "Đăng xuất";
+            buttonLogout.UseVisualStyleBackColor = false;
+            buttonLogout.Visible = false;
             // 
             // labelTitle
             // 
             labelTitle.AutoSize = true;
             labelTitle.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             labelTitle.ForeColor = Color.Maroon;
-            labelTitle.Location = new Point(403, 155);
+            labelTitle.Location = new Point(25, 90);
             labelTitle.Name = "labelTitle";
             labelTitle.Size = new Size(43, 234);
             labelTitle.TabIndex = 11;
@@ -211,7 +233,7 @@
             buttonLogin.FlatStyle = FlatStyle.Flat;
             buttonLogin.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLogin.ForeColor = Color.White;
-            buttonLogin.Location = new Point(403, 7);
+            buttonLogin.Location = new Point(389, 4);
             buttonLogin.Margin = new Padding(3, 4, 3, 4);
             buttonLogin.Name = "buttonLogin";
             buttonLogin.Size = new Size(114, 40);
@@ -229,31 +251,13 @@
             buttonRegister.FlatStyle = FlatStyle.Flat;
             buttonRegister.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonRegister.ForeColor = Color.White;
-            buttonRegister.Location = new Point(523, 7);
+            buttonRegister.Location = new Point(533, 4);
             buttonRegister.Margin = new Padding(3, 4, 3, 4);
             buttonRegister.Name = "buttonRegister";
             buttonRegister.Size = new Size(114, 40);
             buttonRegister.TabIndex = 13;
             buttonRegister.Text = "Đăng ký";
             buttonRegister.UseVisualStyleBackColor = false;
-            // 
-            // buttonLogout
-            // 
-            buttonLogout.BackColor = Color.IndianRed;
-            buttonLogout.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
-            buttonLogout.FlatAppearance.BorderSize = 0;
-            buttonLogout.FlatAppearance.MouseOverBackColor = Color.Brown;
-            buttonLogout.FlatStyle = FlatStyle.Flat;
-            buttonLogout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonLogout.ForeColor = Color.White;
-            buttonLogout.Location = new Point(643, 7);
-            buttonLogout.Margin = new Padding(3, 4, 3, 4);
-            buttonLogout.Name = "buttonLogout";
-            buttonLogout.Size = new Size(114, 40);
-            buttonLogout.TabIndex = 2;
-            buttonLogout.Text = "Đăng xuất";
-            buttonLogout.UseVisualStyleBackColor = false;
-            buttonLogout.Visible = false;
             // 
             // labelOngoingDeliveries
             // 
@@ -359,7 +363,7 @@
             panelUserInterface.Controls.Add(labelPoints);
             panelUserInterface.Controls.Add(labelPendingReservations);
             panelUserInterface.Controls.Add(labelOngoingDeliveries);
-            panelUserInterface.Location = new Point(53, 94);
+            panelUserInterface.Location = new Point(398, 71);
             panelUserInterface.Name = "panelUserInterface";
             panelUserInterface.Size = new Size(301, 347);
             panelUserInterface.TabIndex = 18;
@@ -370,19 +374,19 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(839, 459);
-            Controls.Add(pictureBox2);
+            ClientSize = new Size(746, 430);
             Controls.Add(labelTitle);
             Controls.Add(buttonLogin);
             Controls.Add(pictureBox3);
-            Controls.Add(buttonLogout);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
             Controls.Add(buttonRegister);
             Controls.Add(panelUserInterface);
+            Controls.Add(pictureBox2);
             Name = "MainForm";
-            Text = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "MainForm";
+            Load += MainForm_Load_KH;
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -392,6 +396,11 @@
             panelUserInterface.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

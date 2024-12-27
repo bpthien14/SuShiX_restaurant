@@ -1,4 +1,6 @@
 using System.Drawing.Drawing2D;
+using winform_app.Forms.Khách_hàng;
+using winform_app.Forms.Nhân_viên;
 
 namespace winform_app;
 
@@ -12,64 +14,8 @@ public partial class MainForm : Form
     }
     private void MainForm_Load(object? sender, EventArgs e)
     {
-        ApplyRoundedCorners(buttonLogin, 10);
-        ApplyRoundedCorners(buttonRegister, 10);
-        ApplyRoundedCorners(buttonReserveTable, 10);
-        ApplyRoundedCorners(buttonViewMenu, 10);
-        ApplyRoundedCorners(buttonOrderTakeout, 10);
-        ApplyRoundedCorners(buttonFindBranch, 10);
-    }
-    private async void pictureBox1_Click(object sender, EventArgs e)
-    {
-        if (panel1.Visible == false)
-        {
-            targetHeight = panel1.Height;
-            panel1.Height = 0;
-            panel1.Visible = true;
-            await RevealPanelAsync();
-        }
-        else
-        {
-            await HidePanelAsync();
-            panel1.Visible = false;
-            panel1.Height = targetHeight;
-        }
-    }
-    private async Task RevealPanelAsync()
-    {
-        while (panel1.Height < targetHeight)
-        {
-            panel1.Height += 5;
-            await Task.Delay(1);
-            if (panel1.Height >= targetHeight)
-            {
-                panel1.Height = targetHeight;
-            }
-        }
-    }
-    private async Task HidePanelAsync()
-    {
-        while (panel1.Height > 0)
-        {
-            panel1.Height -= 5;
-            await Task.Delay(1);
-            if (panel1.Height <= 0)
-            {
-                panel1.Height = 0;
-            }
-        }
-    }
-    private void buttonReserveTable_Click(object sender, EventArgs e)
-    {
-
-    }
-    private void buttonOrderTakeout_Click(object sender, EventArgs e)
-    {
-
-    }
-    private void buttonFindBranch_Click(object sender, EventArgs e)
-    {
-
+        ApplyRoundedCorners(buttonKhachHang, 10);
+        ApplyRoundedCorners(buttonNhanVien, 10);
     }
     private void ApplyRoundedCorners(Button button, int cornerRadius)
     {
@@ -82,10 +28,19 @@ public partial class MainForm : Form
         button.Region = new Region(path);
     }
 
-    private void buttonLogin_Click(object sender, EventArgs e)
+    private void buttonKhachHang_Click(object sender, EventArgs e)
     {
-        LoginForm loginForm = new LoginForm();
-        loginForm.Show();
+        KH_MainForm khMainForm = new KH_MainForm();
+        khMainForm.FormClosed += (s, args) => this.Close();
+        khMainForm.Show();
+        this.Hide();
+    }
+
+    private void buttonNhanVien_Click(object sender, EventArgs e)
+    {
+        NV_MainForm nvMainForm = new NV_MainForm();
+        nvMainForm.FormClosed += (s, args) => this.Close();
+        nvMainForm.Show();
         this.Hide();
     }
 }
