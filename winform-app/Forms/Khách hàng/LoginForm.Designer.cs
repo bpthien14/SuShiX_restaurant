@@ -39,9 +39,9 @@
             // 
             // lblUsername
             // 
-            lblUsername.Location = new Point(50, 50);
+            lblUsername.Location = new Point(12, 53);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(150, 30);
+            lblUsername.Size = new Size(188, 30);
             lblUsername.TabIndex = 0;
             lblUsername.Text = "Tên đăng nhập/SĐT/Email:";
             // 
@@ -49,12 +49,12 @@
             // 
             txtUsername.Location = new Point(200, 50);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(200, 27);
+            txtUsername.Size = new Size(217, 27);
             txtUsername.TabIndex = 1;
             // 
             // lblPassword
             // 
-            lblPassword.Location = new Point(50, 100);
+            lblPassword.Location = new Point(44, 100);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(150, 30);
             lblPassword.TabIndex = 2;
@@ -65,31 +65,31 @@
             txtPassword.Location = new Point(200, 100);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
-            txtPassword.Size = new Size(200, 27);
+            txtPassword.Size = new Size(217, 27);
             txtPassword.TabIndex = 3;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(200, 150);
+            btnLogin.Location = new Point(200, 165);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(100, 30);
+            btnLogin.Size = new Size(217, 30);
             btnLogin.TabIndex = 4;
             btnLogin.Text = "Đăng nhập";
             btnLogin.Click += btnLogin_Click;
             // 
             // btnForgotPassword
             // 
-            btnForgotPassword.Location = new Point(200, 200);
+            btnForgotPassword.Location = new Point(200, 201);
             btnForgotPassword.Name = "btnForgotPassword";
-            btnForgotPassword.Size = new Size(150, 30);
+            btnForgotPassword.Size = new Size(217, 30);
             btnForgotPassword.TabIndex = 5;
             btnForgotPassword.Text = "Quên mật khẩu?";
             // 
             // btnRegister
             // 
-            btnRegister.Location = new Point(200, 250);
+            btnRegister.Location = new Point(200, 237);
             btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(234, 30);
+            btnRegister.Size = new Size(217, 30);
             btnRegister.TabIndex = 6;
             btnRegister.Text = "Chưa có tài khoản? Đăng ký ngay";
             // 

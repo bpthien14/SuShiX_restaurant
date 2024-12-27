@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using winform_app.Models;
+using System.Data;
 
 namespace winform_app.Services
 {
@@ -47,7 +48,7 @@ namespace winform_app.Services
                             UserID = reader["UserID"].ToString(),
                             Username = reader["FullName"].ToString(), // Assuming FullName is used as Username
                             Password = password, // Do not store plain text passwords in production
-                            Role = "customer" // Assuming role is customer for this context
+                            Role = reader["Role"].ToString()
                         };
                         return true;
                     }
@@ -60,5 +61,51 @@ namespace winform_app.Services
             }
             return false;
         }
+        public class CustomerDashboard
+        {
+            public string FullName { get; set; }
+            public string CardType { get; set; }
+            public int AccumulatedPoints { get; set; }
+            public int PendingBookings { get; set; }
+            public int ProcessingOrders { get; set; }
+        }
+
+        public CustomerDashboard GetCustomerDashboard(string customerId)
+        {
+            CustomerDashboard dashboard = new CustomerDashboard();
+
+            using (SqlConnection connection = GetConnection())
+            {
+                using (SqlCommand command = new SqlCommand("sp_GetCustomerDashboard", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@CustomerID", customerId);
+
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            dashboard.FullName = reader["FullName"].ToString();
+                            dashboard.CardType = reader["CardType"].ToString();
+                            dashboard.AccumulatedPoints = Convert.ToInt32(reader["AccumulatedPoints"]);
+                        }
+
+                        if (reader.NextResult() && reader.Read())
+                        {
+                            dashboard.PendingBookings = Convert.ToInt32(reader["PendingBookings"]);
+                        }
+
+                        if (reader.NextResult() && reader.Read())
+                        {
+                            dashboard.ProcessingOrders = Convert.ToInt32(reader["ProcessingOrders"]);
+                        }
+                    }
+                }
+            }
+
+            return dashboard;
+        }
+
     }
 }

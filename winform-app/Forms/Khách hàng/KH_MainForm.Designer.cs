@@ -30,18 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KH_MainForm));
             pictureBox3 = new PictureBox();
-            pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
-            buttonViewMenu = new Button();
+            buttonFindBranch = new Button();
             buttonReserveTable = new Button();
             buttonOrderTakeout = new Button();
-            buttonFindBranch = new Button();
             buttonLogout = new Button();
+            buttonViewMenu = new Button();
             labelTitle = new Label();
-            buttonLogin = new Button();
-            buttonRegister = new Button();
             labelOngoingDeliveries = new Label();
             labelPendingReservations = new Label();
             labelCurrentOrders = new Label();
@@ -52,7 +49,6 @@
             labelGreeting = new Label();
             panelUserInterface = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -69,17 +65,6 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 17;
             pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(95, 94);
-            pictureBox2.Margin = new Padding(3, 4, 3, 4);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(259, 227);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 16;
-            pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -126,22 +111,22 @@
             tableLayoutPanel1.Size = new Size(137, 218);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // buttonViewMenu
+            // buttonFindBranch
             // 
-            buttonViewMenu.BackColor = Color.IndianRed;
-            buttonViewMenu.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
-            buttonViewMenu.FlatAppearance.BorderSize = 0;
-            buttonViewMenu.FlatAppearance.MouseOverBackColor = Color.Brown;
-            buttonViewMenu.FlatStyle = FlatStyle.Flat;
-            buttonViewMenu.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonViewMenu.ForeColor = Color.White;
-            buttonViewMenu.Location = new Point(3, 129);
-            buttonViewMenu.Margin = new Padding(3, 0, 3, 0);
-            buttonViewMenu.Name = "buttonViewMenu";
-            buttonViewMenu.Size = new Size(125, 35);
-            buttonViewMenu.TabIndex = 4;
-            buttonViewMenu.Text = "Xem Menu";
-            buttonViewMenu.UseVisualStyleBackColor = false;
+            buttonFindBranch.BackColor = Color.IndianRed;
+            buttonFindBranch.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
+            buttonFindBranch.FlatAppearance.BorderSize = 0;
+            buttonFindBranch.FlatAppearance.MouseOverBackColor = Color.Brown;
+            buttonFindBranch.FlatStyle = FlatStyle.Flat;
+            buttonFindBranch.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonFindBranch.ForeColor = Color.White;
+            buttonFindBranch.Location = new Point(3, 43);
+            buttonFindBranch.Margin = new Padding(3, 0, 3, 0);
+            buttonFindBranch.Name = "buttonFindBranch";
+            buttonFindBranch.Size = new Size(125, 33);
+            buttonFindBranch.TabIndex = 6;
+            buttonFindBranch.Text = "Tìm chi nhánh";
+            buttonFindBranch.UseVisualStyleBackColor = false;
             // 
             // buttonReserveTable
             // 
@@ -177,23 +162,6 @@
             buttonOrderTakeout.Text = "Đặt giao hàng";
             buttonOrderTakeout.UseVisualStyleBackColor = false;
             // 
-            // buttonFindBranch
-            // 
-            buttonFindBranch.BackColor = Color.IndianRed;
-            buttonFindBranch.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
-            buttonFindBranch.FlatAppearance.BorderSize = 0;
-            buttonFindBranch.FlatAppearance.MouseOverBackColor = Color.Brown;
-            buttonFindBranch.FlatStyle = FlatStyle.Flat;
-            buttonFindBranch.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonFindBranch.ForeColor = Color.White;
-            buttonFindBranch.Location = new Point(3, 43);
-            buttonFindBranch.Margin = new Padding(3, 0, 3, 0);
-            buttonFindBranch.Name = "buttonFindBranch";
-            buttonFindBranch.Size = new Size(125, 33);
-            buttonFindBranch.TabIndex = 6;
-            buttonFindBranch.Text = "Tìm chi nhánh";
-            buttonFindBranch.UseVisualStyleBackColor = false;
-            // 
             // buttonLogout
             // 
             buttonLogout.BackColor = Color.IndianRed;
@@ -212,6 +180,23 @@
             buttonLogout.UseVisualStyleBackColor = false;
             buttonLogout.Visible = false;
             // 
+            // buttonViewMenu
+            // 
+            buttonViewMenu.BackColor = Color.IndianRed;
+            buttonViewMenu.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
+            buttonViewMenu.FlatAppearance.BorderSize = 0;
+            buttonViewMenu.FlatAppearance.MouseOverBackColor = Color.Brown;
+            buttonViewMenu.FlatStyle = FlatStyle.Flat;
+            buttonViewMenu.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonViewMenu.ForeColor = Color.White;
+            buttonViewMenu.Location = new Point(3, 129);
+            buttonViewMenu.Margin = new Padding(3, 0, 3, 0);
+            buttonViewMenu.Name = "buttonViewMenu";
+            buttonViewMenu.Size = new Size(125, 35);
+            buttonViewMenu.TabIndex = 4;
+            buttonViewMenu.Text = "Xem Menu";
+            buttonViewMenu.UseVisualStyleBackColor = false;
+            // 
             // labelTitle
             // 
             labelTitle.AutoSize = true;
@@ -223,41 +208,6 @@
             labelTitle.TabIndex = 11;
             labelTitle.Text = "S\r\nU\r\nS\r\nH\r\nI\r\nX\r\n";
             labelTitle.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // buttonLogin
-            // 
-            buttonLogin.BackColor = Color.IndianRed;
-            buttonLogin.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
-            buttonLogin.FlatAppearance.BorderSize = 0;
-            buttonLogin.FlatAppearance.MouseOverBackColor = Color.Brown;
-            buttonLogin.FlatStyle = FlatStyle.Flat;
-            buttonLogin.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonLogin.ForeColor = Color.White;
-            buttonLogin.Location = new Point(389, 4);
-            buttonLogin.Margin = new Padding(3, 4, 3, 4);
-            buttonLogin.Name = "buttonLogin";
-            buttonLogin.Size = new Size(114, 40);
-            buttonLogin.TabIndex = 12;
-            buttonLogin.Text = "Đăng nhập";
-            buttonLogin.UseVisualStyleBackColor = false;
-            buttonLogin.Click += buttonLogin_Click;
-            // 
-            // buttonRegister
-            // 
-            buttonRegister.BackColor = Color.IndianRed;
-            buttonRegister.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
-            buttonRegister.FlatAppearance.BorderSize = 0;
-            buttonRegister.FlatAppearance.MouseOverBackColor = Color.Brown;
-            buttonRegister.FlatStyle = FlatStyle.Flat;
-            buttonRegister.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonRegister.ForeColor = Color.White;
-            buttonRegister.Location = new Point(533, 4);
-            buttonRegister.Margin = new Padding(3, 4, 3, 4);
-            buttonRegister.Name = "buttonRegister";
-            buttonRegister.Size = new Size(114, 40);
-            buttonRegister.TabIndex = 13;
-            buttonRegister.Text = "Đăng ký";
-            buttonRegister.UseVisualStyleBackColor = false;
             // 
             // labelOngoingDeliveries
             // 
@@ -336,8 +286,10 @@
             // labelMembership
             // 
             labelMembership.AutoSize = true;
+            labelMembership.BackColor = Color.White;
             labelMembership.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelMembership.Location = new Point(13, 55);
+            labelMembership.ForeColor = SystemColors.ActiveBorder;
+            labelMembership.Location = new Point(3, 48);
             labelMembership.Name = "labelMembership";
             labelMembership.Size = new Size(288, 28);
             labelMembership.TabIndex = 1;
@@ -363,32 +315,27 @@
             panelUserInterface.Controls.Add(labelPoints);
             panelUserInterface.Controls.Add(labelPendingReservations);
             panelUserInterface.Controls.Add(labelOngoingDeliveries);
-            panelUserInterface.Location = new Point(398, 71);
+            panelUserInterface.Location = new Point(202, 51);
             panelUserInterface.Name = "panelUserInterface";
             panelUserInterface.Size = new Size(301, 347);
             panelUserInterface.TabIndex = 18;
-            panelUserInterface.Visible = false;
             // 
-            // MainForm
+            // KH_MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(746, 430);
             Controls.Add(labelTitle);
-            Controls.Add(buttonLogin);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
-            Controls.Add(buttonRegister);
             Controls.Add(panelUserInterface);
-            Controls.Add(pictureBox2);
-            Name = "MainForm";
+            Name = "KH_MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             Load += MainForm_Load_KH;
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
@@ -406,13 +353,10 @@
         #endregion
 
         private PictureBox pictureBox3;
-        private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel1;
         private Label labelTitle;
-        private Button buttonLogin;
-        private Button buttonRegister;
         private Button buttonLogout;
         private Label labelOngoingDeliveries;
         private Label labelPendingReservations;

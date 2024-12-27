@@ -1,4 +1,4 @@
-CREATE PROCEDURE sp_CheckLogin
+ALTER PROCEDURE sp_CheckLogin
     @LoginInput VARCHAR(50),  -- Có thể là SĐT hoặc Email
     @Password VARCHAR(100)
 AS
@@ -10,13 +10,12 @@ BEGIN
         c.Email,
         mc.CardType,
         mc.AccumulatedPoints,
-        u.UserID
+        u.UserID,
+		u.Role
     FROM CUSTOMER c
     JOIN USERS u ON c.UserID = u.UserID
     LEFT JOIN MEMBERSHIP_CARD mc ON c.CustomerID = mc.CustomerID
-    WHERE (c.PhoneNumber = @LoginInput OR c.Email = @LoginInput)
+    WHERE (c.PhoneNumber = @LoginInput OR c.Email = @LoginInput OR u.Username = @LoginInput)
     AND u.Password = @Password
-    AND u.Role = 'CUSTOMER'
 END
 GO
-
