@@ -285,15 +285,15 @@
             // 
             // labelMembership
             // 
-            labelMembership.AutoSize = true;
             labelMembership.BackColor = Color.White;
             labelMembership.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelMembership.ForeColor = SystemColors.ActiveBorder;
-            labelMembership.Location = new Point(3, 48);
+            labelMembership.Location = new Point(10, 48);
             labelMembership.Name = "labelMembership";
             labelMembership.Size = new Size(288, 28);
             labelMembership.TabIndex = 1;
-            labelMembership.Text = "[Thẻ MEMBER/SILVER/GOLD]";
+            labelMembership.Text = "Member";
+            labelMembership.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // labelGreeting
             // 

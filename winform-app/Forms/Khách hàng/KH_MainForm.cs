@@ -98,7 +98,7 @@ namespace winform_app.Forms.Khách_hàng
         private void LoadCustomerDashboard()
         {
             var dashboard = _databaseService.GetCustomerDashboard(currentUser.UserID);
-            labelGreeting.Text = $"Xin chào, {dashboard.FullName}";
+            labelGreeting.Text = $"Xin chào, {currentUser.Username}";
             labelMembership.Text = dashboard.CardType;
             labelPoints.Text = $"Điểm tích lũy: {dashboard.AccumulatedPoints} điểm";
             labelPendingReservations.Text = $"Đơn đặt bàn đang chờ: {dashboard.PendingBookings}";

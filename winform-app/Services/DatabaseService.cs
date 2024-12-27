@@ -13,6 +13,7 @@ namespace winform_app.Services
     public class DatabaseService
     {
         private readonly string _connectionString;
+        private string? customerID;
 
         public DatabaseService()
         {
@@ -65,12 +66,12 @@ namespace winform_app.Services
         {
             public string FullName { get; set; }
             public string CardType { get; set; }
-            public int AccumulatedPoints { get; set; }
+            public float AccumulatedPoints { get; set; }
             public int PendingBookings { get; set; }
             public int ProcessingOrders { get; set; }
         }
 
-        public CustomerDashboard GetCustomerDashboard(string customerId)
+        public CustomerDashboard GetCustomerDashboard(string userId)
         {
             CustomerDashboard dashboard = new CustomerDashboard();
 
@@ -79,27 +80,41 @@ namespace winform_app.Services
                 using (SqlCommand command = new SqlCommand("sp_GetCustomerDashboard", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@CustomerID", customerId);
+                    command.Parameters.AddWithValue("@UserID", userId);
 
-                    connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    try
                     {
-                        if (reader.Read())
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            dashboard.FullName = reader["FullName"].ToString();
-                            dashboard.CardType = reader["CardType"].ToString();
-                            dashboard.AccumulatedPoints = Convert.ToInt32(reader["AccumulatedPoints"]);
-                        }
+                            if (reader.HasRows)
+                            {
+                                if (reader.Read())
+                                {
+                                    dashboard.FullName = reader["FullName"].ToString();
+                                    dashboard.CardType = reader["CardType"].ToString();
+                                    dashboard.AccumulatedPoints = Convert.ToSingle(reader["AccumulatedPoints"]);
+                                }
 
-                        if (reader.NextResult() && reader.Read())
-                        {
-                            dashboard.PendingBookings = Convert.ToInt32(reader["PendingBookings"]);
-                        }
+                                if (reader.NextResult() && reader.Read())
+                                {
+                                    dashboard.PendingBookings = Convert.ToInt32(reader["PendingBookings"]);
+                                }
 
-                        if (reader.NextResult() && reader.Read())
-                        {
-                            dashboard.ProcessingOrders = Convert.ToInt32(reader["ProcessingOrders"]);
+                                if (reader.NextResult() && reader.Read())
+                                {
+                                    dashboard.ProcessingOrders = Convert.ToInt32(reader["ProcessingOrders"]);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("No data found for the given customer ID.");
+                            }
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"An error occurred: {ex.Message}");
                     }
                 }
             }
