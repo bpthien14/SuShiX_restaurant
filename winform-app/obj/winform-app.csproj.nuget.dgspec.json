@@ -1,27 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "D:\\minh\\SuShiX_restaurant\\winform-app\\winform-app.csproj": {}
+    "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\winform-app.csproj": {}
   },
   "projects": {
-    "D:\\minh\\SuShiX_restaurant\\winform-app\\winform-app.csproj": {
+    "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\winform-app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\minh\\SuShiX_restaurant\\winform-app\\winform-app.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\winform-app.csproj",
         "projectName": "winform-app",
-        "projectPath": "D:\\minh\\SuShiX_restaurant\\winform-app\\winform-app.csproj",
-        "packagesPath": "C:\\Users\\minh.x.nguyen\\.nuget\\packages\\",
-        "outputPath": "D:\\minh\\SuShiX_restaurant\\winform-app\\obj\\",
+        "projectPath": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\winform-app.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\minh.x.nguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,13 +40,18 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.5.2, )"
+            },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[5.2.2, )"
@@ -69,7 +76,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -9,7 +9,7 @@ namespace winform_app.Models
     public class Branch
     {
         public string BranchID { get; set; }
-        public string RegionID { get; set; }
+        public int RegionID { get; set; }
         public string BranchName { get; set; }
         public string Address { get; set; }
         public string BranchPhoneNumber { get; set; }

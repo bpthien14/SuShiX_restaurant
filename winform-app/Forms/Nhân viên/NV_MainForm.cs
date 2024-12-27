@@ -50,17 +50,122 @@ namespace winform_app.Forms.Nhân_viên
 
         private void thongKeDoanhThuTheoMonAnToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Check if the form is already open
+                foreach (Form form in this.MdiChildren)
+                {
+                    if (form is NV_RevenueForm)
+                    {
+                        form.Activate();
+                        return;
+                    }
+                }
 
+                // Create and show the new form
+                NV_RevenueForm revenueForm = new NV_RevenueForm
+                {
+                    MdiParent = this,
+                    Dock = DockStyle.Fill,
+                    WindowState = FormWindowState.Maximized,
+                    FormBorderStyle = FormBorderStyle.None
+                };
+                revenueForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
         }
 
         private void quanLyNhanSuToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Check if the form is already open
+                foreach (Form form in this.MdiChildren)
+                {
+                    if (form is NV_RevenueForm)
+                    {
+                        form.Activate();
+                        return;
+                    }
+                }
 
+                // Create and show the new form
+                NV_RevenueForm revenueForm = new NV_RevenueForm
+                {
+                    MdiParent = this,
+                    Dock = DockStyle.Fill,
+                    WindowState = FormWindowState.Maximized,
+                    FormBorderStyle = FormBorderStyle.None
+                };
+                revenueForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
         }
 
         private void capNhatLuongNhanVienToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Check if the form is already open
+                foreach (Form form in this.MdiChildren)
+                {
+                    if (form is NV_RevenueForm)
+                    {
+                        form.Activate();
+                        return;
+                    }
+                }
 
+                // Create and show the new form
+                NV_RevenueForm revenueForm = new NV_RevenueForm
+                {
+                    MdiParent = this,
+                    Dock = DockStyle.Fill,
+                    WindowState = FormWindowState.Maximized,
+                    FormBorderStyle = FormBorderStyle.None
+                };
+                revenueForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
+
+        private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            try
+            {
+                // Check if the form is already open
+                foreach (Form form in this.MdiChildren)
+                {
+                    if (form is NV_RevenueForm)
+                    {
+                        form.Activate();
+                        return;
+                    }
+                }
+
+                // Create and show the new form
+                NV_RevenueForm revenueForm = new NV_RevenueForm
+                {
+                    MdiParent = this,
+                    Dock = DockStyle.Fill,
+                    WindowState = FormWindowState.Maximized,
+                    FormBorderStyle = FormBorderStyle.None
+                };
+                revenueForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
         }
     }
 }

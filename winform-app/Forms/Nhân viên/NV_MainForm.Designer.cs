@@ -46,19 +46,22 @@
             // 
             // menuStrip
             // 
+            menuStrip.ImageScalingSize = new Size(28, 28);
             menuStrip.Items.AddRange(new ToolStripItem[] { thongKeDoanhThuChiNhanhToolStripMenuItem, thongKeDoanhThuTheoMonAnToolStripMenuItem, quanLyNhanSuToolStripMenuItem, capNhatLuongNhanVienToolStripMenuItem });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
-            menuStrip.Size = new Size(662, 24);
+            menuStrip.Padding = new Padding(10, 4, 0, 4);
+            menuStrip.Size = new Size(1203, 42);
             menuStrip.TabIndex = 0;
             menuStrip.Text = "menuStrip";
+            menuStrip.ItemClicked += menuStrip_ItemClicked;
             // 
             // thongKeDoanhThuChiNhanhToolStripMenuItem
             // 
             thongKeDoanhThuChiNhanhToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             thongKeDoanhThuChiNhanhToolStripMenuItem.ForeColor = Color.IndianRed;
             thongKeDoanhThuChiNhanhToolStripMenuItem.Name = "thongKeDoanhThuChiNhanhToolStripMenuItem";
-            thongKeDoanhThuChiNhanhToolStripMenuItem.Size = new Size(186, 20);
+            thongKeDoanhThuChiNhanhToolStripMenuItem.Size = new Size(337, 34);
             thongKeDoanhThuChiNhanhToolStripMenuItem.Text = "Thống kê doanh thu chi nhánh";
             thongKeDoanhThuChiNhanhToolStripMenuItem.Click += thongKeDoanhThuChiNhanhToolStripMenuItem_Click;
             // 
@@ -67,7 +70,7 @@
             thongKeDoanhThuTheoMonAnToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             thongKeDoanhThuTheoMonAnToolStripMenuItem.ForeColor = Color.IndianRed;
             thongKeDoanhThuTheoMonAnToolStripMenuItem.Name = "thongKeDoanhThuTheoMonAnToolStripMenuItem";
-            thongKeDoanhThuTheoMonAnToolStripMenuItem.Size = new Size(203, 20);
+            thongKeDoanhThuTheoMonAnToolStripMenuItem.Size = new Size(365, 34);
             thongKeDoanhThuTheoMonAnToolStripMenuItem.Text = "Thống kê doanh thu theo món ăn";
             thongKeDoanhThuTheoMonAnToolStripMenuItem.Click += thongKeDoanhThuTheoMonAnToolStripMenuItem_Click;
             // 
@@ -76,7 +79,7 @@
             quanLyNhanSuToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             quanLyNhanSuToolStripMenuItem.ForeColor = Color.IndianRed;
             quanLyNhanSuToolStripMenuItem.Name = "quanLyNhanSuToolStripMenuItem";
-            quanLyNhanSuToolStripMenuItem.Size = new Size(106, 20);
+            quanLyNhanSuToolStripMenuItem.Size = new Size(192, 34);
             quanLyNhanSuToolStripMenuItem.Text = "Quản lý nhân sự";
             quanLyNhanSuToolStripMenuItem.Click += quanLyNhanSuToolStripMenuItem_Click;
             // 
@@ -85,7 +88,7 @@
             capNhatLuongNhanVienToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             capNhatLuongNhanVienToolStripMenuItem.ForeColor = Color.IndianRed;
             capNhatLuongNhanVienToolStripMenuItem.Name = "capNhatLuongNhanVienToolStripMenuItem";
-            capNhatLuongNhanVienToolStripMenuItem.Size = new Size(160, 20);
+            capNhatLuongNhanVienToolStripMenuItem.Size = new Size(287, 34);
             capNhatLuongNhanVienToolStripMenuItem.Text = "Cập nhật lương nhân viên";
             capNhatLuongNhanVienToolStripMenuItem.Click += capNhatLuongNhanVienToolStripMenuItem_Click;
             // 
@@ -113,12 +116,13 @@
             // 
             // NV_MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(662, 387);
+            ClientSize = new Size(1203, 774);
             Controls.Add(menuStrip);
             MainMenuStrip = menuStrip;
+            Margin = new Padding(5, 6, 5, 6);
             Name = "NV_MainForm";
             Text = "SuShiX Management System";
             menuStrip.ResumeLayout(false);

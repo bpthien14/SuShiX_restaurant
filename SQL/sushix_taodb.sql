@@ -1,5 +1,7 @@
-USE SuShiX 
-GO;
+CREATE DATABASE SUSHI_X
+GO
+USE SUSHI_X
+GO
 
 CREATE TABLE REGION (
     RegionID INT PRIMARY KEY,
@@ -8,10 +10,10 @@ CREATE TABLE REGION (
 
 CREATE TABLE BRANCH (
     BranchID VARCHAR(255) PRIMARY KEY,
-    RegionID VARCHAR(255),
+    RegionID INT,
     BranchName VARCHAR(255),
     Address VARCHAR(255),
-    BranchPhoneNumber VARCHAR(20),
+    BranchPhoneNumber VARCHAR(255),
     OpeningTime TIME,
     ClosingTime TIME,
     HasCarParking BIT,
@@ -37,7 +39,7 @@ CREATE TABLE STAFF (
     EndDate DATE,
     Salary DECIMAL(10, 2),
     Address VARCHAR(255),
-    PhoneNumber VARCHAR(20),
+    PhoneNumber VARCHAR(255),
     UserID VARCHAR(255),
     FOREIGN KEY (DepartmentID) REFERENCES DEPARTMENT(DepartmentID),
     FOREIGN KEY (BranchID) REFERENCES BRANCH(BranchID)
@@ -84,7 +86,7 @@ CREATE TABLE MEMBERSHIP_CARD (
 
 CREATE TABLE CARD_HISTORY (
     HistoryID INT PRIMARY KEY,
-    CardID INT,
+    CardID VARCHAR(255),
     StatusChangeDate DATE,
     PreviousCardType VARCHAR(50),
     NewCardType VARCHAR(50),
@@ -134,12 +136,6 @@ CREATE TABLE ONLINE_BOOKING (
     BookingDate DATE,
     ArrivalTime TIME,
     Notes VARCHAR(255),
-    GuestName VARCHAR(255),
-    GuestPhone VARCHAR(255),
-    DeliveryType VARCHAR(50),
-    DeliveryAddress VARCHAR(255),
-    DeliveryFee FLOAT DEFAULT 0,
-    Status VARCHAR(50) DEFAULT 'PENDING',  -- PENDING, CONFIRMED, CANCELLED
     FOREIGN KEY (CustomerID) REFERENCES CUSTOMER(CustomerID),
     FOREIGN KEY (BranchID) REFERENCES BRANCH(BranchID)
 );
@@ -197,4 +193,3 @@ CREATE TABLE REVIEW (
     Comment VARCHAR(255),
     FOREIGN KEY (InvoiceID) REFERENCES INVOICE(InvoiceID)
 );
-
