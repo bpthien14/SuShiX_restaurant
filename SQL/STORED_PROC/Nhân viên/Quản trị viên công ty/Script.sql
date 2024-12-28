@@ -34,7 +34,7 @@ BEGIN
     ORDER BY RevenueData.RevenueDate;
 END
 GO
---Để xác định trạng thái món chạy hay chậm, chúng ta cần stored procedure tính toán dựa trên doanh thu và số lượng bán:
+
 CREATE OR ALTER PROCEDURE sp_GetMenuItemStatus
     @BranchID VARCHAR(255) = NULL,
     @FromDate DATE,
@@ -65,7 +65,7 @@ BEGIN
         GROUP BY mi.ItemID, mi.ItemName, ot.OrderDate
     )
     SELECT 
-		RankByRevenue AS N'Top Doanh Thu',
+		RankByRevenue AS N'Xếp hạng',
 		OrderDate AS N'Ngày',
         ItemName AS N'Tên Món',
         TotalQuantity AS N'Số lượng bán',
@@ -79,4 +79,51 @@ BEGIN
     FROM ItemStats
     ORDER BY RankByRevenue;
 END
+GO
 
+CREATE OR ALTER PROCEDURE sp_GetStaffStatistics
+    @BranchID VARCHAR(255),
+    @DepartmentID VARCHAR(255) = NULL
+AS
+BEGIN
+    SELECT 
+        s.StaffID,
+        s.FullName,
+        b.BranchName,
+        d.DepartmentName,
+        s.Salary
+    FROM STAFF s
+    JOIN BRANCH b ON s.BranchID = b.BranchID
+    JOIN DEPARTMENT d ON s.DepartmentID = d.DepartmentID
+    WHERE s.BranchID = @BranchID
+    AND (@DepartmentID IS NULL OR s.DepartmentID = @DepartmentID)
+    ORDER BY s.FullName;
+END
+GO
+
+CREATE OR ALTER PROCEDURE sp_GetStaffStatistics
+    @BranchID VARCHAR(255) = NULL,   -- Allow NULL for BranchID
+    @DepartmentID VARCHAR(255) = NULL, -- Allow NULL for DepartmentID
+    @RegionID INT  
+AS
+BEGIN
+    SELECT 
+        s.FullName AS N'Họ Tên',
+		r.RegionName N'Khu Vực',
+        b.BranchName N'Chi Nhánh',
+        d.DepartmentName N'Bộ Phận',
+		s.PhoneNumber N'SĐT',
+        s.Salary N'Lương'
+    FROM STAFF s
+    JOIN BRANCH b ON s.BranchID = b.BranchID
+    JOIN DEPARTMENT d ON s.DepartmentID = d.DepartmentID
+    JOIN REGION r ON b.RegionID = r.RegionID
+    WHERE (@BranchID IS NULL OR s.BranchID = @BranchID)
+      AND (@DepartmentID IS NULL OR s.DepartmentID = @DepartmentID)
+      AND (@RegionID = -1  OR b.RegionID = @RegionID)
+    ORDER BY s.Salary DESC;
+END;
+
+
+
+EXEC sp_GetStaffStatistics -1, null, null;

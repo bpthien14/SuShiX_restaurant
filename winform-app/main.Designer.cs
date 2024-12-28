@@ -60,10 +60,10 @@ partial class MainForm
         buttonLogin.FlatStyle = FlatStyle.Flat;
         buttonLogin.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
         buttonLogin.ForeColor = Color.White;
-        buttonLogin.Location = new Point(534, 15);
+        buttonLogin.Location = new Point(308, 420);
         buttonLogin.Margin = new Padding(4, 6, 4, 6);
         buttonLogin.Name = "buttonLogin";
-        buttonLogin.Size = new Size(171, 60);
+        buttonLogin.Size = new Size(411, 60);
         buttonLogin.TabIndex = 1;
         buttonLogin.Text = "Đăng Nhập";
         buttonLogin.UseVisualStyleBackColor = false;
@@ -78,10 +78,10 @@ partial class MainForm
         buttonDangKi.FlatStyle = FlatStyle.Flat;
         buttonDangKi.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
         buttonDangKi.ForeColor = Color.White;
-        buttonDangKi.Location = new Point(713, 15);
+        buttonDangKi.Location = new Point(308, 492);
         buttonDangKi.Margin = new Padding(4, 6, 4, 6);
         buttonDangKi.Name = "buttonDangKi";
-        buttonDangKi.Size = new Size(171, 60);
+        buttonDangKi.Size = new Size(411, 60);
         buttonDangKi.TabIndex = 2;
         buttonDangKi.Text = "Đăng Ký";
         buttonDangKi.UseVisualStyleBackColor = false;
@@ -90,7 +90,7 @@ partial class MainForm
         // pictureBox2
         // 
         pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-        pictureBox2.Location = new Point(304, 268);
+        pictureBox2.Location = new Point(290, 25);
         pictureBox2.Margin = new Padding(4, 6, 4, 6);
         pictureBox2.Name = "pictureBox2";
         pictureBox2.Size = new Size(388, 340);
@@ -163,7 +163,7 @@ partial class MainForm
         buttonFindBranch.FlatStyle = FlatStyle.Flat;
         buttonFindBranch.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
         buttonFindBranch.ForeColor = Color.White;
-        buttonFindBranch.Location = new Point(4, 64);
+        buttonFindBranch.Location = new Point(4, 55);
         buttonFindBranch.Margin = new Padding(4, 0, 4, 0);
         buttonFindBranch.Name = "buttonFindBranch";
         buttonFindBranch.Size = new Size(188, 50);
@@ -197,7 +197,7 @@ partial class MainForm
         buttonOrderTakeout.FlatStyle = FlatStyle.Flat;
         buttonOrderTakeout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
         buttonOrderTakeout.ForeColor = Color.White;
-        buttonOrderTakeout.Location = new Point(4, 128);
+        buttonOrderTakeout.Location = new Point(4, 110);
         buttonOrderTakeout.Margin = new Padding(4, 0, 4, 0);
         buttonOrderTakeout.Name = "buttonOrderTakeout";
         buttonOrderTakeout.Size = new Size(188, 50);
@@ -214,7 +214,7 @@ partial class MainForm
         buttonLogout.FlatStyle = FlatStyle.Flat;
         buttonLogout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
         buttonLogout.ForeColor = Color.White;
-        buttonLogout.Location = new Point(4, 262);
+        buttonLogout.Location = new Point(4, 226);
         buttonLogout.Margin = new Padding(4, 6, 4, 6);
         buttonLogout.Name = "buttonLogout";
         buttonLogout.Size = new Size(188, 52);
@@ -232,7 +232,7 @@ partial class MainForm
         buttonViewMenu.FlatStyle = FlatStyle.Flat;
         buttonViewMenu.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
         buttonViewMenu.ForeColor = Color.White;
-        buttonViewMenu.Location = new Point(4, 192);
+        buttonViewMenu.Location = new Point(4, 165);
         buttonViewMenu.Margin = new Padding(4, 0, 4, 0);
         buttonViewMenu.Name = "buttonViewMenu";
         buttonViewMenu.Size = new Size(188, 52);

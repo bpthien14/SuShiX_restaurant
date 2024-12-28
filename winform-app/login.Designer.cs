@@ -59,9 +59,10 @@ namespace winform_app
             labelTitle.AutoSize = true;
             labelTitle.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelTitle.ForeColor = Color.IndianRed;
-            labelTitle.Location = new Point(240, 30);
+            labelTitle.Location = new Point(352, 60);
+            labelTitle.Margin = new Padding(5, 0, 5, 0);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(181, 37);
+            labelTitle.Size = new Size(320, 65);
             labelTitle.TabIndex = 0;
             labelTitle.Text = "ĐĂNG NHẬP";
             labelTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -70,34 +71,38 @@ namespace winform_app
             // 
             labelUsername.AutoSize = true;
             labelUsername.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelUsername.Location = new Point(214, 90);
+            labelUsername.Location = new Point(308, 180);
+            labelUsername.Margin = new Padding(5, 0, 5, 0);
             labelUsername.Name = "labelUsername";
-            labelUsername.Size = new Size(119, 15);
+            labelUsername.Size = new Size(213, 30);
             labelUsername.TabIndex = 1;
             labelUsername.Text = "Tên đăng nhập/SĐT:";
             // 
             // textBoxUsername
             // 
-            textBoxUsername.Location = new Point(214, 110);
+            textBoxUsername.Location = new Point(308, 220);
+            textBoxUsername.Margin = new Padding(5, 6, 5, 6);
             textBoxUsername.Name = "textBoxUsername";
-            textBoxUsername.Size = new Size(240, 23);
+            textBoxUsername.Size = new Size(409, 35);
             textBoxUsername.TabIndex = 2;
             // 
             // labelPassword
             // 
             labelPassword.AutoSize = true;
             labelPassword.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelPassword.Location = new Point(214, 150);
+            labelPassword.Location = new Point(308, 300);
+            labelPassword.Margin = new Padding(5, 0, 5, 0);
             labelPassword.Name = "labelPassword";
-            labelPassword.Size = new Size(62, 15);
+            labelPassword.Size = new Size(113, 30);
             labelPassword.TabIndex = 3;
             labelPassword.Text = "Mật khẩu:";
             // 
             // textBoxPassword
             // 
-            textBoxPassword.Location = new Point(214, 170);
+            textBoxPassword.Location = new Point(308, 340);
+            textBoxPassword.Margin = new Padding(5, 6, 5, 6);
             textBoxPassword.Name = "textBoxPassword";
-            textBoxPassword.Size = new Size(240, 23);
+            textBoxPassword.Size = new Size(409, 35);
             textBoxPassword.TabIndex = 4;
             textBoxPassword.UseSystemPasswordChar = true;
             // 
@@ -110,9 +115,10 @@ namespace winform_app
             buttonLogin.FlatStyle = FlatStyle.Flat;
             buttonLogin.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLogin.ForeColor = Color.White;
-            buttonLogin.Location = new Point(214, 210);
+            buttonLogin.Location = new Point(308, 420);
+            buttonLogin.Margin = new Padding(5, 6, 5, 6);
             buttonLogin.Name = "buttonLogin";
-            buttonLogin.Size = new Size(240, 30);
+            buttonLogin.Size = new Size(411, 60);
             buttonLogin.TabIndex = 5;
             buttonLogin.Text = "Đăng nhập";
             buttonLogin.UseVisualStyleBackColor = false;
@@ -122,9 +128,10 @@ namespace winform_app
             // 
             linkForgotPassword.AutoSize = true;
             linkForgotPassword.LinkColor = Color.IndianRed;
-            linkForgotPassword.Location = new Point(214, 260);
+            linkForgotPassword.Location = new Point(308, 520);
+            linkForgotPassword.Margin = new Padding(5, 0, 5, 0);
             linkForgotPassword.Name = "linkForgotPassword";
-            linkForgotPassword.Size = new Size(94, 15);
+            linkForgotPassword.Size = new Size(166, 30);
             linkForgotPassword.TabIndex = 6;
             linkForgotPassword.TabStop = true;
             linkForgotPassword.Text = "Quên mật khẩu?";
@@ -134,9 +141,10 @@ namespace winform_app
             // 
             linkRegister.AutoSize = true;
             linkRegister.LinkColor = Color.IndianRed;
-            linkRegister.Location = new Point(214, 290);
+            linkRegister.Location = new Point(308, 580);
+            linkRegister.Margin = new Padding(5, 0, 5, 0);
             linkRegister.Name = "linkRegister";
-            linkRegister.Size = new Size(183, 15);
+            linkRegister.Size = new Size(323, 30);
             linkRegister.TabIndex = 7;
             linkRegister.TabStop = true;
             linkRegister.Text = "Chưa có tài khoản? Đăng ký ngay";
@@ -145,9 +153,10 @@ namespace winform_app
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(32, 12);
+            pictureBox3.Location = new Point(55, 24);
+            pictureBox3.Margin = new Padding(5, 6, 5, 6);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(60, 55);
+            pictureBox3.Size = new Size(103, 110);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 12;
             pictureBox3.TabStop = false;
@@ -157,9 +166,10 @@ namespace winform_app
             label1.AutoSize = true;
             label1.Font = new Font("Viner Hand ITC", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Maroon;
-            label1.Location = new Point(41, 70);
+            label1.Location = new Point(70, 140);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(42, 264);
+            label1.Size = new Size(73, 468);
             label1.TabIndex = 11;
             label1.Text = "S\r\nU\r\nS\r\nH\r\nI\r\nX\r\n";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -167,9 +177,10 @@ namespace winform_app
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(498, 12);
+            pictureBox1.Location = new Point(854, 24);
+            pictureBox1.Margin = new Padding(5, 6, 5, 6);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(33, 30);
+            pictureBox1.Size = new Size(57, 60);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 13;
             pictureBox1.TabStop = false;
@@ -177,10 +188,10 @@ namespace winform_app
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(565, 338);
+            ClientSize = new Size(969, 676);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox3);
             Controls.Add(label1);
@@ -192,6 +203,7 @@ namespace winform_app
             Controls.Add(textBoxUsername);
             Controls.Add(labelUsername);
             Controls.Add(labelTitle);
+            Margin = new Padding(5, 6, 5, 6);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";

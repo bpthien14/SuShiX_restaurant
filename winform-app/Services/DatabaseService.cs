@@ -90,6 +90,62 @@ namespace winform_app.Services
 
             return branchName;
         }
+        public List<Models.Department> GetDepartments()
+        {
+            List<Models.Department> departments = new List<Models.Department>();
+
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = "SELECT DepartmentID, DepartmentName FROM DEPARTMENT";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Models.Department department = new Models.Department
+                        {
+                            DepartmentID = reader.GetString(0),
+                            DepartmentName = reader.GetString(1)
+                        };
+                        departments.Add(department);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"An error occurred: {ex.Message}");
+                }
+            }
+
+            return departments;
+        }
+
+        public DataTable GetStaffStatistics(int regionID, string? branchID, string? departmentID)
+        {
+            DataTable staffStatistics = new DataTable();
+
+            using (SqlConnection connection = GetConnection())
+            {
+                SqlCommand command = new SqlCommand("sp_GetStaffStatistics", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@RegionID", regionID);
+                command.Parameters.AddWithValue("@BranchID", string.IsNullOrEmpty(branchID) ? (object)DBNull.Value : branchID);
+                command.Parameters.AddWithValue("@DepartmentID", string.IsNullOrEmpty(departmentID) ? (object)DBNull.Value : departmentID);
+                try
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(staffStatistics);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+            }
+
+            return staffStatistics;
+        }
         public List<Models.Branch> GetBranchesByRegion(int regionID)
         {
             List<Models.Branch> branches = new List<Models.Branch>();

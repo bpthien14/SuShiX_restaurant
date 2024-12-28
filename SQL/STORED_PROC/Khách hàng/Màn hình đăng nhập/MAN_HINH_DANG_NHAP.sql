@@ -39,4 +39,3 @@ BEGIN
       AND (u.Role = 'staff' OR u.Role = 'admin');
 END;
 GO
-EXEC sp_CheckLogin_Staff 'andy', '123';

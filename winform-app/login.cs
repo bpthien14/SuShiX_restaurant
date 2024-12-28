@@ -11,20 +11,30 @@ using winform_app.Models;
 using winform_app.Services;
 using winform_app.Forms.Khách_hàng;
 using winform_app.Forms.Nhân_viên;
+using System.Drawing.Drawing2D;
 
 namespace winform_app
 {
     public partial class LoginForm : Form
     {
         private DatabaseService _databaseService;
-        public Users LoggedInUser { get; private set; }
 
         public LoginForm()
         {
             InitializeComponent();
             _databaseService = new DatabaseService();
+            ApplyRoundedCorners(buttonLogin, 10);
         }
-
+        private void ApplyRoundedCorners(Button button, int cornerRadius)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(new Rectangle(0, 0, cornerRadius, cornerRadius), 180, 90);
+            path.AddArc(new Rectangle(button.Width - cornerRadius - 1, 0, cornerRadius, cornerRadius), -90, 90);
+            path.AddArc(new Rectangle(button.Width - cornerRadius - 1, button.Height - cornerRadius - 1, cornerRadius, cornerRadius), 0, 90);
+            path.AddArc(new Rectangle(0, button.Height - cornerRadius - 1, cornerRadius, cornerRadius), 90, 90);
+            path.CloseAllFigures();
+            button.Region = new System.Drawing.Region(path);
+        }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             MainForm mainForm = new MainForm();
@@ -39,7 +49,6 @@ namespace winform_app
 
             if (_databaseService.CheckLogin(loginInput, password, out Users user))
             {
-                LoggedInUser = user;
                 if (user.Role.ToUpper() == "CUSTOMER")
                 {
                     MessageBox.Show("Xin Chào khách hàng " + user.Username);

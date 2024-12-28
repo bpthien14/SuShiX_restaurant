@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{301D8A20-6FB2-4633-A1B1-FC1A6CAE72E1}|winform-app\\winform-app.csproj|c:\\users\\lenovo\\desktop\\sushix_restaurant\\winform-app\\forms\\nh\u00E2n vi\u00EAn\\nv_revenueform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{301D8A20-6FB2-4633-A1B1-FC1A6CAE72E1}|winform-app\\winform-app.csproj|solutionrelative:winform-app\\forms\\nh\u00E2n vi\u00EAn\\nv_revenueform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{301D8A20-6FB2-4633-A1B1-FC1A6CAE72E1}|winform-app\\winform-app.csproj|c:\\users\\lenovo\\desktop\\sushix_restaurant\\winform-app\\forms\\nh\u00E2n vi\u00EAn\\nv_managestaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{301D8A20-6FB2-4633-A1B1-FC1A6CAE72E1}|winform-app\\winform-app.csproj|solutionrelative:winform-app\\forms\\nh\u00E2n vi\u00EAn\\nv_managestaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{301D8A20-6FB2-4633-A1B1-FC1A6CAE72E1}|winform-app\\winform-app.csproj|c:\\users\\lenovo\\desktop\\sushix_restaurant\\winform-app\\forms\\nh\u00E2n vi\u00EAn\\nv_revenuefood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{301D8A20-6FB2-4633-A1B1-FC1A6CAE72E1}|winform-app\\winform-app.csproj|solutionrelative:winform-app\\forms\\nh\u00E2n vi\u00EAn\\nv_revenuefood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{301D8A20-6FB2-4633-A1B1-FC1A6CAE72E1}|winform-app\\winform-app.csproj|c:\\users\\lenovo\\desktop\\sushix_restaurant\\winform-app\\forms\\nh\u00E2n vi\u00EAn\\nv_managestaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{301D8A20-6FB2-4633-A1B1-FC1A6CAE72E1}|winform-app\\winform-app.csproj|solutionrelative:winform-app\\forms\\nh\u00E2n vi\u00EAn\\nv_managestaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{301D8A20-6FB2-4633-A1B1-FC1A6CAE72E1}|winform-app\\winform-app.csproj|c:\\users\\lenovo\\desktop\\sushix_restaurant\\winform-app\\forms\\nh\u00E2n vi\u00EAn\\nv_revenueform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{301D8A20-6FB2-4633-A1B1-FC1A6CAE72E1}|winform-app\\winform-app.csproj|solutionrelative:winform-app\\forms\\nh\u00E2n vi\u00EAn\\nv_revenueform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{301D8A20-6FB2-4633-A1B1-FC1A6CAE72E1}|winform-app\\winform-app.csproj|c:\\users\\lenovo\\desktop\\sushix_restaurant\\winform-app\\forms\\nh\u00E2n vi\u00EAn\\nv_revenuefood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -26,55 +30,78 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "NV_RevenueForm.cs",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_RevenueForm.cs",
-              "RelativeDocumentMoniker": "winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_RevenueForm.cs",
-              "ToolTip": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_RevenueForm.cs",
-              "RelativeToolTip": "winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_RevenueForm.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAcwFQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-28T12:59:35.775Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "nv_RevenueFood.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\nv_RevenueFood.cs",
-              "RelativeDocumentMoniker": "winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\nv_RevenueFood.cs",
-              "ToolTip": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\nv_RevenueFood.cs [Design]*",
-              "RelativeToolTip": "winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\nv_RevenueFood.cs [Design]*",
+              "DocumentIndex": 0,
+              "Title": "NV_ManageStaff.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_ManageStaff.cs",
+              "RelativeDocumentMoniker": "winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_ManageStaff.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_ManageStaff.cs*",
+              "RelativeToolTip": "winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_ManageStaff.cs*",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAIwKsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-28T12:42:00.204Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-12-28T16:48:51.943Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "nv_RevenueFood.cs",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\nv_RevenueFood.cs",
-              "RelativeDocumentMoniker": "winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\nv_RevenueFood.cs",
-              "ToolTip": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\nv_RevenueFood.cs*",
-              "RelativeToolTip": "winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\nv_RevenueFood.cs*",
-              "ViewState": "AgIAACAAAAAAAAAAAAAowEYAAAA6AAAAAAAAAA==",
+              "Title": "NV_ManageStaff.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_ManageStaff.cs",
+              "RelativeDocumentMoniker": "winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_ManageStaff.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_ManageStaff.cs [Design]*",
+              "RelativeToolTip": "winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_ManageStaff.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-28T11:35:15.556Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-28T16:47:38.781Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NV_RevenueForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_RevenueForm.cs",
+              "RelativeDocumentMoniker": "winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_RevenueForm.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_RevenueForm.cs [Design]",
+              "RelativeToolTip": "winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\NV_RevenueForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T16:47:13.226Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "nv_RevenueFood.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\nv_RevenueFood.cs",
+              "RelativeDocumentMoniker": "winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\nv_RevenueFood.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\nv_RevenueFood.cs [Design]",
+              "RelativeToolTip": "winform-app\\Forms\\Nh\u00E2n vi\u00EAn\\nv_RevenueFood.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T16:45:38.605Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "DatabaseService.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Services\\DatabaseService.cs",
               "RelativeDocumentMoniker": "winform-app\\Services\\DatabaseService.cs",
               "ToolTip": "C:\\Users\\Lenovo\\Desktop\\SuShiX_restaurant\\winform-app\\Services\\DatabaseService.cs",
               "RelativeToolTip": "winform-app\\Services\\DatabaseService.cs",
-              "ViewState": "AgIAAMQAAAAAAAAAAAAIwNMAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAwwIkAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-28T12:15:24.01Z",
               "EditorCaption": ""

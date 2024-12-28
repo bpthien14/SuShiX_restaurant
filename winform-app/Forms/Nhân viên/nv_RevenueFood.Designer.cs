@@ -130,7 +130,7 @@
             // dataGridViewKetQua
             // 
             dataGridViewKetQua.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewKetQua.Location = new Point(28, 294);
+            dataGridViewKetQua.Location = new Point(28, 288);
             dataGridViewKetQua.Margin = new Padding(5, 6, 5, 6);
             dataGridViewKetQua.Name = "dataGridViewKetQua";
             dataGridViewKetQua.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -152,6 +152,7 @@
             buttonXuatExcel.TabIndex = 23;
             buttonXuatExcel.Text = "Xuất Excel";
             buttonXuatExcel.UseVisualStyleBackColor = false;
+            buttonXuatExcel.Click += buttonXuatExcel_Click;
             // 
             // buttonXemThongKe
             // 
@@ -237,7 +238,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.IndianRed;
-            label6.Location = new Point(28, 200);
+            label6.Location = new Point(28, 190);
             label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
             label6.Size = new Size(89, 30);
@@ -248,12 +249,12 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Font = new Font("Segoe UI Semibold", 8.142858F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.IndianRed;
-            label7.Location = new Point(28, 230);
+            label7.Location = new Point(28, 220);
             label7.Margin = new Padding(5, 0, 5, 0);
             label7.Name = "label7";
-            label7.Size = new Size(475, 30);
+            label7.Size = new Size(450, 28);
             label7.TabIndex = 34;
             label7.Text = "Món chạy: Top 20% món có doanh thu cao nhất";
             label7.TextAlign = ContentAlignment.MiddleCenter;
@@ -261,12 +262,12 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Font = new Font("Segoe UI Semibold", 8.142858F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.IndianRed;
-            label8.Location = new Point(28, 260);
+            label8.Location = new Point(28, 248);
             label8.Margin = new Padding(5, 0, 5, 0);
             label8.Name = "label8";
-            label8.Size = new Size(493, 30);
+            label8.Size = new Size(468, 28);
             label8.TabIndex = 35;
             label8.Text = "Món chậm: Top 20% món có doanh thu thấp nhất";
             label8.TextAlign = ContentAlignment.MiddleCenter;

@@ -128,7 +128,7 @@
             // dataGridViewKetQua
             // 
             dataGridViewKetQua.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewKetQua.Location = new Point(38, 270);
+            dataGridViewKetQua.Location = new Point(38, 278);
             dataGridViewKetQua.Margin = new Padding(5, 6, 5, 6);
             dataGridViewKetQua.Name = "dataGridViewKetQua";
             dataGridViewKetQua.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;

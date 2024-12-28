@@ -17,9 +17,16 @@ namespace winform_app.Forms.Nhân_viên
             InitializeComponent();
             this.IsMdiContainer = true;
         }
-
+        private void ResetMenuItemBackColor()
+        {
+            thongKeDoanhThuTheoMonAnToolStripMenuItem.BackColor = Color.White;
+            quanLyNhanSuToolStripMenuItem.BackColor = Color.White;
+            thongKeDoanhThuChiNhanhToolStripMenuItem.BackColor = Color.White;
+        }
         private void thongKeDoanhThuChiNhanhToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ResetMenuItemBackColor();
+            thongKeDoanhThuChiNhanhToolStripMenuItem.BackColor = Color.LightGray;
             try
             {
                 // Check if the form is already open
@@ -31,7 +38,7 @@ namespace winform_app.Forms.Nhân_viên
                         return;
                     }
                 }
-
+                
                 // Create and show the new form
                 NV_RevenueForm revenueForm = new NV_RevenueForm
                 {
@@ -55,6 +62,8 @@ namespace winform_app.Forms.Nhân_viên
 
         private void thongKeDoanhThuTheoMonAnToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ResetMenuItemBackColor();
+            thongKeDoanhThuTheoMonAnToolStripMenuItem.BackColor = Color.LightGray;
             try
             {
                 // Check if the form is already open
@@ -66,7 +75,7 @@ namespace winform_app.Forms.Nhân_viên
                         return;
                     }
                 }
-
+                
                 // Create and show the new form
                 nv_RevenueFood revenueForm = new nv_RevenueFood
                 {
@@ -90,6 +99,8 @@ namespace winform_app.Forms.Nhân_viên
 
         private void quanLyNhanSuToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ResetMenuItemBackColor();
+            quanLyNhanSuToolStripMenuItem.BackColor = Color.LightGray;
             try
             {
                 // Check if the form is already open
@@ -103,14 +114,14 @@ namespace winform_app.Forms.Nhân_viên
                 }
 
                 // Create and show the new form
-                NV_RevenueForm revenueForm = new NV_RevenueForm
+                NV_ManageStaff manageStaffForm = new NV_ManageStaff
                 {
                     MdiParent = this,
                     Dock = DockStyle.Fill,
                     WindowState = FormWindowState.Maximized,
                     FormBorderStyle = FormBorderStyle.None
                 };
-                revenueForm.Show();
+                manageStaffForm.Show();
             }
             catch (Exception ex)
             {

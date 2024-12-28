@@ -76,5 +76,40 @@ namespace winform_app.Forms.Nhân_viên
             dataGridViewKetQua.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewKetQua.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
+
+        private void buttonXuatExcel_Click(object sender, EventArgs e)
+        {
+            DateTime startDate = dateTimePickerTuNgay.Value;
+            DateTime endDate = dateTimePickerDenNgay.Value;
+            string branchID = comboBoxChiNhanh.SelectedValue?.ToString();
+            DataTable revenueData = _databaseService.GetMenuItemStatus(branchID, startDate, endDate);
+
+            if (revenueData != null)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog
+                {
+                    Filter = "Excel Files|*.xlsx",
+                    Title = "Save an Excel File"
+                };
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = saveFileDialog.FileName;
+                    string fileName = Path.GetFileName(filePath);
+                    try
+                    {
+                        _excelExportService.ExportToExcel(revenueData, filePath, fileName);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No data available to export.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

@@ -133,3 +133,4 @@ C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\bin\Debug\net8.0-windows\S
 C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
 C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\obj\Debug\net8.0-windows\winform_app.Forms.Nhân_viên.nv_RevenueFood.resources
+C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\obj\Debug\net8.0-windows\winform_app.Forms.Nhân_viên.NV_ManageStaff.resources
