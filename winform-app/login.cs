@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using winform_app.Models;
 using winform_app.Services;
 using winform_app.Forms.Khách_hàng;
+using winform_app.Forms.Nhân_viên;
 
 namespace winform_app
 {
@@ -39,7 +40,7 @@ namespace winform_app
             if (_databaseService.CheckLogin(loginInput, password, out Users user))
             {
                 LoggedInUser = user;
-                if (user.Role == "customer")
+                if (user.Role.ToUpper() == "CUSTOMER")
                 {
                     MessageBox.Show("Xin Chào khách hàng " + user.Username);
                     KH_MainForm khMainForm = new KH_MainForm(user);
@@ -47,15 +48,28 @@ namespace winform_app
                     khMainForm.Show();
                     this.Hide();
                 }
-                else if (user.Role == "admin")
+            }
+            else if (_databaseService.CheckLoginStaff(loginInput, password, out Staff staff, out string? level))
+            {
+                if (level != null)
                 {
-                    MessageBox.Show("Xin Chào admin" + user.Username);
-                    this.Close();
+                    if (level.ToUpper() == "STAFF")
+                    {
+                        MessageBox.Show("Xin Chào Quản lý Chi Nhánh " + _databaseService.GetBranchNameById(staff.BranchID) + " Mr. " + staff.FullName);
+                        this.Close();
+                    }
+                    else if (level.ToUpper() == "ADMIN")
+                    {
+                        MessageBox.Show("Xin Chào Quản lý Công ty " + "Mr." + staff.FullName);
+                        NV_MainForm nvMainForm = new NV_MainForm();
+                        nvMainForm.FormClosed += (s, args) => this.Close();
+                        nvMainForm.Show();
+                        this.Hide();
+                    }
                 }
-                else if (user.Role == "staff")
+                else
                 {
-                    MessageBox.Show("Xin Chào nhân viên" + user.Username);
-                    this.Close();
+                    MessageBox.Show("Bạn không phải quản lý Chi Nhánh hay Công ty");
                 }
             }
             else

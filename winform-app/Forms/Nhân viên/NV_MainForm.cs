@@ -40,6 +40,11 @@ namespace winform_app.Forms.Nhân_viên
                     WindowState = FormWindowState.Maximized,
                     FormBorderStyle = FormBorderStyle.None
                 };
+
+                // Ensure proper docking and size handling
+                this.IsMdiContainer = true; // Ensure the parent is an MDI container
+                this.LayoutMdi(MdiLayout.Cascade); // Optional layout for MDI children
+
                 revenueForm.Show();
             }
             catch (Exception ex)
@@ -55,7 +60,7 @@ namespace winform_app.Forms.Nhân_viên
                 // Check if the form is already open
                 foreach (Form form in this.MdiChildren)
                 {
-                    if (form is NV_RevenueForm)
+                    if (form is nv_RevenueFood)
                     {
                         form.Activate();
                         return;
@@ -63,13 +68,18 @@ namespace winform_app.Forms.Nhân_viên
                 }
 
                 // Create and show the new form
-                NV_RevenueForm revenueForm = new NV_RevenueForm
+                nv_RevenueFood revenueForm = new nv_RevenueFood
                 {
                     MdiParent = this,
-                    Dock = DockStyle.Fill,
-                    WindowState = FormWindowState.Maximized,
-                    FormBorderStyle = FormBorderStyle.None
+                    Dock = DockStyle.Fill, // Ensure it fills the parent
+                    WindowState = FormWindowState.Maximized, // Ensure it's maximized
+                    FormBorderStyle = FormBorderStyle.None // Optional: borderless
                 };
+
+                // Ensure proper docking and size handling
+                this.IsMdiContainer = true; // Ensure the parent is an MDI container
+                this.LayoutMdi(MdiLayout.Cascade); // Optional layout for MDI children
+
                 revenueForm.Show();
             }
             catch (Exception ex)
@@ -79,66 +89,6 @@ namespace winform_app.Forms.Nhân_viên
         }
 
         private void quanLyNhanSuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Check if the form is already open
-                foreach (Form form in this.MdiChildren)
-                {
-                    if (form is NV_RevenueForm)
-                    {
-                        form.Activate();
-                        return;
-                    }
-                }
-
-                // Create and show the new form
-                NV_RevenueForm revenueForm = new NV_RevenueForm
-                {
-                    MdiParent = this,
-                    Dock = DockStyle.Fill,
-                    WindowState = FormWindowState.Maximized,
-                    FormBorderStyle = FormBorderStyle.None
-                };
-                revenueForm.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}");
-            }
-        }
-
-        private void capNhatLuongNhanVienToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Check if the form is already open
-                foreach (Form form in this.MdiChildren)
-                {
-                    if (form is NV_RevenueForm)
-                    {
-                        form.Activate();
-                        return;
-                    }
-                }
-
-                // Create and show the new form
-                NV_RevenueForm revenueForm = new NV_RevenueForm
-                {
-                    MdiParent = this,
-                    Dock = DockStyle.Fill,
-                    WindowState = FormWindowState.Maximized,
-                    FormBorderStyle = FormBorderStyle.None
-                };
-                revenueForm.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}");
-            }
-        }
-
-        private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             try
             {

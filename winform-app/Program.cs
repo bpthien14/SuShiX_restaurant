@@ -12,6 +12,6 @@ static class Program
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
         //Application.Run(new Forms.Nhân_viên.NV_MainForm());
-        Application.Run(new LoginForm());
+        Application.Run(new MainForm());
     }
 }

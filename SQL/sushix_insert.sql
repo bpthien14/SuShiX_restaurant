@@ -53,6 +53,16 @@ INSERT INTO MENU_ITEM (ItemID, CategoryID, ItemName, CurrentPrice, DeliveryAvail
 ('MI001', 'MC001', 'Salmon Sushi', 5.00, 1),
 ('MI002', 'MC002', 'Green Tea', 1.50, 1);
 
+-- Insert data into MENU_ITEM_AVAILABILITY for all combinations of BranchID and ItemID
+INSERT INTO MENU_ITEM_AVAILABILITY (BranchID, ItemID, IsAvailable)
+SELECT 
+    BRANCH.BranchID,
+    MENU_ITEM.ItemID,
+    1 -- All items are available
+FROM 
+    BRANCH, -- Get all BranchIDs
+    MENU_ITEM; -- Get all ItemIDs
+
 -- Insert additional data into ORDER_TABLE
 INSERT INTO ORDER_TABLE (OrderID, OrderDate, StaffID, TableNumber, BranchID, CustomerID) VALUES
 ('ORD003', '2024-01-03', 'S001', 3, 'BR001', 'C001'),

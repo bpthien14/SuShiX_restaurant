@@ -10,7 +10,6 @@
         private System.Windows.Forms.ToolStripMenuItem thongKeDoanhThuChiNhanhToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thongKeDoanhThuTheoMonAnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quanLyNhanSuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem capNhatLuongNhanVienToolStripMenuItem;
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -37,7 +36,6 @@
             thongKeDoanhThuChiNhanhToolStripMenuItem = new ToolStripMenuItem();
             thongKeDoanhThuTheoMonAnToolStripMenuItem = new ToolStripMenuItem();
             quanLyNhanSuToolStripMenuItem = new ToolStripMenuItem();
-            capNhatLuongNhanVienToolStripMenuItem = new ToolStripMenuItem();
             pictureBox3 = new PictureBox();
             labelTitle = new Label();
             menuStrip.SuspendLayout();
@@ -47,14 +45,13 @@
             // menuStrip
             // 
             menuStrip.ImageScalingSize = new Size(28, 28);
-            menuStrip.Items.AddRange(new ToolStripItem[] { thongKeDoanhThuChiNhanhToolStripMenuItem, thongKeDoanhThuTheoMonAnToolStripMenuItem, quanLyNhanSuToolStripMenuItem, capNhatLuongNhanVienToolStripMenuItem });
+            menuStrip.Items.AddRange(new ToolStripItem[] { thongKeDoanhThuChiNhanhToolStripMenuItem, thongKeDoanhThuTheoMonAnToolStripMenuItem, quanLyNhanSuToolStripMenuItem });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Padding = new Padding(10, 4, 0, 4);
-            menuStrip.Size = new Size(1203, 42);
+            menuStrip.Size = new Size(1162, 42);
             menuStrip.TabIndex = 0;
             menuStrip.Text = "menuStrip";
-            menuStrip.ItemClicked += menuStrip_ItemClicked;
             // 
             // thongKeDoanhThuChiNhanhToolStripMenuItem
             // 
@@ -83,15 +80,6 @@
             quanLyNhanSuToolStripMenuItem.Text = "Quản lý nhân sự";
             quanLyNhanSuToolStripMenuItem.Click += quanLyNhanSuToolStripMenuItem_Click;
             // 
-            // capNhatLuongNhanVienToolStripMenuItem
-            // 
-            capNhatLuongNhanVienToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            capNhatLuongNhanVienToolStripMenuItem.ForeColor = Color.IndianRed;
-            capNhatLuongNhanVienToolStripMenuItem.Name = "capNhatLuongNhanVienToolStripMenuItem";
-            capNhatLuongNhanVienToolStripMenuItem.Size = new Size(287, 34);
-            capNhatLuongNhanVienToolStripMenuItem.Text = "Cập nhật lương nhân viên";
-            capNhatLuongNhanVienToolStripMenuItem.Click += capNhatLuongNhanVienToolStripMenuItem_Click;
-            // 
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
@@ -119,7 +107,7 @@
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1203, 774);
+            ClientSize = new Size(1162, 805);
             Controls.Add(menuStrip);
             MainMenuStrip = menuStrip;
             Margin = new Padding(5, 6, 5, 6);

@@ -75,9 +75,8 @@ namespace winform_app.Forms.Nhân_viên
             {
                 DataTable revenueData = _databaseService.GetRevenueStatisticsByBranch(startDate, endDate, branchID);
                 dataGridViewKetQua.DataSource = revenueData;
-                dataGridViewKetQua.AutoResizeColumns();
-                dataGridViewKetQua.AutoResizeRows();
-
+                dataGridViewKetQua.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridViewKetQua.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             }
             catch (Exception ex)
             {

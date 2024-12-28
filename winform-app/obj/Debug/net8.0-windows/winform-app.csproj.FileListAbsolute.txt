@@ -100,7 +100,6 @@ C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\bin\Debug\net8.0-windows\r
 C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
 C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\obj\Debug\net8.0-windows\winform-app.csproj.AssemblyReference.cache
 C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\obj\Debug\net8.0-windows\winform_app.Forms.Khách_hàng.KH_MainForm.resources
-C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\obj\Debug\net8.0-windows\winform_app.Forms.Khách_hàng.LoginForm.resources
 C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\obj\Debug\net8.0-windows\winform_app.Forms.Nhân_viên.NV_MainForm.resources
 C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\obj\Debug\net8.0-windows\winform_app.Forms.Nhân_viên.NV_RevenueForm.resources
 C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\obj\Debug\net8.0-windows\winform_app.LoginForm.resources
@@ -133,3 +132,4 @@ C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\bin\Debug\net8.0-windows\M
 C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\bin\Debug\net8.0-windows\System.Drawing.Common.dll
 C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
 C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\Lenovo\Desktop\SuShiX_restaurant\winform-app\obj\Debug\net8.0-windows\winform_app.Forms.Nhân_viên.nv_RevenueFood.resources
