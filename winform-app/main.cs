@@ -28,13 +28,6 @@ public partial class MainForm : Form
         button.Region = new Region(path);
     }
 
-    private void buttonKhachHang_Click(object sender, EventArgs e)
-    {
-        KH_MainForm khMainForm = new KH_MainForm();
-        khMainForm.FormClosed += (s, args) => this.Close();
-        khMainForm.Show();
-        this.Hide();
-    }
 
     private void buttonNhanVien_Click(object sender, EventArgs e)
     {

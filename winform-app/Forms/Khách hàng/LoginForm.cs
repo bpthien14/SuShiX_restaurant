@@ -31,9 +31,27 @@ namespace winform_app.Forms.Khách_hàng
             if (_databaseService.CheckLogin(loginInput, password, out Users user))
             {
                 LoggedInUser = user;
-                MessageBox.Show("Login successful!");
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                if (user.Role == "customer")
+                {
+                    MessageBox.Show("Xin Chào khách hàng " + user.Username);
+                    KH_MainForm kh_MainForm = new KH_MainForm(user);
+                    kh_MainForm.Show();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else if (user.Role == "admin")
+                {
+                    MessageBox.Show("Xin Chào admin" + user.Username);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else if (user.Role == "staff")
+                {
+                    MessageBox.Show("Xin Chào nhân viên" + user.Username);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+
             }
             else
             {

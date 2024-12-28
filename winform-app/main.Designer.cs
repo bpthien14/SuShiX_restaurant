@@ -70,7 +70,6 @@ partial class MainForm
         buttonKhachHang.TabIndex = 1;
         buttonKhachHang.Text = "Khách hàng";
         buttonKhachHang.UseVisualStyleBackColor = false;
-        buttonKhachHang.Click += buttonKhachHang_Click;
         // 
         // buttonNhanVien
         // 

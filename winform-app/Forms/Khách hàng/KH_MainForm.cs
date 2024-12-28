@@ -14,29 +14,34 @@ using winform_app.Services;
 using winform_app.Models;
 using System.Drawing.Drawing2D;
 
+
 namespace winform_app.Forms.Khách_hàng
 {
     public partial class KH_MainForm : Form
     {
-        private Users currentUser = null;
+        private Users currentUser;
+        private DatabaseService _databaseService;
         private int targetHeight = 0;
 
-        public KH_MainForm()
+        public KH_MainForm(Users user)
         {
             InitializeComponent();
             this.Load += new EventHandler(MainForm_Load_KH);
+            _databaseService = new DatabaseService();
+            currentUser = user;
         }
         private void MainForm_Load_KH(object? sender, EventArgs e)
         {
             ApplyRoundedCorners(buttonViewMenu, 10);
-            ApplyRoundedCorners(buttonLogin, 10);
-            ApplyRoundedCorners(buttonRegister, 10);
             ApplyRoundedCorners(buttonViewMenu, 10);
             ApplyRoundedCorners(buttonOrderTakeout, 10);
             ApplyRoundedCorners(buttonReserveTable, 10);
             ApplyRoundedCorners(buttonOrderHistory, 10);
             ApplyRoundedCorners(buttonPersonalInfo, 10); 
             ApplyRoundedCorners(buttonFindBranch, 10);
+            ApplyRoundedCorners(buttonLogout, 10);
+
+            LoadCustomerDashboard();
         }
         private void ApplyRoundedCorners(Button button, int cornerRadius)
         {
@@ -49,35 +54,6 @@ namespace winform_app.Forms.Khách_hàng
             button.Region = new System.Drawing.Region(path);
         }
 
-
-        private void UpdateUIAfterLogin()
-        {
-            if (currentUser != null)
-            {
-                // Cập nhật giao diện để hiển thị thông tin người dùng
-                // labelWelcome.Text = $"Welcome, {currentUser.Username}!";
-                buttonLogin.Visible = false;
-                buttonRegister.Visible = false;
-                buttonLogout.Visible = true;
-                panelUserInterface.Visible = true;
-            }
-        }
-
-        private void buttonLogin_Click(object sender, EventArgs e)
-        {
-            LoginForm loginForm = new LoginForm();
-            // Show the form and check the result
-            DialogResult result = loginForm.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                currentUser = loginForm.LoggedInUser;
-                UpdateUIAfterLogin();
-            }
-            else
-            {
-                MessageBox.Show("Login was cancelled or failed");
-            }
-        }
 
         private async void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -118,6 +94,15 @@ namespace winform_app.Forms.Khách_hàng
                     panel1.Height = 0;
                 }
             }
+        }
+        private void LoadCustomerDashboard()
+        {
+            var dashboard = _databaseService.GetCustomerDashboard(currentUser.UserID);
+            labelGreeting.Text = $"Xin chào, {currentUser.Username}";
+            labelMembership.Text = dashboard.CardType;
+            labelPoints.Text = $"Điểm tích lũy: {dashboard.AccumulatedPoints} điểm";
+            labelPendingReservations.Text = $"Đơn đặt bàn đang chờ: {dashboard.PendingBookings}";
+            labelOngoingDeliveries.Text = $"Đơn hàng đang giao: {dashboard.ProcessingOrders}";
         }
     }
 }

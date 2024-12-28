@@ -1,5 +1,5 @@
-CREATE PROCEDURE sp_GetCustomerDashboard
-    @CustomerID VARCHAR(255)
+ALTER PROCEDURE sp_GetCustomerDashboard
+    @UserID VARCHAR(255)  -- Đầu vào mới là UserID
 AS
 BEGIN
     -- Thông tin khách hàng và thẻ thành viên
@@ -10,19 +10,21 @@ BEGIN
         mc.AccumulatedPoints
     FROM CUSTOMER c
     LEFT JOIN MEMBERSHIP_CARD mc ON c.CustomerID = mc.CustomerID
-    WHERE c.CustomerID = @CustomerID;
+    WHERE c.UserID = @UserID;  -- Sử dụng UserID để truy vấn
 
     -- Đơn đặt bàn đang chờ
     SELECT COUNT(*) AS PendingBookings
     FROM ONLINE_BOOKING ob
-    WHERE ob.CustomerID = @CustomerID 
+    JOIN CUSTOMER c ON ob.CustomerID = c.CustomerID  -- Ánh xạ qua CUSTOMER
+    WHERE c.UserID = @UserID 
     AND ob.BookingDate >= CAST(GETDATE() AS DATE);
 
     -- Đơn hàng đang xử lý
     SELECT COUNT(*) AS ProcessingOrders
     FROM ORDER_TABLE ot
     JOIN INVOICE i ON ot.OrderID = i.OrderID
-    WHERE ot.CustomerID = @CustomerID 
+    JOIN CUSTOMER c ON ot.CustomerID = c.CustomerID  -- Ánh xạ qua CUSTOMER
+    WHERE c.UserID = @UserID 
     AND i.CreatedAt = CAST(GETDATE() AS DATE);
 
     -- Lịch sử đơn hàng gần nhất
@@ -34,7 +36,9 @@ BEGIN
     FROM ORDER_TABLE ot
     JOIN BRANCH b ON ot.BranchID = b.BranchID
     JOIN INVOICE i ON ot.OrderID = i.OrderID
-    WHERE ot.CustomerID = @CustomerID
+    JOIN CUSTOMER c ON ot.CustomerID = c.CustomerID  -- Ánh xạ qua CUSTOMER
+    WHERE c.UserID = @UserID
     ORDER BY ot.OrderDate DESC;
-END
+END;
+
 GO
