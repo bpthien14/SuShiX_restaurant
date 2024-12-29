@@ -10,6 +10,9 @@
     <Compile Update="Forms\Khách hàng\OrderDelivery.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Khách hàng\OrderTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Nhân viên\Admin_MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
