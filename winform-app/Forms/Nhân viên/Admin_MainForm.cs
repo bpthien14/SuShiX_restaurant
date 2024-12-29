@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace winform_app.Forms.Nhân_viên
 {
-    public partial class NV_MainForm : Form
+    public partial class Admin_MainForm : Form
     {
-        public NV_MainForm()
+        public Admin_MainForm()
         {
             InitializeComponent();
             this.IsMdiContainer = true;
@@ -32,7 +32,7 @@ namespace winform_app.Forms.Nhân_viên
                 // Check if the form is already open
                 foreach (Form form in this.MdiChildren)
                 {
-                    if (form is NV_RevenueForm)
+                    if (form is Admin_RevenueForm)
                     {
                         form.Activate();
                         return;
@@ -40,7 +40,7 @@ namespace winform_app.Forms.Nhân_viên
                 }
                 
                 // Create and show the new form
-                NV_RevenueForm revenueForm = new NV_RevenueForm
+                Admin_RevenueForm revenueForm = new Admin_RevenueForm
                 {
                     MdiParent = this,
                     Dock = DockStyle.Fill,
@@ -69,7 +69,7 @@ namespace winform_app.Forms.Nhân_viên
                 // Check if the form is already open
                 foreach (Form form in this.MdiChildren)
                 {
-                    if (form is nv_RevenueFood)
+                    if (form is Admin_RevenueFood)
                     {
                         form.Activate();
                         return;
@@ -77,7 +77,7 @@ namespace winform_app.Forms.Nhân_viên
                 }
                 
                 // Create and show the new form
-                nv_RevenueFood revenueForm = new nv_RevenueFood
+                Admin_RevenueFood revenueForm = new Admin_RevenueFood
                 {
                     MdiParent = this,
                     Dock = DockStyle.Fill, // Ensure it fills the parent
@@ -106,7 +106,7 @@ namespace winform_app.Forms.Nhân_viên
                 // Check if the form is already open
                 foreach (Form form in this.MdiChildren)
                 {
-                    if (form is NV_RevenueForm)
+                    if (form is Admin_ManageStaff)
                     {
                         form.Activate();
                         return;
@@ -114,7 +114,7 @@ namespace winform_app.Forms.Nhân_viên
                 }
 
                 // Create and show the new form
-                NV_ManageStaff manageStaffForm = new NV_ManageStaff
+                Admin_ManageStaff manageStaffForm = new Admin_ManageStaff
                 {
                     MdiParent = this,
                     Dock = DockStyle.Fill,

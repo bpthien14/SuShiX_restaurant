@@ -36,6 +36,6 @@ BEGIN
     JOIN USERS u ON s.UserID = u.UserID
     WHERE (s.PhoneNumber = @LoginInput OR u.Username = @LoginInput)
       AND u.Password = @Password
-      AND (u.Role = 'staff' OR u.Role = 'admin');
+      AND (u.Role = 'Manager' OR u.Role = 'admin');
 END;
 GO

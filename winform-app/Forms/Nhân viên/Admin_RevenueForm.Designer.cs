@@ -1,6 +1,6 @@
 ﻿namespace winform_app.Forms.Nhân_viên
 {
-    partial class NV_RevenueForm
+    partial class Admin_RevenueForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NV_RevenueForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_RevenueForm));
             comboBoxKhuVuc = new ComboBox();
             comboBoxChiNhanh = new ComboBox();
             dateTimePickerTuNgay = new DateTimePicker();

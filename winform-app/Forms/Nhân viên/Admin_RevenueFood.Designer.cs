@@ -1,6 +1,6 @@
 ﻿namespace winform_app.Forms.Nhân_viên
 {
-    partial class nv_RevenueFood
+    partial class Admin_RevenueFood
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(nv_RevenueFood));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_RevenueFood));
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();

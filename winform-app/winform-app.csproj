@@ -15,6 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Forms\Nhân viên\Manager_ManageStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Nhân viên\Manager_MenuItemsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

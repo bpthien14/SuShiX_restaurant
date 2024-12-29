@@ -106,8 +106,8 @@ namespace winform_app.Forms.Khách_hàng
 
         private void buttonReserveTable_Click(object sender, EventArgs e)
         {
-            OrderTableForm orderTableForm = new OrderTableForm(currentUser);
-            orderTableForm.ShowDialog();
+            //OrderTableForm orderTableForm = new OrderTableForm(currentUser);
+            //orderTableForm.ShowDialog();
         }
 
         private void buttonFindBranch_Click(object sender, EventArgs e)

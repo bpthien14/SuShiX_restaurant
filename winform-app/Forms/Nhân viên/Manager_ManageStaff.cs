@@ -13,42 +13,29 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace winform_app.Forms.Nhân_viên
 {
-    public partial class NV_ManageStaff : Form
+    public partial class Manager_ManageStaff : Form
     {
+        private Staff _staff;
         private readonly DatabaseService _databaseService;
         private readonly ExcelExportService _excelExportService;
+        Models.Region region = new Models.Region();
 
-        public NV_ManageStaff()
+        public Manager_ManageStaff(Staff staff)
         {
             InitializeComponent();
+            _staff = staff; 
             _databaseService = new DatabaseService();
             _excelExportService = new ExcelExportService();
-            LoadRegions();
+
+            region = _databaseService.GetRegionByBranchId(_staff.BranchID.ToString());
+            if (region != null)
+            {
+                labelKhuVuc.Text = region.RegionName;
+            }
+
+            labelChiNhanh.Text = _databaseService.GetBranchNameById(_staff.BranchID);
             LoadDepartments();
         }
-
-        private void LoadRegions()
-        {
-            List<Models.Region> regions = _databaseService.GetRegions();
-
-            regions.Insert(0, new Models.Region { RegionID = -1, RegionName = "Tất cả khu vực" });
-
-            comboBoxKhuVuc.DisplayMember = "RegionName";
-            comboBoxKhuVuc.ValueMember = "RegionID";
-            comboBoxKhuVuc.DataSource = regions;
-        }
-
-        private void LoadBranches(int regionID)
-        {
-            List<Models.Branch> branches = _databaseService.GetBranchesByRegion(regionID);
-
-            branches.Insert(0, new Models.Branch { BranchID = null, BranchName = "Tất cả chi nhánh" });
-
-            comboBoxChiNhanh.DisplayMember = "BranchName";
-            comboBoxChiNhanh.ValueMember = "BranchID";
-            comboBoxChiNhanh.DataSource = branches;
-        }
-
         private void LoadDepartments()
         {
             List<Models.Department> departments = _databaseService.GetDepartments();
@@ -67,27 +54,12 @@ namespace winform_app.Forms.Nhân_viên
             //detailForm.ShowDialog();
         }
 
-        private void comboBoxChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //if (comboBoxChiNhanh.SelectedValue == null)
-            //{
-            //    comboBoxKhuVuc.SelectedIndex = -1;
-            //}
-        }
-
-        private void comboBoxKhuVuc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxKhuVuc.SelectedValue is int regionID)
-            {
-                LoadBranches(regionID);
-            }
-        }
 
         private void buttonXemThongKe_Click(object sender, EventArgs e)
         {
             textBoxTimKiem.Clear();
-            int regionID = (int)comboBoxKhuVuc.SelectedValue;
-            string? branchID = comboBoxChiNhanh.SelectedValue?.ToString();
+            int regionID = region.RegionID;
+            string? branchID = _staff.BranchID;
             string? departmentID = comboBoxBoPhan.SelectedValue?.ToString();
 
             DataTable staffStatistics = _databaseService.GetStaffStatistics(regionID, branchID, departmentID);
@@ -98,8 +70,8 @@ namespace winform_app.Forms.Nhân_viên
 
         private void buttonXuatExcel_Click(object sender, EventArgs e)
         {
-            int regionID = (int)comboBoxKhuVuc.SelectedValue;
-            string? branchID = comboBoxChiNhanh.SelectedValue?.ToString();
+            int regionID = region.RegionID;
+            string? branchID = _staff.BranchID;
             string? departmentID = comboBoxBoPhan.SelectedValue?.ToString();
 
             DataTable staffStatistics = _databaseService.GetStaffStatistics(regionID, branchID, departmentID);

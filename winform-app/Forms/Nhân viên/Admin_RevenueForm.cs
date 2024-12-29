@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,14 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using winform_app.Services;
+using System.Configuration;
+using winform_app.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace winform_app.Forms.Nhân_viên
 {
-    public partial class nv_RevenueFood : Form
+    public partial class Admin_RevenueForm : Form
     {
         private readonly DatabaseService _databaseService;
         private readonly ExcelExportService _excelExportService;
-        public nv_RevenueFood()
+        public Admin_RevenueForm()
         {
             InitializeComponent();
             _databaseService = new DatabaseService();
@@ -38,6 +42,11 @@ namespace winform_app.Forms.Nhân_viên
             comboBoxChiNhanh.ValueMember = "BranchID";
             comboBoxChiNhanh.DataSource = branches;
         }
+        private void dateTimePickerTuNgay_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void comboBoxKhuVuc_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxKhuVuc.SelectedValue is int regionID)
@@ -45,36 +54,34 @@ namespace winform_app.Forms.Nhân_viên
                 LoadBranches(regionID);
             }
         }
-        //private void LoadMenu(string branchID)
-        //{
-        //    List<Models.MenuItem> menu = _databaseService.GetMenuItemsByBranch(branchID);
-        //    foreach (var item in menu)
-        //    {
-        //        MessageBox.Show($"ItemID: {item.ItemID}, ItemName: {item.ItemName}, CurrentPrice: {item.CurrentPrice}, DeliveryAvailable: {item.DeliveryAvailable}");
-        //    }
-        //    comboBoxFood.DisplayMember = "ItemName";
-        //    comboBoxFood.ValueMember = "ItemID";
-        //    comboBoxFood.DataSource = menu;
-        //}
-        //private void comboBoxChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (comboBoxChiNhanh.SelectedValue != null)
-        //    {
-        //        string branchID = comboBoxChiNhanh.SelectedValue.ToString();
-        //        LoadMenu(branchID);
-        //    }
-        //}
+
+        private void comboBoxChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 
         private void buttonXemThongKe_Click(object sender, EventArgs e)
         {
-            DateTime fromDate = dateTimePickerTuNgay.Value;
-            DateTime toDate = dateTimePickerDenNgay.Value;
+            DateTime startDate = dateTimePickerTuNgay.Value;
+            DateTime endDate = dateTimePickerDenNgay.Value;
             string branchID = comboBoxChiNhanh.SelectedValue?.ToString();
+            if (string.IsNullOrEmpty(branchID))
+            {
+                MessageBox.Show("Please select a branch.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            DataTable menuItemStatus = _databaseService.GetMenuItemStatus(branchID, fromDate, toDate);
-            dataGridViewKetQua.DataSource = menuItemStatus;
-            dataGridViewKetQua.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewKetQua.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            try
+            {
+                DataTable revenueData = _databaseService.GetRevenueStatisticsByBranch(startDate, endDate, branchID);
+                dataGridViewKetQua.DataSource = revenueData;
+                dataGridViewKetQua.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridViewKetQua.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonXuatExcel_Click(object sender, EventArgs e)
@@ -82,7 +89,7 @@ namespace winform_app.Forms.Nhân_viên
             DateTime startDate = dateTimePickerTuNgay.Value;
             DateTime endDate = dateTimePickerDenNgay.Value;
             string branchID = comboBoxChiNhanh.SelectedValue?.ToString();
-            DataTable revenueData = _databaseService.GetMenuItemStatus(branchID, startDate, endDate);
+            DataTable revenueData = _databaseService.GetRevenueStatisticsByBranch(startDate, endDate, branchID);
 
             if (revenueData != null)
             {

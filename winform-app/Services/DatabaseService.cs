@@ -62,6 +62,37 @@ namespace winform_app.Services
 
             return regions;
         }
+        public Models.Region GetRegionByBranchId(string branchID)
+        {
+            Models.Region region = null;
+
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = "SELECT REGION.RegionID, REGION.RegionName FROM REGION JOIN BRANCH ON BRANCH.RegionID = REGION.RegionID WHERE BRANCH.BranchID = @BranchID";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@BranchID", branchID);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        region = new Models.Region
+                        {
+                            RegionID = reader.GetInt32(0),
+                            RegionName = reader.GetString(1)
+                        };
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"An error occurred: {ex.Message}");
+                }
+            }
+
+            return region;
+        }
         public string GetBranchNameById(string branchID)
         {
             string branchName = string.Empty;
@@ -224,7 +255,8 @@ namespace winform_app.Services
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine($"An error occurred: {ex.Message}");
+                    Console.WriteLine($"An error occurred: {ex.Message}");
+
                 }
             }
 
@@ -255,7 +287,7 @@ namespace winform_app.Services
 
             return revenueStats;
         }
-        public DataTable GetMenuItemStatus(string branchID, DateTime fromDate, DateTime toDate)
+        public DataTable GetMenuItemStatus(string branchID, DateTime fromDate, DateTime toDate, string ItemID = null)
         {
             DataTable menuItemStatus = new DataTable();
 
@@ -266,6 +298,7 @@ namespace winform_app.Services
                 command.Parameters.AddWithValue("@BranchID", string.IsNullOrEmpty(branchID) ? (object)DBNull.Value : branchID);
                 command.Parameters.AddWithValue("@FromDate", fromDate);
                 command.Parameters.AddWithValue("@ToDate", toDate);
+                command.Parameters.AddWithValue("@ItemID", string.IsNullOrEmpty(ItemID) ? (object)DBNull.Value : ItemID);
 
                 try
                 {
@@ -274,12 +307,13 @@ namespace winform_app.Services
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error: {ex.Message}");
+                    Debug.WriteLine($"Error: {ex.Message}");
                 }
             }
 
             return menuItemStatus;
         }
+
 
         // Phương thức kiểm tra thông tin đăng nhập
         public bool CheckLogin(string loginInput, string password, out Users user)
@@ -346,7 +380,7 @@ namespace winform_app.Services
                 catch (Exception ex)
                 {
                     // Xử lý lỗi
-                    Console.WriteLine($"An error occurred: {ex.Message}");
+                    Debug.WriteLine($"An error occurred: {ex.Message}");
                 }
             }
             return false;

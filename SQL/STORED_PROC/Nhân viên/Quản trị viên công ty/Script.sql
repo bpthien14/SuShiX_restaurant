@@ -36,9 +36,10 @@ END
 GO
 
 CREATE OR ALTER PROCEDURE sp_GetMenuItemStatus
-    @BranchID VARCHAR(255) = NULL,
+    @BranchID VARCHAR(255),
     @FromDate DATE,
-    @ToDate DATE
+    @ToDate DATE,
+	@ItemID VARCHAR(255)
 AS
 BEGIN
     WITH ItemStats AS (
@@ -61,6 +62,7 @@ BEGIN
         JOIN ORDER_TABLE ot ON od.OrderID = ot.OrderID
         JOIN BRANCH b ON ot.BranchID = b.BranchID
         WHERE (@BranchID IS NULL OR ot.BranchID = @BranchID)
+		And (@ItemID IS NULL OR mi.ItemID = @ItemID)
         AND ot.OrderDate BETWEEN @FromDate AND @ToDate
         GROUP BY mi.ItemID, mi.ItemName, ot.OrderDate
     )
@@ -80,6 +82,9 @@ BEGIN
     ORDER BY RankByRevenue;
 END
 GO
+
+SELECT * 
+FROM MENU_ITEM;
 
 CREATE OR ALTER PROCEDURE sp_GetStaffStatistics
     @BranchID VARCHAR(255),
@@ -125,5 +130,3 @@ BEGIN
 END;
 
 
-
-EXEC sp_GetStaffStatistics -1, null, null;

@@ -62,15 +62,18 @@ namespace winform_app
             {
                 if (level != null)
                 {
-                    if (level.ToUpper() == "STAFF")
+                    if (level.ToUpper() == "MANAGER")
                     {
                         MessageBox.Show("Xin Chào Quản lý Chi Nhánh " + _databaseService.GetBranchNameById(staff.BranchID) + " Mr. " + staff.FullName);
-                        this.Close();
+                        Manager_MainForm nvMainForm = new Manager_MainForm(staff);
+                        nvMainForm.FormClosed += (s, args) => this.Close();
+                        nvMainForm.Show();
+                        this.Hide();
                     }
                     else if (level.ToUpper() == "ADMIN")
                     {
                         MessageBox.Show("Xin Chào Quản lý Công ty " + "Mr." + staff.FullName);
-                        NV_MainForm nvMainForm = new NV_MainForm();
+                        Admin_MainForm nvMainForm = new Admin_MainForm();
                         nvMainForm.FormClosed += (s, args) => this.Close();
                         nvMainForm.Show();
                         this.Hide();
