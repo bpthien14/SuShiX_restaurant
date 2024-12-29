@@ -195,10 +195,10 @@ namespace winform_app.Services
             using (SqlConnection connection = GetConnection())
             {
                 string query = @"
-                            SELECT MENU_ITEM.ItemID, MENU_ITEM.CategoryID, MENU_ITEM.ItemName, MENU_ITEM.CurrentPrice, MENU_ITEM.DeliveryAvailable
-                            FROM MENU_ITEM
-                            JOIN MENU_ITEM_AVAILABILITY ON MENU_ITEM.ItemID = MENU_ITEM_AVAILABILITY.ItemID
-                            WHERE MENU_ITEM_AVAILABILITY.BranchID = @BranchID AND MENU_ITEM_AVAILABILITY.IsAvailable = 1";
+                    SELECT MENU_ITEM.ItemID, MENU_ITEM.CategoryID, MENU_ITEM.ItemName, MENU_ITEM.CurrentPrice, MENU_ITEM.DeliveryAvailable
+                    FROM MENU_ITEM
+                    JOIN MENU_ITEM_AVAILABILITY ON MENU_ITEM.ItemID = MENU_ITEM_AVAILABILITY.ItemID
+                    WHERE MENU_ITEM_AVAILABILITY.BranchID = @BranchID AND MENU_ITEM_AVAILABILITY.IsAvailable = 1";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@BranchID", branchID);
@@ -220,16 +220,13 @@ namespace winform_app.Services
                         };
 
                         menuItems.Add(menuItem);
-                        MessageBox.Show($"ItemID: {menuItem.ItemID}, ItemName: {menuItem.ItemName}, CurrentPrice: {menuItem.CurrentPrice}, DeliveryAvailable: {menuItem.DeliveryAvailable}");
                     }
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine($"An error occurred: {ex.Message}");
-
                 }
             }
-
 
             return menuItems;
         }
@@ -412,6 +409,153 @@ namespace winform_app.Services
             }
 
             return dashboard;
+        }
+        public string GetCustomerIDByInfo(string customerInfo)
+        {
+            string customerID = null;
+
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = @"
+            SELECT CustomerID 
+            FROM CUSTOMER 
+            WHERE FullName = @CustomerInfo 
+               OR Email = @CustomerInfo 
+               OR UserID = (SELECT UserID FROM USERS WHERE Username = @CustomerInfo)";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@CustomerInfo", customerInfo);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        customerID = reader["CustomerID"].ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"An error occurred: {ex.Message}");
+                }
+            }
+
+            return customerID;
+        }
+
+
+        public bool BookTable(OrderTable orderTable, out int bookingID)
+        {
+            bookingID = 0;
+            using (SqlConnection connection = GetConnection())
+            {
+                using (SqlCommand command = new SqlCommand("sp_BookTable", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@CustomerID", orderTable.CustomerID);
+                    command.Parameters.AddWithValue("@BranchID", orderTable.BranchID);
+                    command.Parameters.AddWithValue("@GuestCount", orderTable.TableNumber);
+                    command.Parameters.AddWithValue("@BookingDate", orderTable.OrderDate);
+                    command.Parameters.AddWithValue("@ArrivalTime", orderTable.OrderDate.TimeOfDay);
+                    command.Parameters.AddWithValue("@Notes", orderTable.Notes);
+                    command.Parameters.AddWithValue("@GuestName", orderTable.GuestName);
+                    command.Parameters.AddWithValue("@GuestPhone", orderTable.GuestPhone);
+                    command.Parameters.AddWithValue("@Status", orderTable.OrderStatus);
+
+                    try
+                    {
+                        connection.Open();
+                        bookingID = Convert.ToInt32(command.ExecuteScalar());
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"An error occurred: {ex.Message}");
+                        return false;
+                    }
+                }
+            }
+        }
+        public Models.Branch GetBranchById(string branchID)
+        {
+            Models.Branch branch = null;
+
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = "SELECT BranchID, RegionID, BranchName, Address, BranchPhoneNumber, OpeningTime, ClosingTime, HasCarParking, HasBikeParking, DeliveryService, ManagerID FROM BRANCH WHERE BranchID = @BranchID";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@BranchID", branchID);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        branch = new Models.Branch
+                        {
+                            BranchID = reader.GetString(0),
+                            RegionID = reader.GetInt32(1),
+                            BranchName = reader.GetString(2),
+                            Address = reader.GetString(3),
+                            BranchPhoneNumber = reader.GetString(4),
+                            OpeningTime = reader.GetTimeSpan(5),
+                            ClosingTime = reader.GetTimeSpan(6),
+                            HasCarParking = reader.GetBoolean(7),
+                            HasBikeParking = reader.GetBoolean(8),
+                            DeliveryService = reader.GetBoolean(9),
+                            ManagerID = reader.GetString(10)
+                        };
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"An error occurred: {ex.Message}");
+                }
+            }
+
+            return branch;
+        }
+        public List<Category> GetCategoriesByBranch(string branchID)
+        {
+            List<Category> categories = new List<Category>();
+
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = @"
+            SELECT DISTINCT MENU_ITEM.CategoryID, MENU_CATEGORY.CategoryName
+            FROM MENU_ITEM
+            JOIN MENU_CATEGORY ON MENU_ITEM.CategoryID = MENU_CATEGORY.CategoryID
+            JOIN MENU_ITEM_AVAILABILITY ON MENU_ITEM.ItemID = MENU_ITEM_AVAILABILITY.ItemID
+            WHERE MENU_ITEM_AVAILABILITY.BranchID = @BranchID AND MENU_ITEM_AVAILABILITY.IsAvailable = 1";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@BranchID", branchID);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Category category = new Category
+                        {
+                            CategoryID = reader.GetString(0),
+                            CategoryName = reader.GetString(1)
+                        };
+
+                        categories.Add(category);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"An error occurred: {ex.Message}");
+                }
+            }
+
+            return categories;
         }
 
     }

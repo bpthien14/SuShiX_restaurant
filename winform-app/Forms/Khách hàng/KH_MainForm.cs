@@ -22,7 +22,6 @@ namespace winform_app.Forms.Khách_hàng
         private Users currentUser;
         private DatabaseService _databaseService;
         private int targetHeight = 0;
-
         public KH_MainForm(Users user)
         {
             InitializeComponent();
@@ -37,7 +36,7 @@ namespace winform_app.Forms.Khách_hàng
             ApplyRoundedCorners(buttonOrderTakeout, 10);
             ApplyRoundedCorners(buttonReserveTable, 10);
             ApplyRoundedCorners(buttonOrderHistory, 10);
-            ApplyRoundedCorners(buttonPersonalInfo, 10); 
+            ApplyRoundedCorners(buttonPersonalInfo, 10);
             ApplyRoundedCorners(buttonFindBranch, 10);
             ApplyRoundedCorners(buttonLogout, 10);
 
@@ -103,6 +102,24 @@ namespace winform_app.Forms.Khách_hàng
             labelPoints.Text = $"Điểm tích lũy: {dashboard.AccumulatedPoints} điểm";
             labelPendingReservations.Text = $"Đơn đặt bàn đang chờ: {dashboard.PendingBookings}";
             labelOngoingDeliveries.Text = $"Đơn hàng đang giao: {dashboard.ProcessingOrders}";
+        }
+
+        private void buttonReserveTable_Click(object sender, EventArgs e)
+        {
+            OrderTableForm orderTableForm = new OrderTableForm(currentUser);
+            orderTableForm.ShowDialog();
+        }
+
+        private void buttonFindBranch_Click(object sender, EventArgs e)
+        {
+            FindBranchForm orderTableForm = new FindBranchForm(currentUser);
+            orderTableForm.ShowDialog();
+        }
+
+        private void buttonOrderTakeout_Click(object sender, EventArgs e)
+        {
+            OrderDelivery orderDelivery = new OrderDelivery(currentUser);
+            orderDelivery.ShowDialog();
         }
     }
 }

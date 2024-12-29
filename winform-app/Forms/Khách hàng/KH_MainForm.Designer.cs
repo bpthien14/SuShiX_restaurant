@@ -120,13 +120,14 @@
             buttonFindBranch.FlatStyle = FlatStyle.Flat;
             buttonFindBranch.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonFindBranch.ForeColor = Color.White;
-            buttonFindBranch.Location = new Point(3, 43);
+            buttonFindBranch.Location = new Point(3, 38);
             buttonFindBranch.Margin = new Padding(3, 0, 3, 0);
             buttonFindBranch.Name = "buttonFindBranch";
             buttonFindBranch.Size = new Size(125, 33);
             buttonFindBranch.TabIndex = 6;
             buttonFindBranch.Text = "Tìm chi nhánh";
             buttonFindBranch.UseVisualStyleBackColor = false;
+            buttonFindBranch.Click += buttonFindBranch_Click;
             // 
             // buttonReserveTable
             // 
@@ -144,6 +145,7 @@
             buttonReserveTable.TabIndex = 3;
             buttonReserveTable.Text = "Đặt bàn";
             buttonReserveTable.UseVisualStyleBackColor = false;
+            buttonReserveTable.Click += buttonReserveTable_Click;
             // 
             // buttonOrderTakeout
             // 
@@ -154,13 +156,14 @@
             buttonOrderTakeout.FlatStyle = FlatStyle.Flat;
             buttonOrderTakeout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonOrderTakeout.ForeColor = Color.White;
-            buttonOrderTakeout.Location = new Point(3, 86);
+            buttonOrderTakeout.Location = new Point(3, 76);
             buttonOrderTakeout.Margin = new Padding(3, 0, 3, 0);
             buttonOrderTakeout.Name = "buttonOrderTakeout";
             buttonOrderTakeout.Size = new Size(125, 33);
             buttonOrderTakeout.TabIndex = 5;
             buttonOrderTakeout.Text = "Đặt giao hàng";
             buttonOrderTakeout.UseVisualStyleBackColor = false;
+            buttonOrderTakeout.Click += buttonOrderTakeout_Click;
             // 
             // buttonLogout
             // 
@@ -171,7 +174,7 @@
             buttonLogout.FlatStyle = FlatStyle.Flat;
             buttonLogout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLogout.ForeColor = Color.White;
-            buttonLogout.Location = new Point(3, 176);
+            buttonLogout.Location = new Point(3, 156);
             buttonLogout.Margin = new Padding(3, 4, 3, 4);
             buttonLogout.Name = "buttonLogout";
             buttonLogout.Size = new Size(125, 35);
@@ -189,7 +192,7 @@
             buttonViewMenu.FlatStyle = FlatStyle.Flat;
             buttonViewMenu.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonViewMenu.ForeColor = Color.White;
-            buttonViewMenu.Location = new Point(3, 129);
+            buttonViewMenu.Location = new Point(3, 114);
             buttonViewMenu.Margin = new Padding(3, 0, 3, 0);
             buttonViewMenu.Name = "buttonViewMenu";
             buttonViewMenu.Size = new Size(125, 35);
@@ -280,7 +283,7 @@
             buttonPersonalInfo.Name = "buttonPersonalInfo";
             buttonPersonalInfo.Size = new Size(161, 40);
             buttonPersonalInfo.TabIndex = 7;
-            buttonPersonalInfo.Text = "Thông tin cá nhân";
+            buttonPersonalInfo.Text = "Cập nhật thông tin";
             buttonPersonalInfo.UseVisualStyleBackColor = false;
             // 
             // labelMembership
