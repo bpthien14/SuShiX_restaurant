@@ -14,11 +14,13 @@ namespace winform_app.Forms.Khách_hàng
         private List<MenuItem> _menuItems;
         private List<OrderItem> _orderItems;
         private string _customerID; // Thêm biến này để lưu CustomerID
+        private Form _mainForm;
 
-        public OrderDelivery(Users user)
+        public OrderDelivery(Users user, Form mainForm)
         {
             InitializeComponent();
             _user = user;
+            _mainForm = mainForm;
             _databaseService = new DatabaseService();
             _menuItems = new List<MenuItem>();
             _orderItems = new List<OrderItem>();
@@ -162,6 +164,7 @@ namespace winform_app.Forms.Khách_hàng
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            _mainForm.Show();
             this.Close();
         }
 
@@ -202,8 +205,6 @@ namespace winform_app.Forms.Khách_hàng
             Checkout checkoutForm = new Checkout(order, _orderItems, booking);
             checkoutForm.ShowDialog();
         }
-
-
 
         private void FillCustomerDetails()
         {

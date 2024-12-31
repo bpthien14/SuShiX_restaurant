@@ -708,6 +708,43 @@ namespace winform_app.Services
                 }
             }
         }
+        public bool UpdateCustomerInfo(Customer customer)
+        {
+            using (var connection = GetConnection())
+            {
+                string query = @"
+            UPDATE CUSTOMER
+            SET FullName = @FullName,
+                PhoneNumber = @PhoneNumber,
+                Email = @Email,
+                IDNumber = @IDNumber,
+                Gender = @Gender
+            WHERE CustomerID = @CustomerID";
+
+                using (var command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@FullName", customer.FullName);
+                    command.Parameters.AddWithValue("@PhoneNumber", customer.PhoneNumber);
+                    command.Parameters.AddWithValue("@Email", customer.Email);
+                    command.Parameters.AddWithValue("@IDNumber", customer.IDNumber);
+                    command.Parameters.AddWithValue("@Gender", customer.Gender);
+                    command.Parameters.AddWithValue("@CustomerID", customer.CustomerID);
+
+                    try
+                    {
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"An error occurred: {ex.Message}");
+                        return false;
+                    }
+                }
+            }
+        }
+
 
     }
 }

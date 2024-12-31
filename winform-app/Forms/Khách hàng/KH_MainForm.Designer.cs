@@ -35,8 +35,8 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             buttonFindBranch = new Button();
             buttonOrderTakeout = new Button();
-            buttonLogout = new Button();
             buttonReserveTable = new Button();
+            buttonLogout = new Button();
             labelTitle = new Label();
             labelOngoingDeliveries = new Label();
             labelPendingReservations = new Label();
@@ -45,6 +45,7 @@
             labelMembership = new Label();
             labelGreeting = new Label();
             panelUserInterface = new Panel();
+            UpdatePersonalInfo = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -103,7 +104,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
-            tableLayoutPanel1.Size = new Size(137, 218);
+            tableLayoutPanel1.Size = new Size(137, 150);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // buttonFindBranch
@@ -142,24 +143,6 @@
             buttonOrderTakeout.UseVisualStyleBackColor = false;
             buttonOrderTakeout.Click += buttonOrderTakeout_Click;
             // 
-            // buttonLogout
-            // 
-            buttonLogout.BackColor = Color.IndianRed;
-            buttonLogout.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
-            buttonLogout.FlatAppearance.BorderSize = 0;
-            buttonLogout.FlatAppearance.MouseOverBackColor = Color.Brown;
-            buttonLogout.FlatStyle = FlatStyle.Flat;
-            buttonLogout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonLogout.ForeColor = Color.White;
-            buttonLogout.Location = new Point(3, 118);
-            buttonLogout.Margin = new Padding(3, 4, 3, 4);
-            buttonLogout.Name = "buttonLogout";
-            buttonLogout.Size = new Size(125, 35);
-            buttonLogout.TabIndex = 2;
-            buttonLogout.Text = "Đăng xuất";
-            buttonLogout.UseVisualStyleBackColor = false;
-            buttonLogout.Click += buttonLogout_Click;
-            // 
             // buttonReserveTable
             // 
             buttonReserveTable.BackColor = Color.IndianRed;
@@ -178,6 +161,24 @@
             buttonReserveTable.UseVisualStyleBackColor = false;
             buttonReserveTable.Click += buttonReserveTable_Click;
             // 
+            // buttonLogout
+            // 
+            buttonLogout.BackColor = Color.IndianRed;
+            buttonLogout.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
+            buttonLogout.FlatAppearance.BorderSize = 0;
+            buttonLogout.FlatAppearance.MouseOverBackColor = Color.Brown;
+            buttonLogout.FlatStyle = FlatStyle.Flat;
+            buttonLogout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonLogout.ForeColor = Color.White;
+            buttonLogout.Location = new Point(3, 118);
+            buttonLogout.Margin = new Padding(3, 4, 3, 4);
+            buttonLogout.Name = "buttonLogout";
+            buttonLogout.Size = new Size(125, 30);
+            buttonLogout.TabIndex = 2;
+            buttonLogout.Text = "Đăng xuất";
+            buttonLogout.UseVisualStyleBackColor = false;
+            buttonLogout.Click += buttonLogout_Click;
+            // 
             // labelTitle
             // 
             labelTitle.AutoSize = true;
@@ -194,7 +195,7 @@
             // 
             labelOngoingDeliveries.AutoSize = true;
             labelOngoingDeliveries.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelOngoingDeliveries.Location = new Point(29, 245);
+            labelOngoingDeliveries.Location = new Point(38, 302);
             labelOngoingDeliveries.Name = "labelOngoingDeliveries";
             labelOngoingDeliveries.Size = new Size(228, 28);
             labelOngoingDeliveries.TabIndex = 12;
@@ -204,7 +205,7 @@
             // 
             labelPendingReservations.AutoSize = true;
             labelPendingReservations.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelPendingReservations.Location = new Point(29, 190);
+            labelPendingReservations.Location = new Point(29, 260);
             labelPendingReservations.Name = "labelPendingReservations";
             labelPendingReservations.Size = new Size(248, 28);
             labelPendingReservations.TabIndex = 11;
@@ -214,7 +215,7 @@
             // 
             labelCurrentOrders.AutoSize = true;
             labelCurrentOrders.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelCurrentOrders.Location = new Point(20, 146);
+            labelCurrentOrders.Location = new Point(17, 221);
             labelCurrentOrders.Name = "labelCurrentOrders";
             labelCurrentOrders.Size = new Size(270, 28);
             labelCurrentOrders.TabIndex = 10;
@@ -254,6 +255,7 @@
             // 
             // panelUserInterface
             // 
+            panelUserInterface.Controls.Add(UpdatePersonalInfo);
             panelUserInterface.Controls.Add(labelMembership);
             panelUserInterface.Controls.Add(labelGreeting);
             panelUserInterface.Controls.Add(labelCurrentOrders);
@@ -264,6 +266,24 @@
             panelUserInterface.Name = "panelUserInterface";
             panelUserInterface.Size = new Size(301, 347);
             panelUserInterface.TabIndex = 18;
+            // 
+            // UpdatePersonalInfo
+            // 
+            UpdatePersonalInfo.BackColor = Color.IndianRed;
+            UpdatePersonalInfo.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
+            UpdatePersonalInfo.FlatAppearance.BorderSize = 0;
+            UpdatePersonalInfo.FlatAppearance.MouseOverBackColor = Color.Brown;
+            UpdatePersonalInfo.FlatStyle = FlatStyle.Flat;
+            UpdatePersonalInfo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            UpdatePersonalInfo.ForeColor = Color.White;
+            UpdatePersonalInfo.Location = new Point(74, 144);
+            UpdatePersonalInfo.Margin = new Padding(3, 4, 3, 4);
+            UpdatePersonalInfo.Name = "UpdatePersonalInfo";
+            UpdatePersonalInfo.Size = new Size(150, 39);
+            UpdatePersonalInfo.TabIndex = 7;
+            UpdatePersonalInfo.Text = "Cập nhật thông tin";
+            UpdatePersonalInfo.UseVisualStyleBackColor = false;
+            UpdatePersonalInfo.Click += UpdatePersonalInfo_Click;
             // 
             // KH_MainForm
             // 
@@ -313,5 +333,6 @@
         private Label labelMembership;
         private Label labelGreeting;
         private Panel panelUserInterface;
+        private Button UpdatePersonalInfo;
     }
 }

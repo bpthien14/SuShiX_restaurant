@@ -120,9 +120,8 @@ namespace winform_app.Forms.Khách_hàng
 
         private void buttonOrderTakeout_Click(object sender, EventArgs e)
         {
-            OrderDelivery orderDelivery = new OrderDelivery(currentUser);
+            OrderDelivery orderDelivery = new OrderDelivery(currentUser, this);
             orderDelivery.ShowDialog();
-            this.Close();
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -132,5 +131,13 @@ namespace winform_app.Forms.Khách_hàng
             this.Hide();
 
         }
+
+        private void UpdatePersonalInfo_Click(object sender, EventArgs e)
+        {
+
+            UpdatePersonalInfo updatePersonalInfoForm = new UpdatePersonalInfo(currentUser);
+            updatePersonalInfoForm.ShowDialog();
+        }
+
     }
 }
