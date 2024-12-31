@@ -453,9 +453,7 @@ namespace winform_app.Services
                 string query = @"
             SELECT CustomerID 
             FROM CUSTOMER 
-            WHERE FullName = @CustomerInfo 
-               OR Email = @CustomerInfo 
-               OR UserID = (SELECT UserID FROM USERS WHERE Username = @CustomerInfo)";
+            WHERE FullName = @CustomerInfo ";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@CustomerInfo", customerInfo);
 
@@ -590,6 +588,125 @@ namespace winform_app.Services
             }
 
             return categories;
+        }
+        public bool SaveOrderAndBooking(OrderTable order, List<OrderItem> orderItems, OnlineBooking booking, double discount, double finalAmount)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        var command = new SqlCommand("sp_SaveOrderAndBooking", connection, transaction)
+                        {
+                            CommandType = CommandType.StoredProcedure
+                        };
+
+                        // Booking parameters
+                        command.Parameters.AddWithValue("@CustomerID", booking.CustomerID);
+                        command.Parameters.AddWithValue("@BranchID", booking.BranchID);
+                        command.Parameters.AddWithValue("@GuestCount", booking.GuestCount);
+                        command.Parameters.AddWithValue("@BookingDate", booking.BookingDate);
+                        command.Parameters.AddWithValue("@ArrivalTime", booking.BookingDate.TimeOfDay);
+                        command.Parameters.AddWithValue("@Notes", booking.Notes ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@GuestName", booking.GuestName);
+                        command.Parameters.AddWithValue("@GuestPhone", booking.GuestPhone);
+                        command.Parameters.AddWithValue("@DeliveryType", booking.DeliveryType);
+                        command.Parameters.AddWithValue("@DeliveryAddress", booking.DeliveryAddress ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@DeliveryFee", booking.DeliveryFee);
+                        command.Parameters.AddWithValue("@Status", booking.Status);
+
+                        // Order parameters
+                        command.Parameters.AddWithValue("@OrderID", order.OrderID);
+                        command.Parameters.AddWithValue("@OrderDate", order.OrderDate);
+                        command.Parameters.AddWithValue("@StaffID", order.StaffID ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@TableNumber", order.TableNumber);
+
+                        // Invoice parameters
+                        command.Parameters.AddWithValue("@Discount", discount);
+                        command.Parameters.AddWithValue("@FinalAmount", finalAmount);
+
+                        // OrderItems as structured table parameter
+                        var orderItemsTable = new DataTable();
+                        orderItemsTable.Columns.Add("ItemID", typeof(string));
+                        orderItemsTable.Columns.Add("Quantity", typeof(int));
+                        foreach (var item in orderItems)
+                        {
+                            orderItemsTable.Rows.Add(item.ItemID, item.Quantity);
+                        }
+                        var orderItemsParam = new SqlParameter("@OrderItems", SqlDbType.Structured)
+                        {
+                            TypeName = "dbo.OrderItemTableType",
+                            Value = orderItemsTable
+                        };
+                        command.Parameters.Add(orderItemsParam);
+
+                        // Execute the command
+                        int bookingID = Convert.ToInt32(command.ExecuteScalar());
+
+                        transaction.Commit();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log the exception
+                        Console.WriteLine($"An error occurred: {ex.Message}");
+                        transaction.Rollback();
+                        return false;
+                    }
+                }
+            }
+        }
+        public Customer GetCustomerByUserID(string userID)
+        {
+            Customer customer = null;
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new SqlCommand("SELECT * FROM CUSTOMER WHERE UserID = @UserID", connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", userID);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            customer = new Customer
+                            {
+                                CustomerID = reader["CustomerID"].ToString(),
+                                FullName = reader["FullName"].ToString(),
+                                PhoneNumber = reader["PhoneNumber"].ToString(),
+                                Email = reader["Email"].ToString(),
+                                IDNumber = reader["IDNumber"].ToString(),
+                                Gender = reader["Gender"].ToString(),
+                                UserID = reader["UserID"].ToString()
+                            };
+                        }
+                    }
+                }
+            }
+            return customer;
+        }
+        public string GetNextOrderID()
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new SqlCommand("SELECT TOP 1 OrderID FROM ORDER_TABLE ORDER BY OrderID DESC", connection))
+                {
+                    var result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        string lastOrderID = result.ToString();
+                        int numericPart = int.Parse(lastOrderID.Substring(3));
+                        return $"ORD{(numericPart + 1).ToString("D5")}";
+                    }
+                    else
+                    {
+                        return "ORD00001"; // Default starting OrderID
+                    }
+                }
+            }
         }
 
     }

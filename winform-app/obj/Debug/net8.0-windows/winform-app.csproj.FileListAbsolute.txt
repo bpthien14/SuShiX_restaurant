@@ -224,3 +224,4 @@ C:\Users\thien\Workspace\CSDLNC1\SuShiX_restaurant\winform-app\obj\Debug\net8.0-
 C:\Users\thien\Workspace\CSDLNC1\SuShiX_restaurant\winform-app\obj\Debug\net8.0-windows\winform-app.pdb
 C:\Users\thien\Workspace\CSDLNC1\SuShiX_restaurant\winform-app\obj\Debug\net8.0-windows\winform-app.genruntimeconfig.cache
 C:\Users\thien\Workspace\CSDLNC1\SuShiX_restaurant\winform-app\obj\Debug\net8.0-windows\ref\winform-app.dll
+C:\Users\thien\Workspace\CSDLNC1\SuShiX_restaurant\winform-app\obj\Debug\net8.0-windows\winform_app.Forms.Khách_hàng.Checkout.resources
