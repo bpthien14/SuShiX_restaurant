@@ -1,4 +1,4 @@
-USE SuShiX 
+USE SUSHI_X 
 GO;
 
 CREATE TABLE REGION (
@@ -8,7 +8,7 @@ CREATE TABLE REGION (
 
 CREATE TABLE BRANCH (
     BranchID VARCHAR(255) PRIMARY KEY,
-    RegionID VARCHAR(255),
+    RegionID INT,
     BranchName VARCHAR(255),
     Address VARCHAR(255),
     BranchPhoneNumber VARCHAR(20),
@@ -84,7 +84,7 @@ CREATE TABLE MEMBERSHIP_CARD (
 
 CREATE TABLE CARD_HISTORY (
     HistoryID INT PRIMARY KEY,
-    CardID INT,
+    CardID VARCHAR(255),
     StatusChangeDate DATE,
     PreviousCardType VARCHAR(50),
     NewCardType VARCHAR(50),

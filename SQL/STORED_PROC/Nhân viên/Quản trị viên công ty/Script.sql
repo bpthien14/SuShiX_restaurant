@@ -83,9 +83,6 @@ BEGIN
 END
 GO
 
-SELECT * 
-FROM MENU_ITEM;
-
 CREATE OR ALTER PROCEDURE sp_GetStaffStatistics
     @BranchID VARCHAR(255),
     @DepartmentID VARCHAR(255) = NULL

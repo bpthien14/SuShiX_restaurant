@@ -41,6 +41,7 @@
             labelChiNhanh = new Label();
             label1 = new Label();
             button1 = new Button();
+            buttonSave = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewKetQua).BeginInit();
             SuspendLayout();
@@ -50,10 +51,9 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.IndianRed;
-            label5.Location = new Point(29, 75);
-            label5.Margin = new Padding(5, 0, 5, 0);
+            label5.Location = new Point(17, 38);
             label5.Name = "label5";
-            label5.Size = new Size(105, 30);
+            label5.Size = new Size(56, 15);
             label5.TabIndex = 50;
             label5.Text = "Phân loại";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -61,10 +61,9 @@
             // comboBoxCategory
             // 
             comboBoxCategory.FormattingEnabled = true;
-            comboBoxCategory.Location = new Point(146, 72);
-            comboBoxCategory.Margin = new Padding(5, 6, 5, 6);
+            comboBoxCategory.Location = new Point(85, 36);
             comboBoxCategory.Name = "comboBoxCategory";
-            comboBoxCategory.Size = new Size(375, 38);
+            comboBoxCategory.Size = new Size(234, 23);
             comboBoxCategory.TabIndex = 49;
             comboBoxCategory.Text = "Phân loại";
             comboBoxCategory.SelectedIndexChanged += comboBoxCategory_SelectedIndexChanged;
@@ -74,10 +73,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.IndianRed;
-            label4.Location = new Point(263, 25);
-            label4.Margin = new Padding(5, 0, 5, 0);
+            label4.Location = new Point(170, 9);
             label4.Name = "label4";
-            label4.Size = new Size(118, 30);
+            label4.Size = new Size(63, 15);
             label4.TabIndex = 48;
             label4.Text = "Chi Nhánh";
             label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -87,10 +85,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.IndianRed;
-            label3.Location = new Point(29, 25);
-            label3.Margin = new Padding(5, 0, 5, 0);
+            label3.Location = new Point(17, 12);
             label3.Name = "label3";
-            label3.Size = new Size(94, 30);
+            label3.Size = new Size(53, 15);
             label3.TabIndex = 47;
             label3.Text = "Khu vực";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -98,10 +95,9 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(1002, 45);
-            pictureBox3.Margin = new Padding(5, 6, 5, 6);
+            pictureBox3.Location = new Point(584, 22);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(103, 110);
+            pictureBox3.Size = new Size(60, 55);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 44;
             pictureBox3.TabStop = false;
@@ -111,10 +107,9 @@
             labelTitle.AutoSize = true;
             labelTitle.Font = new Font("Viner Hand ITC", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             labelTitle.ForeColor = Color.Maroon;
-            labelTitle.Location = new Point(1033, 161);
-            labelTitle.Margin = new Padding(5, 0, 5, 0);
+            labelTitle.Location = new Point(603, 80);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(73, 468);
+            labelTitle.Size = new Size(42, 264);
             labelTitle.TabIndex = 43;
             labelTitle.Text = "S\r\nU\r\nS\r\nH\r\nI\r\nX\r\n";
             labelTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -122,11 +117,10 @@
             // dataGridViewKetQua
             // 
             dataGridViewKetQua.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewKetQua.Location = new Point(29, 161);
-            dataGridViewKetQua.Margin = new Padding(5, 6, 5, 6);
+            dataGridViewKetQua.Location = new Point(17, 80);
             dataGridViewKetQua.Name = "dataGridViewKetQua";
             dataGridViewKetQua.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewKetQua.Size = new Size(971, 395);
+            dataGridViewKetQua.Size = new Size(566, 198);
             dataGridViewKetQua.TabIndex = 42;
             // 
             // buttonXemThongKe
@@ -137,23 +131,22 @@
             buttonXemThongKe.FlatAppearance.MouseDownBackColor = Color.IndianRed;
             buttonXemThongKe.FlatAppearance.MouseOverBackColor = Color.IndianRed;
             buttonXemThongKe.ForeColor = Color.White;
-            buttonXemThongKe.Location = new Point(29, 568);
-            buttonXemThongKe.Margin = new Padding(5, 6, 5, 6);
+            buttonXemThongKe.Location = new Point(17, 284);
             buttonXemThongKe.Name = "buttonXemThongKe";
-            buttonXemThongKe.Size = new Size(171, 46);
+            buttonXemThongKe.Size = new Size(100, 23);
             buttonXemThongKe.TabIndex = 40;
             buttonXemThongKe.Text = "Thêm món ăn";
             buttonXemThongKe.UseVisualStyleBackColor = false;
+            buttonXemThongKe.Click += buttonXemThongKe_Click;
             // 
             // labelKhuVuc
             // 
             labelKhuVuc.AutoSize = true;
             labelKhuVuc.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelKhuVuc.ForeColor = Color.IndianRed;
-            labelKhuVuc.Location = new Point(146, 25);
-            labelKhuVuc.Margin = new Padding(5, 0, 5, 0);
+            labelKhuVuc.Location = new Point(85, 12);
             labelKhuVuc.Name = "labelKhuVuc";
-            labelKhuVuc.Size = new Size(90, 30);
+            labelKhuVuc.Size = new Size(50, 15);
             labelKhuVuc.TabIndex = 54;
             labelKhuVuc.Text = "Khu vực";
             labelKhuVuc.TextAlign = ContentAlignment.MiddleCenter;
@@ -163,10 +156,9 @@
             labelChiNhanh.AutoSize = true;
             labelChiNhanh.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelChiNhanh.ForeColor = Color.IndianRed;
-            labelChiNhanh.Location = new Point(409, 25);
-            labelChiNhanh.Margin = new Padding(5, 0, 5, 0);
+            labelChiNhanh.Location = new Point(256, 9);
             labelChiNhanh.Name = "labelChiNhanh";
-            labelChiNhanh.Size = new Size(112, 30);
+            labelChiNhanh.Size = new Size(63, 15);
             labelChiNhanh.TabIndex = 55;
             labelChiNhanh.Text = "Chi Nhánh";
             labelChiNhanh.TextAlign = ContentAlignment.MiddleCenter;
@@ -176,10 +168,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.IndianRed;
-            label1.Location = new Point(29, 125);
-            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Location = new Point(17, 62);
             label1.Name = "label1";
-            label1.Size = new Size(195, 30);
+            label1.Size = new Size(107, 15);
             label1.TabIndex = 56;
             label1.Text = "Danh sách món ăn";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -192,20 +183,36 @@
             button1.FlatAppearance.MouseDownBackColor = Color.IndianRed;
             button1.FlatAppearance.MouseOverBackColor = Color.IndianRed;
             button1.ForeColor = Color.White;
-            button1.Location = new Point(829, 568);
-            button1.Margin = new Padding(5, 6, 5, 6);
+            button1.Location = new Point(484, 284);
             button1.Name = "button1";
-            button1.Size = new Size(171, 46);
+            button1.Size = new Size(100, 23);
             button1.TabIndex = 57;
             button1.Text = "Xuất Excel";
             button1.UseVisualStyleBackColor = false;
             // 
+            // buttonSave
+            // 
+            buttonSave.BackColor = Color.RosyBrown;
+            buttonSave.FlatAppearance.BorderColor = Color.RosyBrown;
+            buttonSave.FlatAppearance.BorderSize = 2;
+            buttonSave.FlatAppearance.MouseDownBackColor = Color.IndianRed;
+            buttonSave.FlatAppearance.MouseOverBackColor = Color.IndianRed;
+            buttonSave.ForeColor = Color.White;
+            buttonSave.Location = new Point(378, 284);
+            buttonSave.Name = "buttonSave";
+            buttonSave.Size = new Size(100, 23);
+            buttonSave.TabIndex = 58;
+            buttonSave.Text = "Lưu ";
+            buttonSave.UseVisualStyleBackColor = false;
+            buttonSave.Click += buttonSave_Click;
+            // 
             // Manager_MenuItemsForm
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1135, 639);
+            ClientSize = new Size(662, 320);
+            Controls.Add(buttonSave);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(labelChiNhanh);
@@ -218,6 +225,7 @@
             Controls.Add(labelTitle);
             Controls.Add(dataGridViewKetQua);
             Controls.Add(buttonXemThongKe);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Manager_MenuItemsForm";
             Text = "Thống kê doanh thu";
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -239,5 +247,6 @@
         private Label labelChiNhanh;
         private Label label1;
         private Button button1;
+        private Button buttonSave;
     }
 }
