@@ -31,12 +31,11 @@ namespace winform_app.Forms.Khách_hàng
         }
         private void MainForm_Load_KH(object? sender, EventArgs e)
         {
-            ApplyRoundedCorners(buttonViewMenu, 10);
-            ApplyRoundedCorners(buttonViewMenu, 10);
+            // ApplyRoundedCorners(buttonViewMenu, 10);
             ApplyRoundedCorners(buttonOrderTakeout, 10);
             ApplyRoundedCorners(buttonReserveTable, 10);
-            ApplyRoundedCorners(buttonOrderHistory, 10);
-            ApplyRoundedCorners(buttonPersonalInfo, 10);
+            //ApplyRoundedCorners(buttonOrderHistory, 10);
+            //ApplyRoundedCorners(buttonPersonalInfo, 10);
             ApplyRoundedCorners(buttonFindBranch, 10);
             ApplyRoundedCorners(buttonLogout, 10);
 
@@ -108,18 +107,30 @@ namespace winform_app.Forms.Khách_hàng
         {
             OrderTableForm orderTableForm = new OrderTableForm(currentUser);
             orderTableForm.ShowDialog();
+            this.Close();
         }
 
         private void buttonFindBranch_Click(object sender, EventArgs e)
         {
             FindBranchForm orderTableForm = new FindBranchForm(currentUser);
             orderTableForm.ShowDialog();
+            this.Close();
+
         }
 
         private void buttonOrderTakeout_Click(object sender, EventArgs e)
         {
             OrderDelivery orderDelivery = new OrderDelivery(currentUser);
             orderDelivery.ShowDialog();
+            this.Close();
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+            this.Hide();
+
         }
     }
 }

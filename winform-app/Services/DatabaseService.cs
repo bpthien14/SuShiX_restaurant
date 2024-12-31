@@ -426,7 +426,7 @@ namespace winform_app.Services
 
                                 if (reader.NextResult() && reader.Read())
                                 {
-                                    dashboard.ProcessingOrders = Convert.ToInt32(reader["ProcessingOrders"]);
+                                    dashboard.ProcessingOrders = Convert.ToInt32(reader["PendingOrderCount"]);
                                 }
                             }
                             else

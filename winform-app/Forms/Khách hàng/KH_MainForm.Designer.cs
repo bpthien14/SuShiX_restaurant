@@ -34,17 +34,14 @@
             panel1 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             buttonFindBranch = new Button();
-            buttonReserveTable = new Button();
             buttonOrderTakeout = new Button();
             buttonLogout = new Button();
-            buttonViewMenu = new Button();
+            buttonReserveTable = new Button();
             labelTitle = new Label();
             labelOngoingDeliveries = new Label();
             labelPendingReservations = new Label();
             labelCurrentOrders = new Label();
             labelPoints = new Label();
-            buttonOrderHistory = new Button();
-            buttonPersonalInfo = new Button();
             labelMembership = new Label();
             labelGreeting = new Label();
             panelUserInterface = new Panel();
@@ -84,7 +81,7 @@
             panel1.Location = new Point(595, 51);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(137, 218);
+            panel1.Size = new Size(137, 150);
             panel1.TabIndex = 14;
             panel1.Visible = false;
             // 
@@ -92,21 +89,19 @@
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(buttonFindBranch, 0, 1);
-            tableLayoutPanel1.Controls.Add(buttonReserveTable, 0, 0);
+            tableLayoutPanel1.Controls.Add(buttonFindBranch, 0, 0);
             tableLayoutPanel1.Controls.Add(buttonOrderTakeout, 0, 2);
-            tableLayoutPanel1.Controls.Add(buttonLogout, 0, 5);
-            tableLayoutPanel1.Controls.Add(buttonViewMenu, 0, 4);
+            tableLayoutPanel1.Controls.Add(buttonReserveTable, 0, 1);
+            tableLayoutPanel1.Controls.Add(buttonLogout, 0, 4);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 6;
+            tableLayoutPanel1.RowCount = 5;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
             tableLayoutPanel1.Size = new Size(137, 218);
             tableLayoutPanel1.TabIndex = 0;
@@ -120,7 +115,7 @@
             buttonFindBranch.FlatStyle = FlatStyle.Flat;
             buttonFindBranch.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonFindBranch.ForeColor = Color.White;
-            buttonFindBranch.Location = new Point(3, 38);
+            buttonFindBranch.Location = new Point(3, 0);
             buttonFindBranch.Margin = new Padding(3, 0, 3, 0);
             buttonFindBranch.Name = "buttonFindBranch";
             buttonFindBranch.Size = new Size(125, 33);
@@ -128,24 +123,6 @@
             buttonFindBranch.Text = "Tìm chi nhánh";
             buttonFindBranch.UseVisualStyleBackColor = false;
             buttonFindBranch.Click += buttonFindBranch_Click;
-            // 
-            // buttonReserveTable
-            // 
-            buttonReserveTable.BackColor = Color.IndianRed;
-            buttonReserveTable.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
-            buttonReserveTable.FlatAppearance.BorderSize = 0;
-            buttonReserveTable.FlatAppearance.MouseOverBackColor = Color.Brown;
-            buttonReserveTable.FlatStyle = FlatStyle.Flat;
-            buttonReserveTable.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonReserveTable.ForeColor = Color.White;
-            buttonReserveTable.Location = new Point(3, 0);
-            buttonReserveTable.Margin = new Padding(3, 0, 3, 0);
-            buttonReserveTable.Name = "buttonReserveTable";
-            buttonReserveTable.Size = new Size(125, 33);
-            buttonReserveTable.TabIndex = 3;
-            buttonReserveTable.Text = "Đặt bàn";
-            buttonReserveTable.UseVisualStyleBackColor = false;
-            buttonReserveTable.Click += buttonReserveTable_Click;
             // 
             // buttonOrderTakeout
             // 
@@ -174,31 +151,32 @@
             buttonLogout.FlatStyle = FlatStyle.Flat;
             buttonLogout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLogout.ForeColor = Color.White;
-            buttonLogout.Location = new Point(3, 156);
+            buttonLogout.Location = new Point(3, 118);
             buttonLogout.Margin = new Padding(3, 4, 3, 4);
             buttonLogout.Name = "buttonLogout";
             buttonLogout.Size = new Size(125, 35);
             buttonLogout.TabIndex = 2;
             buttonLogout.Text = "Đăng xuất";
             buttonLogout.UseVisualStyleBackColor = false;
-            buttonLogout.Visible = false;
+            buttonLogout.Click += buttonLogout_Click;
             // 
-            // buttonViewMenu
+            // buttonReserveTable
             // 
-            buttonViewMenu.BackColor = Color.IndianRed;
-            buttonViewMenu.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
-            buttonViewMenu.FlatAppearance.BorderSize = 0;
-            buttonViewMenu.FlatAppearance.MouseOverBackColor = Color.Brown;
-            buttonViewMenu.FlatStyle = FlatStyle.Flat;
-            buttonViewMenu.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonViewMenu.ForeColor = Color.White;
-            buttonViewMenu.Location = new Point(3, 114);
-            buttonViewMenu.Margin = new Padding(3, 0, 3, 0);
-            buttonViewMenu.Name = "buttonViewMenu";
-            buttonViewMenu.Size = new Size(125, 35);
-            buttonViewMenu.TabIndex = 4;
-            buttonViewMenu.Text = "Xem Menu";
-            buttonViewMenu.UseVisualStyleBackColor = false;
+            buttonReserveTable.BackColor = Color.IndianRed;
+            buttonReserveTable.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
+            buttonReserveTable.FlatAppearance.BorderSize = 0;
+            buttonReserveTable.FlatAppearance.MouseOverBackColor = Color.Brown;
+            buttonReserveTable.FlatStyle = FlatStyle.Flat;
+            buttonReserveTable.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonReserveTable.ForeColor = Color.White;
+            buttonReserveTable.Location = new Point(3, 38);
+            buttonReserveTable.Margin = new Padding(3, 0, 3, 0);
+            buttonReserveTable.Name = "buttonReserveTable";
+            buttonReserveTable.Size = new Size(125, 33);
+            buttonReserveTable.TabIndex = 3;
+            buttonReserveTable.Text = "Đặt bàn";
+            buttonReserveTable.UseVisualStyleBackColor = false;
+            buttonReserveTable.Click += buttonReserveTable_Click;
             // 
             // labelTitle
             // 
@@ -216,7 +194,7 @@
             // 
             labelOngoingDeliveries.AutoSize = true;
             labelOngoingDeliveries.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelOngoingDeliveries.Location = new Point(29, 300);
+            labelOngoingDeliveries.Location = new Point(29, 245);
             labelOngoingDeliveries.Name = "labelOngoingDeliveries";
             labelOngoingDeliveries.Size = new Size(228, 28);
             labelOngoingDeliveries.TabIndex = 12;
@@ -226,7 +204,7 @@
             // 
             labelPendingReservations.AutoSize = true;
             labelPendingReservations.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelPendingReservations.Location = new Point(29, 267);
+            labelPendingReservations.Location = new Point(29, 190);
             labelPendingReservations.Name = "labelPendingReservations";
             labelPendingReservations.Size = new Size(248, 28);
             labelPendingReservations.TabIndex = 11;
@@ -236,7 +214,7 @@
             // 
             labelCurrentOrders.AutoSize = true;
             labelCurrentOrders.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelCurrentOrders.Location = new Point(21, 239);
+            labelCurrentOrders.Location = new Point(20, 146);
             labelCurrentOrders.Name = "labelCurrentOrders";
             labelCurrentOrders.Size = new Size(270, 28);
             labelCurrentOrders.TabIndex = 10;
@@ -251,40 +229,6 @@
             labelPoints.Size = new Size(237, 28);
             labelPoints.TabIndex = 9;
             labelPoints.Text = "Điểm tích lũy: xxx điểm";
-            // 
-            // buttonOrderHistory
-            // 
-            buttonOrderHistory.BackColor = Color.IndianRed;
-            buttonOrderHistory.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
-            buttonOrderHistory.FlatAppearance.BorderSize = 0;
-            buttonOrderHistory.FlatAppearance.MouseOverBackColor = Color.Brown;
-            buttonOrderHistory.FlatStyle = FlatStyle.Flat;
-            buttonOrderHistory.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonOrderHistory.ForeColor = Color.White;
-            buttonOrderHistory.Location = new Point(77, 195);
-            buttonOrderHistory.Margin = new Padding(3, 4, 3, 4);
-            buttonOrderHistory.Name = "buttonOrderHistory";
-            buttonOrderHistory.Size = new Size(161, 40);
-            buttonOrderHistory.TabIndex = 8;
-            buttonOrderHistory.Text = "Lịch sử đơn hàng";
-            buttonOrderHistory.UseVisualStyleBackColor = false;
-            // 
-            // buttonPersonalInfo
-            // 
-            buttonPersonalInfo.BackColor = Color.IndianRed;
-            buttonPersonalInfo.FlatAppearance.BorderColor = Color.FromArgb(255, 165, 79);
-            buttonPersonalInfo.FlatAppearance.BorderSize = 0;
-            buttonPersonalInfo.FlatAppearance.MouseOverBackColor = Color.Brown;
-            buttonPersonalInfo.FlatStyle = FlatStyle.Flat;
-            buttonPersonalInfo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonPersonalInfo.ForeColor = Color.White;
-            buttonPersonalInfo.Location = new Point(77, 147);
-            buttonPersonalInfo.Margin = new Padding(3, 4, 3, 4);
-            buttonPersonalInfo.Name = "buttonPersonalInfo";
-            buttonPersonalInfo.Size = new Size(161, 40);
-            buttonPersonalInfo.TabIndex = 7;
-            buttonPersonalInfo.Text = "Cập nhật thông tin";
-            buttonPersonalInfo.UseVisualStyleBackColor = false;
             // 
             // labelMembership
             // 
@@ -310,9 +254,7 @@
             // 
             // panelUserInterface
             // 
-            panelUserInterface.Controls.Add(buttonPersonalInfo);
             panelUserInterface.Controls.Add(labelMembership);
-            panelUserInterface.Controls.Add(buttonOrderHistory);
             panelUserInterface.Controls.Add(labelGreeting);
             panelUserInterface.Controls.Add(labelCurrentOrders);
             panelUserInterface.Controls.Add(labelPoints);
@@ -365,11 +307,8 @@
         private Label labelPendingReservations;
         private Label labelCurrentOrders;
         private Label labelPoints;
-        private Button buttonOrderHistory;
-        private Button buttonPersonalInfo;
         private Button buttonFindBranch;
         private Button buttonOrderTakeout;
-        private Button buttonViewMenu;
         private Button buttonReserveTable;
         private Label labelMembership;
         private Label labelGreeting;
