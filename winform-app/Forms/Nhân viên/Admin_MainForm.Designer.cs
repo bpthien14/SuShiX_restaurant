@@ -38,8 +38,10 @@
             quanLyNhanSuToolStripMenuItem = new ToolStripMenuItem();
             pictureBox3 = new PictureBox();
             labelTitle = new Label();
+            pictureBox1 = new PictureBox();
             menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip
@@ -102,12 +104,25 @@
             labelTitle.Text = "S\r\nU\r\nS\r\nH\r\nI\r\nX\r\n";
             labelTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1047, 686);
+            pictureBox1.Margin = new Padding(5, 6, 5, 6);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(57, 60);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 14;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // Admin_MainForm
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1162, 805);
+            Controls.Add(pictureBox1);
             Controls.Add(menuStrip);
             MainMenuStrip = menuStrip;
             Margin = new Padding(5, 6, 5, 6);
@@ -117,6 +132,7 @@
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -124,5 +140,6 @@
 
         private PictureBox pictureBox3;
         private Label labelTitle;
+        private PictureBox pictureBox1;
     }
 }
