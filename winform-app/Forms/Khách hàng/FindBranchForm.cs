@@ -23,9 +23,12 @@ namespace winform_app.Forms.Khách_hàng
         private void LoadRegionNames()
         {
             List<Models.Region> regions = _databaseService.GetRegions();
-            cmbRegionName.DataSource = regions;
+
+            regions.Insert(0, new Models.Region { RegionID = -1, RegionName = "Tất cả khu vực" });
+
             cmbRegionName.DisplayMember = "RegionName";
             cmbRegionName.ValueMember = "RegionID";
+            cmbRegionName.DataSource = regions;
         }
 
         private void cmbRegionName_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,9 +42,12 @@ namespace winform_app.Forms.Khách_hàng
         private void LoadBranchNames(int regionID)
         {
             List<Branch> branches = _databaseService.GetBranchesByRegion(regionID);
-            cmbBranchName.DataSource = branches;
+
+            //branches.Insert(0, new Models.Branch { BranchID = null, BranchName = "Tất cả chi nhánh" });
+
             cmbBranchName.DisplayMember = "BranchName";
             cmbBranchName.ValueMember = "BranchID";
+            cmbBranchName.DataSource = branches;
         }
 
         private void cmbBranchName_SelectedIndexChanged(object sender, EventArgs e)

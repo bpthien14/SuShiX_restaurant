@@ -97,7 +97,21 @@ namespace winform_app.Forms.Khách_hàng
         {
             var dashboard = _databaseService.GetCustomerDashboard(currentUser.UserID);
             labelGreeting.Text = $"Xin chào, {currentUser.Username}";
+            
+            if (dashboard.CardType.ToUpper() == "GOLD")
+            {
+                labelMembership.BackColor = Color.Gold;
+            }
+            else if (dashboard.CardType.ToUpper() == "SILVER")
+            {
+                labelMembership.BackColor = Color.Silver;
+            }
+            else if (dashboard.CardType.ToUpper() == "MEMBERSHIP")
+            {
+                labelMembership.BackColor = Color.Brown;
+            }
             labelMembership.Text = dashboard.CardType;
+
             labelPoints.Text = $"Điểm tích lũy: {dashboard.AccumulatedPoints} điểm";
             labelPendingReservations.Text = $"Đơn đặt bàn đang chờ: {dashboard.PendingBookings}";
             labelOngoingDeliveries.Text = $"Đơn hàng đang giao: {dashboard.ProcessingOrders}";
@@ -107,14 +121,14 @@ namespace winform_app.Forms.Khách_hàng
         {
             OrderTableForm orderTableForm = new OrderTableForm(currentUser);
             orderTableForm.ShowDialog();
-            this.Close();
+            this.Hide();
         }
 
         private void buttonFindBranch_Click(object sender, EventArgs e)
         {
             FindBranchForm orderTableForm = new FindBranchForm(currentUser);
             orderTableForm.ShowDialog();
-            this.Close();
+            this.Hide();
 
         }
 
@@ -134,7 +148,6 @@ namespace winform_app.Forms.Khách_hàng
 
         private void UpdatePersonalInfo_Click(object sender, EventArgs e)
         {
-
             UpdatePersonalInfo updatePersonalInfoForm = new UpdatePersonalInfo(currentUser);
             updatePersonalInfoForm.ShowDialog();
         }

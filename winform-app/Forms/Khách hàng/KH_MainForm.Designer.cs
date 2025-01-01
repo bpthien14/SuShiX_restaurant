@@ -56,10 +56,10 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(12, 13);
-            pictureBox3.Margin = new Padding(3, 4, 3, 4);
+            pictureBox3.Location = new Point(18, 20);
+            pictureBox3.Margin = new Padding(4, 6, 4, 6);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(69, 73);
+            pictureBox3.Size = new Size(104, 110);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 17;
             pictureBox3.TabStop = false;
@@ -67,10 +67,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(677, 3);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(939, 4);
+            pictureBox1.Margin = new Padding(4, 6, 4, 6);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(43, 40);
+            pictureBox1.Size = new Size(64, 60);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
@@ -79,10 +79,10 @@
             // panel1
             // 
             panel1.Controls.Add(tableLayoutPanel1);
-            panel1.Location = new Point(595, 51);
-            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Location = new Point(815, 76);
+            panel1.Margin = new Padding(4, 6, 4, 6);
             panel1.Name = "panel1";
-            panel1.Size = new Size(137, 150);
+            panel1.Size = new Size(206, 225);
             panel1.TabIndex = 14;
             panel1.Visible = false;
             // 
@@ -96,15 +96,15 @@
             tableLayoutPanel1.Controls.Add(buttonLogout, 0, 4);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel1.Margin = new Padding(4, 6, 4, 6);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 5;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 57F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 57F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 57F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
-            tableLayoutPanel1.Size = new Size(137, 150);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 57F));
+            tableLayoutPanel1.Size = new Size(206, 225);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // buttonFindBranch
@@ -116,10 +116,10 @@
             buttonFindBranch.FlatStyle = FlatStyle.Flat;
             buttonFindBranch.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonFindBranch.ForeColor = Color.White;
-            buttonFindBranch.Location = new Point(3, 0);
-            buttonFindBranch.Margin = new Padding(3, 0, 3, 0);
+            buttonFindBranch.Location = new Point(4, 0);
+            buttonFindBranch.Margin = new Padding(4, 0, 4, 0);
             buttonFindBranch.Name = "buttonFindBranch";
-            buttonFindBranch.Size = new Size(125, 33);
+            buttonFindBranch.Size = new Size(188, 50);
             buttonFindBranch.TabIndex = 6;
             buttonFindBranch.Text = "Tìm chi nhánh";
             buttonFindBranch.UseVisualStyleBackColor = false;
@@ -134,10 +134,10 @@
             buttonOrderTakeout.FlatStyle = FlatStyle.Flat;
             buttonOrderTakeout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonOrderTakeout.ForeColor = Color.White;
-            buttonOrderTakeout.Location = new Point(3, 76);
-            buttonOrderTakeout.Margin = new Padding(3, 0, 3, 0);
+            buttonOrderTakeout.Location = new Point(4, 114);
+            buttonOrderTakeout.Margin = new Padding(4, 0, 4, 0);
             buttonOrderTakeout.Name = "buttonOrderTakeout";
-            buttonOrderTakeout.Size = new Size(125, 33);
+            buttonOrderTakeout.Size = new Size(188, 50);
             buttonOrderTakeout.TabIndex = 5;
             buttonOrderTakeout.Text = "Đặt giao hàng";
             buttonOrderTakeout.UseVisualStyleBackColor = false;
@@ -152,10 +152,10 @@
             buttonReserveTable.FlatStyle = FlatStyle.Flat;
             buttonReserveTable.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonReserveTable.ForeColor = Color.White;
-            buttonReserveTable.Location = new Point(3, 38);
-            buttonReserveTable.Margin = new Padding(3, 0, 3, 0);
+            buttonReserveTable.Location = new Point(4, 57);
+            buttonReserveTable.Margin = new Padding(4, 0, 4, 0);
             buttonReserveTable.Name = "buttonReserveTable";
-            buttonReserveTable.Size = new Size(125, 33);
+            buttonReserveTable.Size = new Size(188, 50);
             buttonReserveTable.TabIndex = 3;
             buttonReserveTable.Text = "Đặt bàn";
             buttonReserveTable.UseVisualStyleBackColor = false;
@@ -170,10 +170,10 @@
             buttonLogout.FlatStyle = FlatStyle.Flat;
             buttonLogout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLogout.ForeColor = Color.White;
-            buttonLogout.Location = new Point(3, 118);
-            buttonLogout.Margin = new Padding(3, 4, 3, 4);
+            buttonLogout.Location = new Point(4, 177);
+            buttonLogout.Margin = new Padding(4, 6, 4, 6);
             buttonLogout.Name = "buttonLogout";
-            buttonLogout.Size = new Size(125, 30);
+            buttonLogout.Size = new Size(188, 45);
             buttonLogout.TabIndex = 2;
             buttonLogout.Text = "Đăng xuất";
             buttonLogout.UseVisualStyleBackColor = false;
@@ -182,11 +182,12 @@
             // labelTitle
             // 
             labelTitle.AutoSize = true;
-            labelTitle.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            labelTitle.Font = new Font("Viner Hand ITC", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             labelTitle.ForeColor = Color.Maroon;
-            labelTitle.Location = new Point(25, 90);
+            labelTitle.Location = new Point(38, 135);
+            labelTitle.Margin = new Padding(4, 0, 4, 0);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(43, 234);
+            labelTitle.Size = new Size(64, 408);
             labelTitle.TabIndex = 11;
             labelTitle.Text = "S\r\nU\r\nS\r\nH\r\nI\r\nX\r\n";
             labelTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -195,9 +196,10 @@
             // 
             labelOngoingDeliveries.AutoSize = true;
             labelOngoingDeliveries.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelOngoingDeliveries.Location = new Point(38, 302);
+            labelOngoingDeliveries.Location = new Point(57, 453);
+            labelOngoingDeliveries.Margin = new Padding(4, 0, 4, 0);
             labelOngoingDeliveries.Name = "labelOngoingDeliveries";
-            labelOngoingDeliveries.Size = new Size(228, 28);
+            labelOngoingDeliveries.Size = new Size(318, 38);
             labelOngoingDeliveries.TabIndex = 12;
             labelOngoingDeliveries.Text = "Đơn hàng đang giao: x";
             // 
@@ -205,9 +207,10 @@
             // 
             labelPendingReservations.AutoSize = true;
             labelPendingReservations.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelPendingReservations.Location = new Point(29, 260);
+            labelPendingReservations.Location = new Point(44, 390);
+            labelPendingReservations.Margin = new Padding(4, 0, 4, 0);
             labelPendingReservations.Name = "labelPendingReservations";
-            labelPendingReservations.Size = new Size(248, 28);
+            labelPendingReservations.Size = new Size(344, 38);
             labelPendingReservations.TabIndex = 11;
             labelPendingReservations.Text = "Đơn đặt bàn đang chờ: x";
             // 
@@ -215,9 +218,10 @@
             // 
             labelCurrentOrders.AutoSize = true;
             labelCurrentOrders.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelCurrentOrders.Location = new Point(17, 221);
+            labelCurrentOrders.Location = new Point(26, 332);
+            labelCurrentOrders.Margin = new Padding(4, 0, 4, 0);
             labelCurrentOrders.Name = "labelCurrentOrders";
-            labelCurrentOrders.Size = new Size(270, 28);
+            labelCurrentOrders.Size = new Size(372, 38);
             labelCurrentOrders.TabIndex = 10;
             labelCurrentOrders.Text = "-------- Đơn hiện tại --------";
             // 
@@ -225,9 +229,10 @@
             // 
             labelPoints.AutoSize = true;
             labelPoints.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelPoints.Location = new Point(29, 89);
+            labelPoints.Location = new Point(44, 134);
+            labelPoints.Margin = new Padding(4, 0, 4, 0);
             labelPoints.Name = "labelPoints";
-            labelPoints.Size = new Size(237, 28);
+            labelPoints.Size = new Size(328, 38);
             labelPoints.TabIndex = 9;
             labelPoints.Text = "Điểm tích lũy: xxx điểm";
             // 
@@ -236,9 +241,10 @@
             labelMembership.BackColor = Color.White;
             labelMembership.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelMembership.ForeColor = SystemColors.ActiveBorder;
-            labelMembership.Location = new Point(10, 48);
+            labelMembership.Location = new Point(15, 72);
+            labelMembership.Margin = new Padding(4, 0, 4, 0);
             labelMembership.Name = "labelMembership";
-            labelMembership.Size = new Size(288, 28);
+            labelMembership.Size = new Size(432, 42);
             labelMembership.TabIndex = 1;
             labelMembership.Text = "Member";
             labelMembership.TextAlign = ContentAlignment.MiddleCenter;
@@ -247,9 +253,10 @@
             // 
             labelGreeting.AutoSize = true;
             labelGreeting.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelGreeting.Location = new Point(20, 12);
+            labelGreeting.Location = new Point(30, 18);
+            labelGreeting.Margin = new Padding(4, 0, 4, 0);
             labelGreeting.Name = "labelGreeting";
-            labelGreeting.Size = new Size(267, 28);
+            labelGreeting.Size = new Size(371, 38);
             labelGreeting.TabIndex = 0;
             labelGreeting.Text = "Xin chào, [Tên khách hàng]";
             // 
@@ -262,9 +269,10 @@
             panelUserInterface.Controls.Add(labelPoints);
             panelUserInterface.Controls.Add(labelPendingReservations);
             panelUserInterface.Controls.Add(labelOngoingDeliveries);
-            panelUserInterface.Location = new Point(202, 51);
+            panelUserInterface.Location = new Point(303, 76);
+            panelUserInterface.Margin = new Padding(4, 4, 4, 4);
             panelUserInterface.Name = "panelUserInterface";
-            panelUserInterface.Size = new Size(301, 347);
+            panelUserInterface.Size = new Size(452, 520);
             panelUserInterface.TabIndex = 18;
             // 
             // UpdatePersonalInfo
@@ -276,10 +284,10 @@
             UpdatePersonalInfo.FlatStyle = FlatStyle.Flat;
             UpdatePersonalInfo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             UpdatePersonalInfo.ForeColor = Color.White;
-            UpdatePersonalInfo.Location = new Point(74, 144);
-            UpdatePersonalInfo.Margin = new Padding(3, 4, 3, 4);
+            UpdatePersonalInfo.Location = new Point(111, 216);
+            UpdatePersonalInfo.Margin = new Padding(4, 6, 4, 6);
             UpdatePersonalInfo.Name = "UpdatePersonalInfo";
-            UpdatePersonalInfo.Size = new Size(150, 39);
+            UpdatePersonalInfo.Size = new Size(225, 58);
             UpdatePersonalInfo.TabIndex = 7;
             UpdatePersonalInfo.Text = "Cập nhật thông tin";
             UpdatePersonalInfo.UseVisualStyleBackColor = false;
@@ -287,15 +295,16 @@
             // 
             // KH_MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(746, 430);
+            ClientSize = new Size(1038, 645);
             Controls.Add(labelTitle);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
             Controls.Add(panelUserInterface);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "KH_MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";

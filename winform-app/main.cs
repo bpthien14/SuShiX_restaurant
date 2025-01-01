@@ -101,4 +101,25 @@ public partial class MainForm : Form
         orderTableForm.ShowDialog();
         //this.Close();
     }
+
+    private void buttonViewMenu_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void buttonOrderTakeout_Click(object sender, EventArgs e)
+    {
+        //Models.Users user = new Users();
+        //FindBranchForm orderTableForm = new FindBranchForm(user);
+        //OrderDelivery orderDelivery = new OrderDelivery(user, this);
+        //orderDelivery.ShowDialog();
+    }
+
+    private void buttonReserveTable_Click(object sender, EventArgs e)
+    {
+        //Models.Users user = new Users();
+        //OrderTableForm orderTableForm = new OrderTableForm(user);
+        //orderTableForm.ShowDialog();
+        //this.Close();
+    }
 }

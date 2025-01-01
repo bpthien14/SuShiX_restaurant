@@ -188,6 +188,7 @@ partial class MainForm
         buttonReserveTable.TabIndex = 3;
         buttonReserveTable.Text = "Đặt bàn";
         buttonReserveTable.UseVisualStyleBackColor = false;
+        buttonReserveTable.Click += buttonReserveTable_Click;
         // 
         // buttonOrderTakeout
         // 
@@ -205,6 +206,7 @@ partial class MainForm
         buttonOrderTakeout.TabIndex = 5;
         buttonOrderTakeout.Text = "Đặt giao hàng";
         buttonOrderTakeout.UseVisualStyleBackColor = false;
+        buttonOrderTakeout.Click += buttonOrderTakeout_Click;
         // 
         // buttonLogout
         // 
@@ -240,6 +242,7 @@ partial class MainForm
         buttonViewMenu.TabIndex = 4;
         buttonViewMenu.Text = "Xem Menu";
         buttonViewMenu.UseVisualStyleBackColor = false;
+        buttonViewMenu.Click += buttonViewMenu_Click;
         // 
         // label1
         // 

@@ -111,5 +111,10 @@ namespace winform_app.Forms.Khách_hàng
         {
             this.Close();
         }
+
+        private void dgvOrderSummary_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

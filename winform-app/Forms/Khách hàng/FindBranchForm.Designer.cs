@@ -22,97 +22,120 @@
 
         private void InitializeComponent()
         {
-            this.lblRegionName = new System.Windows.Forms.Label();
-            this.cmbRegionName = new System.Windows.Forms.ComboBox();
-            this.lblBranchName = new System.Windows.Forms.Label();
-            this.cmbBranchName = new System.Windows.Forms.ComboBox();
-            this.lblBranchInfo = new System.Windows.Forms.Label();
-            this.rtbBranchInfo = new System.Windows.Forms.RichTextBox();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            lblRegionName = new Label();
+            cmbRegionName = new ComboBox();
+            lblBranchName = new Label();
+            cmbBranchName = new ComboBox();
+            lblBranchInfo = new Label();
+            rtbBranchInfo = new RichTextBox();
+            btnClose = new Button();
+            SuspendLayout();
             // 
             // lblRegionName
             // 
-            this.lblRegionName.AutoSize = true;
-            this.lblRegionName.Location = new System.Drawing.Point(12, 15);
-            this.lblRegionName.Name = "lblRegionName";
-            this.lblRegionName.Size = new System.Drawing.Size(75, 13);
-            this.lblRegionName.TabIndex = 0;
-            this.lblRegionName.Text = "Region Name:";
+            lblRegionName.AutoSize = true;
+            lblRegionName.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            lblRegionName.ForeColor = Color.IndianRed;
+            lblRegionName.Location = new Point(19, 36);
+            lblRegionName.Margin = new Padding(6, 0, 6, 0);
+            lblRegionName.Name = "lblRegionName";
+            lblRegionName.Size = new Size(151, 30);
+            lblRegionName.TabIndex = 0;
+            lblRegionName.Text = "Chọn Khu vực:";
             // 
             // cmbRegionName
             // 
-            this.cmbRegionName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRegionName.FormattingEnabled = true;
-            this.cmbRegionName.Location = new System.Drawing.Point(120, 12);
-            this.cmbRegionName.Name = "cmbRegionName";
-            this.cmbRegionName.Size = new System.Drawing.Size(200, 21);
-            this.cmbRegionName.TabIndex = 1;
-            this.cmbRegionName.SelectedIndexChanged += new System.EventHandler(this.cmbRegionName_SelectedIndexChanged);
+            cmbRegionName.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbRegionName.ForeColor = Color.Black;
+            cmbRegionName.FormattingEnabled = true;
+            cmbRegionName.Location = new Point(240, 28);
+            cmbRegionName.Margin = new Padding(6, 7, 6, 7);
+            cmbRegionName.Name = "cmbRegionName";
+            cmbRegionName.Size = new Size(396, 38);
+            cmbRegionName.TabIndex = 1;
+            cmbRegionName.SelectedIndexChanged += cmbRegionName_SelectedIndexChanged;
             // 
             // lblBranchName
             // 
-            this.lblBranchName.AutoSize = true;
-            this.lblBranchName.Location = new System.Drawing.Point(12, 45);
-            this.lblBranchName.Name = "lblBranchName";
-            this.lblBranchName.Size = new System.Drawing.Size(75, 13);
-            this.lblBranchName.TabIndex = 2;
-            this.lblBranchName.Text = "Branch Name:";
+            lblBranchName.AutoSize = true;
+            lblBranchName.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            lblBranchName.ForeColor = Color.IndianRed;
+            lblBranchName.Location = new Point(19, 105);
+            lblBranchName.Margin = new Padding(6, 0, 6, 0);
+            lblBranchName.Name = "lblBranchName";
+            lblBranchName.Size = new Size(173, 30);
+            lblBranchName.TabIndex = 2;
+            lblBranchName.Text = "Chọn Chi Nhánh:";
             // 
             // cmbBranchName
             // 
-            this.cmbBranchName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBranchName.FormattingEnabled = true;
-            this.cmbBranchName.Location = new System.Drawing.Point(120, 42);
-            this.cmbBranchName.Name = "cmbBranchName";
-            this.cmbBranchName.Size = new System.Drawing.Size(200, 21);
-            this.cmbBranchName.TabIndex = 3;
-            this.cmbBranchName.SelectedIndexChanged += new System.EventHandler(this.cmbBranchName_SelectedIndexChanged);
+            cmbBranchName.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbBranchName.ForeColor = Color.Black;
+            cmbBranchName.FormattingEnabled = true;
+            cmbBranchName.Location = new Point(240, 97);
+            cmbBranchName.Margin = new Padding(6, 7, 6, 7);
+            cmbBranchName.Name = "cmbBranchName";
+            cmbBranchName.Size = new Size(396, 38);
+            cmbBranchName.TabIndex = 3;
+            cmbBranchName.SelectedIndexChanged += cmbBranchName_SelectedIndexChanged;
             // 
             // lblBranchInfo
             // 
-            this.lblBranchInfo.AutoSize = true;
-            this.lblBranchInfo.Location = new System.Drawing.Point(12, 75);
-            this.lblBranchInfo.Name = "lblBranchInfo";
-            this.lblBranchInfo.Size = new System.Drawing.Size(68, 13);
-            this.lblBranchInfo.TabIndex = 4;
-            this.lblBranchInfo.Text = "Branch Info:";
+            lblBranchInfo.AutoSize = true;
+            lblBranchInfo.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            lblBranchInfo.ForeColor = Color.IndianRed;
+            lblBranchInfo.Location = new Point(19, 169);
+            lblBranchInfo.Margin = new Padding(6, 0, 6, 0);
+            lblBranchInfo.Name = "lblBranchInfo";
+            lblBranchInfo.Size = new Size(209, 30);
+            lblBranchInfo.TabIndex = 4;
+            lblBranchInfo.Text = "Thông tin chi nhánh:";
             // 
             // rtbBranchInfo
             // 
-            this.rtbBranchInfo.Location = new System.Drawing.Point(120, 72);
-            this.rtbBranchInfo.Name = "rtbBranchInfo";
-            this.rtbBranchInfo.ReadOnly = true;
-            this.rtbBranchInfo.Size = new System.Drawing.Size(200, 150);
-            this.rtbBranchInfo.TabIndex = 5;
-            this.rtbBranchInfo.Text = "";
+            rtbBranchInfo.BackColor = Color.White;
+            rtbBranchInfo.ForeColor = Color.IndianRed;
+            rtbBranchInfo.Location = new Point(240, 166);
+            rtbBranchInfo.Margin = new Padding(6, 7, 6, 7);
+            rtbBranchInfo.Name = "rtbBranchInfo";
+            rtbBranchInfo.ReadOnly = true;
+            rtbBranchInfo.Size = new Size(396, 341);
+            rtbBranchInfo.TabIndex = 5;
+            rtbBranchInfo.Text = "";
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(245, 230);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 6;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            btnClose.BackColor = Color.RosyBrown;
+            btnClose.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(490, 531);
+            btnClose.Margin = new Padding(6, 7, 6, 7);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(150, 53);
+            btnClose.TabIndex = 6;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // FindBranchForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 261);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.rtbBranchInfo);
-            this.Controls.Add(this.lblBranchInfo);
-            this.Controls.Add(this.cmbBranchName);
-            this.Controls.Add(this.lblBranchName);
-            this.Controls.Add(this.cmbRegionName);
-            this.Controls.Add(this.lblRegionName);
-            this.Name = "FindBranchForm";
-            this.Text = "Find Branch";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(668, 602);
+            Controls.Add(btnClose);
+            Controls.Add(rtbBranchInfo);
+            Controls.Add(lblBranchInfo);
+            Controls.Add(cmbBranchName);
+            Controls.Add(lblBranchName);
+            Controls.Add(cmbRegionName);
+            Controls.Add(lblRegionName);
+            Margin = new Padding(6, 7, 6, 7);
+            Name = "FindBranchForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Tìm chi nhánh";
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }

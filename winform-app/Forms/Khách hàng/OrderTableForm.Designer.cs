@@ -33,212 +33,236 @@
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.lblCustomerName = new System.Windows.Forms.Label();
-            this.lblCustomerPhone = new System.Windows.Forms.Label();
-            this.lblRegionName = new System.Windows.Forms.Label();
-            this.lblBranchName = new System.Windows.Forms.Label();
-            this.lblBookingDate = new System.Windows.Forms.Label();
-            this.lblArrivalTime = new System.Windows.Forms.Label();
-            this.lblGuestCount = new System.Windows.Forms.Label();
-            this.lblNotes = new System.Windows.Forms.Label();
-            this.txtCustomerName = new System.Windows.Forms.TextBox();
-            this.txtCustomerPhone = new System.Windows.Forms.TextBox();
-            this.cmbRegionName = new System.Windows.Forms.ComboBox();
-            this.cmbBranchName = new System.Windows.Forms.ComboBox();
-            this.dtpBookingDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpArrivalTime = new System.Windows.Forms.DateTimePicker();
-            this.numGuestCount = new System.Windows.Forms.NumericUpDown();
-            this.txtNotes = new System.Windows.Forms.TextBox();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.btnBookTable = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numGuestCount)).BeginInit();
-            this.SuspendLayout();
-
+            lblCustomerName = new Label();
+            lblCustomerPhone = new Label();
+            lblRegionName = new Label();
+            lblBranchName = new Label();
+            lblBookingDate = new Label();
+            lblArrivalTime = new Label();
+            lblGuestCount = new Label();
+            lblNotes = new Label();
+            txtCustomerName = new TextBox();
+            txtCustomerPhone = new TextBox();
+            cmbRegionName = new ComboBox();
+            cmbBranchName = new ComboBox();
+            dtpBookingDate = new DateTimePicker();
+            dtpArrivalTime = new DateTimePicker();
+            numGuestCount = new NumericUpDown();
+            txtNotes = new TextBox();
+            btnBack = new Button();
+            btnBookTable = new Button();
+            ((System.ComponentModel.ISupportInitialize)numGuestCount).BeginInit();
+            SuspendLayout();
             // 
             // lblCustomerName
             // 
-            this.lblCustomerName.AutoSize = true;
-            this.lblCustomerName.Location = new System.Drawing.Point(12, 15);
-            this.lblCustomerName.Name = "lblCustomerName";
-            this.lblCustomerName.Size = new System.Drawing.Size(54, 13);
-            this.lblCustomerName.TabIndex = 0;
-            this.lblCustomerName.Text = "Họ tên:";
-            // 
-            // txtCustomerName
-            // 
-            this.txtCustomerName.Location = new System.Drawing.Point(120, 12);
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(200, 20);
-            this.txtCustomerName.TabIndex = 1;
+            lblCustomerName.AutoSize = true;
+            lblCustomerName.Location = new Point(24, 35);
+            lblCustomerName.Margin = new Padding(6, 0, 6, 0);
+            lblCustomerName.Name = "lblCustomerName";
+            lblCustomerName.Size = new Size(81, 30);
+            lblCustomerName.TabIndex = 0;
+            lblCustomerName.Text = "Họ tên:";
             // 
             // lblCustomerPhone
             // 
-            this.lblCustomerPhone.AutoSize = true;
-            this.lblCustomerPhone.Location = new System.Drawing.Point(12, 45);
-            this.lblCustomerPhone.Name = "lblCustomerPhone";
-            this.lblCustomerPhone.Size = new System.Drawing.Size(54, 13);
-            this.lblCustomerPhone.TabIndex = 2;
-            this.lblCustomerPhone.Text = "SĐT:";
-            // 
-            // txtCustomerPhone
-            // 
-            this.txtCustomerPhone.Location = new System.Drawing.Point(120, 42);
-            this.txtCustomerPhone.Name = "txtCustomerPhone";
-            this.txtCustomerPhone.Size = new System.Drawing.Size(200, 20);
-            this.txtCustomerPhone.TabIndex = 3;
+            lblCustomerPhone.AutoSize = true;
+            lblCustomerPhone.Location = new Point(24, 104);
+            lblCustomerPhone.Margin = new Padding(6, 0, 6, 0);
+            lblCustomerPhone.Name = "lblCustomerPhone";
+            lblCustomerPhone.Size = new Size(55, 30);
+            lblCustomerPhone.TabIndex = 2;
+            lblCustomerPhone.Text = "SĐT:";
             // 
             // lblRegionName
             // 
-            this.lblRegionName.AutoSize = true;
-            this.lblRegionName.Location = new System.Drawing.Point(12, 75);
-            this.lblRegionName.Name = "lblRegionName";
-            this.lblRegionName.Size = new System.Drawing.Size(54, 13);
-            this.lblRegionName.TabIndex = 4;
-            this.lblRegionName.Text = "Khu vực:";
-            // 
-            // cmbRegionName
-            // 
-            this.cmbRegionName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRegionName.FormattingEnabled = true;
-            this.cmbRegionName.Location = new System.Drawing.Point(120, 72);
-            this.cmbRegionName.Name = "cmbRegionName";
-            this.cmbRegionName.Size = new System.Drawing.Size(200, 21);
-            this.cmbRegionName.TabIndex = 5;
-            this.cmbRegionName.SelectedIndexChanged += new System.EventHandler(this.cmbRegionName_SelectedIndexChanged);
+            lblRegionName.AutoSize = true;
+            lblRegionName.Location = new Point(24, 173);
+            lblRegionName.Margin = new Padding(6, 0, 6, 0);
+            lblRegionName.Name = "lblRegionName";
+            lblRegionName.Size = new Size(92, 30);
+            lblRegionName.TabIndex = 4;
+            lblRegionName.Text = "Khu vực:";
             // 
             // lblBranchName
             // 
-            this.lblBranchName.AutoSize = true;
-            this.lblBranchName.Location = new System.Drawing.Point(12, 105);
-            this.lblBranchName.Name = "lblBranchName";
-            this.lblBranchName.Size = new System.Drawing.Size(54, 13);
-            this.lblBranchName.TabIndex = 6;
-            this.lblBranchName.Text = "Chi nhánh:";
-            // 
-            // cmbBranchName
-            // 
-            this.cmbBranchName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBranchName.FormattingEnabled = true;
-            this.cmbBranchName.Location = new System.Drawing.Point(120, 102);
-            this.cmbBranchName.Name = "cmbBranchName";
-            this.cmbBranchName.Size = new System.Drawing.Size(200, 21);
-            this.cmbBranchName.TabIndex = 7;
+            lblBranchName.AutoSize = true;
+            lblBranchName.Location = new Point(24, 242);
+            lblBranchName.Margin = new Padding(6, 0, 6, 0);
+            lblBranchName.Name = "lblBranchName";
+            lblBranchName.Size = new Size(113, 30);
+            lblBranchName.TabIndex = 6;
+            lblBranchName.Text = "Chi nhánh:";
             // 
             // lblBookingDate
             // 
-            this.lblBookingDate.AutoSize = true;
-            this.lblBookingDate.Location = new System.Drawing.Point(12, 135);
-            this.lblBookingDate.Name = "lblBookingDate";
-            this.lblBookingDate.Size = new System.Drawing.Size(54, 13);
-            this.lblBookingDate.TabIndex = 8;
-            this.lblBookingDate.Text = "Ngày:";
-            // 
-            // dtpBookingDate
-            // 
-            this.dtpBookingDate.Location = new System.Drawing.Point(120, 132);
-            this.dtpBookingDate.Name = "dtpBookingDate";
-            this.dtpBookingDate.Size = new System.Drawing.Size(200, 20);
-            this.dtpBookingDate.TabIndex = 9;
+            lblBookingDate.AutoSize = true;
+            lblBookingDate.Location = new Point(24, 312);
+            lblBookingDate.Margin = new Padding(6, 0, 6, 0);
+            lblBookingDate.Name = "lblBookingDate";
+            lblBookingDate.Size = new Size(67, 30);
+            lblBookingDate.TabIndex = 8;
+            lblBookingDate.Text = "Ngày:";
             // 
             // lblArrivalTime
             // 
-            this.lblArrivalTime.AutoSize = true;
-            this.lblArrivalTime.Location = new System.Drawing.Point(12, 165);
-            this.lblArrivalTime.Name = "lblArrivalTime";
-            this.lblArrivalTime.Size = new System.Drawing.Size(54, 13);
-            this.lblArrivalTime.TabIndex = 10;
-            this.lblArrivalTime.Text = "Giờ:";
-            // 
-            // dtpArrivalTime
-            // 
-            this.dtpArrivalTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpArrivalTime.Location = new System.Drawing.Point(120, 162);
-            this.dtpArrivalTime.Name = "dtpArrivalTime";
-            this.dtpArrivalTime.Size = new System.Drawing.Size(200, 20);
-            this.dtpArrivalTime.TabIndex = 11;
+            lblArrivalTime.AutoSize = true;
+            lblArrivalTime.Location = new Point(24, 381);
+            lblArrivalTime.Margin = new Padding(6, 0, 6, 0);
+            lblArrivalTime.Name = "lblArrivalTime";
+            lblArrivalTime.Size = new Size(50, 30);
+            lblArrivalTime.TabIndex = 10;
+            lblArrivalTime.Text = "Giờ:";
             // 
             // lblGuestCount
             // 
-            this.lblGuestCount.AutoSize = true;
-            this.lblGuestCount.Location = new System.Drawing.Point(12, 195);
-            this.lblGuestCount.Name = "lblGuestCount";
-            this.lblGuestCount.Size = new System.Drawing.Size(54, 13);
-            this.lblGuestCount.TabIndex = 12;
-            this.lblGuestCount.Text = "Số khách:";
-            // 
-            // numGuestCount
-            // 
-            this.numGuestCount.Location = new System.Drawing.Point(120, 192);
-            this.numGuestCount.Name = "numGuestCount";
-            this.numGuestCount.Size = new System.Drawing.Size(200, 20);
-            this.numGuestCount.TabIndex = 13;
+            lblGuestCount.AutoSize = true;
+            lblGuestCount.Location = new Point(24, 450);
+            lblGuestCount.Margin = new Padding(6, 0, 6, 0);
+            lblGuestCount.Name = "lblGuestCount";
+            lblGuestCount.Size = new Size(102, 30);
+            lblGuestCount.TabIndex = 12;
+            lblGuestCount.Text = "Số khách:";
             // 
             // lblNotes
             // 
-            this.lblNotes.AutoSize = true;
-            this.lblNotes.Location = new System.Drawing.Point(12, 225);
-            this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(54, 13);
-            this.lblNotes.TabIndex = 14;
-            this.lblNotes.Text = "Ghi chú:";
+            lblNotes.AutoSize = true;
+            lblNotes.Location = new Point(24, 519);
+            lblNotes.Margin = new Padding(6, 0, 6, 0);
+            lblNotes.Name = "lblNotes";
+            lblNotes.Size = new Size(89, 30);
+            lblNotes.TabIndex = 14;
+            lblNotes.Text = "Ghi chú:";
+            // 
+            // txtCustomerName
+            // 
+            txtCustomerName.Location = new Point(240, 28);
+            txtCustomerName.Margin = new Padding(6, 7, 6, 7);
+            txtCustomerName.Name = "txtCustomerName";
+            txtCustomerName.Size = new Size(396, 35);
+            txtCustomerName.TabIndex = 1;
+            // 
+            // txtCustomerPhone
+            // 
+            txtCustomerPhone.Location = new Point(240, 97);
+            txtCustomerPhone.Margin = new Padding(6, 7, 6, 7);
+            txtCustomerPhone.Name = "txtCustomerPhone";
+            txtCustomerPhone.Size = new Size(396, 35);
+            txtCustomerPhone.TabIndex = 3;
+            // 
+            // cmbRegionName
+            // 
+            cmbRegionName.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbRegionName.FormattingEnabled = true;
+            cmbRegionName.Location = new Point(240, 166);
+            cmbRegionName.Margin = new Padding(6, 7, 6, 7);
+            cmbRegionName.Name = "cmbRegionName";
+            cmbRegionName.Size = new Size(396, 38);
+            cmbRegionName.TabIndex = 5;
+            cmbRegionName.SelectedIndexChanged += cmbRegionName_SelectedIndexChanged;
+            // 
+            // cmbBranchName
+            // 
+            cmbBranchName.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbBranchName.FormattingEnabled = true;
+            cmbBranchName.Location = new Point(240, 235);
+            cmbBranchName.Margin = new Padding(6, 7, 6, 7);
+            cmbBranchName.Name = "cmbBranchName";
+            cmbBranchName.Size = new Size(396, 38);
+            cmbBranchName.TabIndex = 7;
+            // 
+            // dtpBookingDate
+            // 
+            dtpBookingDate.Location = new Point(240, 305);
+            dtpBookingDate.Margin = new Padding(6, 7, 6, 7);
+            dtpBookingDate.Name = "dtpBookingDate";
+            dtpBookingDate.Size = new Size(396, 35);
+            dtpBookingDate.TabIndex = 9;
+            // 
+            // dtpArrivalTime
+            // 
+            dtpArrivalTime.Format = DateTimePickerFormat.Time;
+            dtpArrivalTime.Location = new Point(240, 374);
+            dtpArrivalTime.Margin = new Padding(6, 7, 6, 7);
+            dtpArrivalTime.Name = "dtpArrivalTime";
+            dtpArrivalTime.Size = new Size(396, 35);
+            dtpArrivalTime.TabIndex = 11;
+            // 
+            // numGuestCount
+            // 
+            numGuestCount.Location = new Point(240, 443);
+            numGuestCount.Margin = new Padding(6, 7, 6, 7);
+            numGuestCount.Name = "numGuestCount";
+            numGuestCount.Size = new Size(400, 35);
+            numGuestCount.TabIndex = 13;
             // 
             // txtNotes
             // 
-            this.txtNotes.Location = new System.Drawing.Point(120, 222);
-            this.txtNotes.Multiline = true;
-            this.txtNotes.Name = "txtNotes";
-            this.txtNotes.Size = new System.Drawing.Size(200, 60);
-            this.txtNotes.TabIndex = 15;
+            txtNotes.Location = new Point(240, 512);
+            txtNotes.Margin = new Padding(6, 7, 6, 7);
+            txtNotes.Multiline = true;
+            txtNotes.Name = "txtNotes";
+            txtNotes.Size = new Size(396, 133);
+            txtNotes.TabIndex = 15;
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(120, 300);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(95, 23);
-            this.btnBack.TabIndex = 16;
-            this.btnBack.Text = "Đóng";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            btnBack.BackColor = Color.RosyBrown;
+            btnBack.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnBack.ForeColor = Color.White;
+            btnBack.Location = new Point(240, 692);
+            btnBack.Margin = new Padding(6, 7, 6, 7);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(190, 53);
+            btnBack.TabIndex = 16;
+            btnBack.Text = "Đóng";
+            btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += btnBack_Click;
             // 
             // btnBookTable
             // 
-            this.btnBookTable.Location = new System.Drawing.Point(225, 300);
-            this.btnBookTable.Name = "btnBookTable";
-            this.btnBookTable.Size = new System.Drawing.Size(95, 23);
-            this.btnBookTable.TabIndex = 17;
-            this.btnBookTable.Text = "Đặt bàn";
-            this.btnBookTable.UseVisualStyleBackColor = true;
-            this.btnBookTable.Click += new System.EventHandler(this.btnBookTable_Click);
+            btnBookTable.BackColor = Color.RosyBrown;
+            btnBookTable.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnBookTable.ForeColor = Color.White;
+            btnBookTable.Location = new Point(450, 692);
+            btnBookTable.Margin = new Padding(6, 7, 6, 7);
+            btnBookTable.Name = "btnBookTable";
+            btnBookTable.Size = new Size(190, 53);
+            btnBookTable.TabIndex = 17;
+            btnBookTable.Text = "Đặt bàn";
+            btnBookTable.UseVisualStyleBackColor = false;
+            btnBookTable.Click += btnBookTable_Click;
             // 
             // OrderTableForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnBookTable);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.txtNotes);
-            this.Controls.Add(this.lblNotes);
-            this.Controls.Add(this.numGuestCount);
-            this.Controls.Add(this.lblGuestCount);
-            this.Controls.Add(this.dtpArrivalTime);
-            this.Controls.Add(this.lblArrivalTime);
-            this.Controls.Add(this.dtpBookingDate);
-            this.Controls.Add(this.lblBookingDate);
-            this.Controls.Add(this.cmbBranchName);
-            this.Controls.Add(this.lblBranchName);
-            this.Controls.Add(this.cmbRegionName);
-            this.Controls.Add(this.lblRegionName);
-            this.Controls.Add(this.txtCustomerPhone);
-            this.Controls.Add(this.lblCustomerPhone);
-            this.Controls.Add(this.txtCustomerName);
-            this.Controls.Add(this.lblCustomerName);
-            this.Name = "OrderTableForm";
-            this.Text = "Đặt bàn";
-            ((System.ComponentModel.ISupportInitialize)(this.numGuestCount)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(676, 773);
+            Controls.Add(btnBookTable);
+            Controls.Add(btnBack);
+            Controls.Add(txtNotes);
+            Controls.Add(lblNotes);
+            Controls.Add(numGuestCount);
+            Controls.Add(lblGuestCount);
+            Controls.Add(dtpArrivalTime);
+            Controls.Add(lblArrivalTime);
+            Controls.Add(dtpBookingDate);
+            Controls.Add(lblBookingDate);
+            Controls.Add(cmbBranchName);
+            Controls.Add(lblBranchName);
+            Controls.Add(cmbRegionName);
+            Controls.Add(lblRegionName);
+            Controls.Add(txtCustomerPhone);
+            Controls.Add(lblCustomerPhone);
+            Controls.Add(txtCustomerName);
+            Controls.Add(lblCustomerName);
+            Margin = new Padding(6, 7, 6, 7);
+            Name = "OrderTableForm";
+            Text = "Đặt bàn";
+            ((System.ComponentModel.ISupportInitialize)numGuestCount).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }

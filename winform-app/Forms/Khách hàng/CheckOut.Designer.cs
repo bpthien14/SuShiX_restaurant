@@ -37,258 +37,290 @@
 
         private void InitializeComponent()
         {
-            this.lblOrderSummary = new System.Windows.Forms.Label();
-            this.dgvOrderSummary = new System.Windows.Forms.DataGridView();
-            this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblCustomerDetails = new System.Windows.Forms.Label();
-            this.lblCustomerName = new System.Windows.Forms.Label();
-            this.txtCustomerName = new System.Windows.Forms.TextBox();
-            this.lblCustomerPhone = new System.Windows.Forms.Label();
-            this.txtCustomerPhone = new System.Windows.Forms.TextBox();
-            this.lblDeliveryAddress = new System.Windows.Forms.Label();
-            this.txtDeliveryAddress = new System.Windows.Forms.TextBox();
-            this.lblPaymentMethod = new System.Windows.Forms.Label();
-            this.cmbPaymentMethod = new System.Windows.Forms.ComboBox();
-            this.btnConfirm = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.lblTotalAmount = new System.Windows.Forms.Label();
-            this.lblDiscount = new System.Windows.Forms.Label();
-            this.lblFinalAmount = new System.Windows.Forms.Label();
-            this.txtTotalAmount = new System.Windows.Forms.TextBox();
-            this.txtDiscount = new System.Windows.Forms.TextBox();
-            this.txtFinalAmount = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderSummary)).BeginInit();
-            this.SuspendLayout();
+            lblOrderSummary = new Label();
+            dgvOrderSummary = new DataGridView();
+            colItemName = new DataGridViewTextBoxColumn();
+            colQuantity = new DataGridViewTextBoxColumn();
+            colTotalAmount = new DataGridViewTextBoxColumn();
+            lblCustomerDetails = new Label();
+            lblCustomerName = new Label();
+            txtCustomerName = new TextBox();
+            lblCustomerPhone = new Label();
+            txtCustomerPhone = new TextBox();
+            lblDeliveryAddress = new Label();
+            txtDeliveryAddress = new TextBox();
+            lblPaymentMethod = new Label();
+            cmbPaymentMethod = new ComboBox();
+            btnConfirm = new Button();
+            btnBack = new Button();
+            lblTotalAmount = new Label();
+            lblDiscount = new Label();
+            lblFinalAmount = new Label();
+            txtTotalAmount = new TextBox();
+            txtDiscount = new TextBox();
+            txtFinalAmount = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dgvOrderSummary).BeginInit();
+            SuspendLayout();
             // 
             // lblOrderSummary
             // 
-            this.lblOrderSummary.AutoSize = true;
-            this.lblOrderSummary.Location = new System.Drawing.Point(12, 9);
-            this.lblOrderSummary.Name = "lblOrderSummary";
-            this.lblOrderSummary.Size = new System.Drawing.Size(108, 20);
-            this.lblOrderSummary.TabIndex = 0;
-            this.lblOrderSummary.Text = "Order Summary";
+            lblOrderSummary.AutoSize = true;
+            lblOrderSummary.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblOrderSummary.ForeColor = Color.IndianRed;
+            lblOrderSummary.Location = new Point(18, 14);
+            lblOrderSummary.Margin = new Padding(4, 0, 4, 0);
+            lblOrderSummary.Name = "lblOrderSummary";
+            lblOrderSummary.Size = new Size(186, 30);
+            lblOrderSummary.TabIndex = 0;
+            lblOrderSummary.Text = "Tóm tắt đơn hàng";
             // 
             // dgvOrderSummary
             // 
-            this.dgvOrderSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrderSummary.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colItemName,
-            this.colQuantity,
-            this.colTotalAmount});
-            this.dgvOrderSummary.Location = new System.Drawing.Point(12, 32);
-            this.dgvOrderSummary.Name = "dgvOrderSummary";
-            this.dgvOrderSummary.RowHeadersWidth = 51;
-            this.dgvOrderSummary.RowTemplate.Height = 29;
-            this.dgvOrderSummary.Size = new System.Drawing.Size(776, 150);
-            this.dgvOrderSummary.TabIndex = 1;
+            dgvOrderSummary.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOrderSummary.Columns.AddRange(new DataGridViewColumn[] { colItemName, colQuantity, colTotalAmount });
+            dgvOrderSummary.Location = new Point(18, 48);
+            dgvOrderSummary.Margin = new Padding(4);
+            dgvOrderSummary.Name = "dgvOrderSummary";
+            dgvOrderSummary.RowHeadersWidth = 51;
+            dgvOrderSummary.RowTemplate.Height = 29;
+            dgvOrderSummary.Size = new Size(549, 225);
+            dgvOrderSummary.TabIndex = 1;
+            dgvOrderSummary.CellContentClick += dgvOrderSummary_CellContentClick;
             // 
             // colItemName
             // 
-            this.colItemName.DataPropertyName = "ItemName";
-            this.colItemName.HeaderText = "Item Name";
-            this.colItemName.MinimumWidth = 6;
-            this.colItemName.Name = "colItemName";
-            this.colItemName.Width = 250;
+            colItemName.DataPropertyName = "ItemName";
+            colItemName.HeaderText = "Item Name";
+            colItemName.MinimumWidth = 6;
+            colItemName.Name = "colItemName";
+            colItemName.Width = 250;
             // 
             // colQuantity
             // 
-            this.colQuantity.DataPropertyName = "Quantity";
-            this.colQuantity.HeaderText = "Quantity";
-            this.colQuantity.MinimumWidth = 6;
-            this.colQuantity.Name = "colQuantity";
-            this.colQuantity.Width = 125;
+            colQuantity.DataPropertyName = "Quantity";
+            colQuantity.HeaderText = "Quantity";
+            colQuantity.MinimumWidth = 6;
+            colQuantity.Name = "colQuantity";
+            colQuantity.Width = 125;
             // 
             // colTotalAmount
             // 
-            this.colTotalAmount.DataPropertyName = "TotalAmount";
-            this.colTotalAmount.HeaderText = "Total Amount";
-            this.colTotalAmount.MinimumWidth = 6;
-            this.colTotalAmount.Name = "colTotalAmount";
-            this.colTotalAmount.Width = 125;
+            colTotalAmount.DataPropertyName = "TotalAmount";
+            colTotalAmount.HeaderText = "Total Amount";
+            colTotalAmount.MinimumWidth = 6;
+            colTotalAmount.Name = "colTotalAmount";
+            colTotalAmount.Width = 125;
             // 
             // lblCustomerDetails
             // 
-            this.lblCustomerDetails.AutoSize = true;
-            this.lblCustomerDetails.Location = new System.Drawing.Point(12, 185);
-            this.lblCustomerDetails.Name = "lblCustomerDetails";
-            this.lblCustomerDetails.Size = new System.Drawing.Size(121, 20);
-            this.lblCustomerDetails.TabIndex = 2;
-            this.lblCustomerDetails.Text = "Customer Details";
+            lblCustomerDetails.AutoSize = true;
+            lblCustomerDetails.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCustomerDetails.ForeColor = Color.IndianRed;
+            lblCustomerDetails.Location = new Point(13, 292);
+            lblCustomerDetails.Margin = new Padding(4, 0, 4, 0);
+            lblCustomerDetails.Name = "lblCustomerDetails";
+            lblCustomerDetails.Size = new Size(222, 30);
+            lblCustomerDetails.TabIndex = 2;
+            lblCustomerDetails.Text = "Thông tin khách hàng";
             // 
             // lblCustomerName
             // 
-            this.lblCustomerName.AutoSize = true;
-            this.lblCustomerName.Location = new System.Drawing.Point(12, 215);
-            this.lblCustomerName.Name = "lblCustomerName";
-            this.lblCustomerName.Size = new System.Drawing.Size(119, 20);
-            this.lblCustomerName.TabIndex = 3;
-            this.lblCustomerName.Text = "Customer Name:";
+            lblCustomerName.AutoSize = true;
+            lblCustomerName.Location = new Point(18, 333);
+            lblCustomerName.Margin = new Padding(4, 0, 4, 0);
+            lblCustomerName.Name = "lblCustomerName";
+            lblCustomerName.Size = new Size(81, 30);
+            lblCustomerName.TabIndex = 3;
+            lblCustomerName.Text = "Họ tên:";
             // 
             // txtCustomerName
             // 
-            this.txtCustomerName.Location = new System.Drawing.Point(137, 212);
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(250, 27);
-            this.txtCustomerName.TabIndex = 4;
+            txtCustomerName.BackColor = Color.White;
+            txtCustomerName.Location = new Point(206, 329);
+            txtCustomerName.Margin = new Padding(4);
+            txtCustomerName.Name = "txtCustomerName";
+            txtCustomerName.Size = new Size(373, 35);
+            txtCustomerName.TabIndex = 4;
             // 
             // lblCustomerPhone
             // 
-            this.lblCustomerPhone.AutoSize = true;
-            this.lblCustomerPhone.Location = new System.Drawing.Point(12, 248);
-            this.lblCustomerPhone.Name = "lblCustomerPhone";
-            this.lblCustomerPhone.Size = new System.Drawing.Size(120, 20);
-            this.lblCustomerPhone.TabIndex = 5;
-            this.lblCustomerPhone.Text = "Customer Phone:";
+            lblCustomerPhone.AutoSize = true;
+            lblCustomerPhone.Location = new Point(18, 383);
+            lblCustomerPhone.Margin = new Padding(4, 0, 4, 0);
+            lblCustomerPhone.Name = "lblCustomerPhone";
+            lblCustomerPhone.Size = new Size(140, 30);
+            lblCustomerPhone.TabIndex = 5;
+            lblCustomerPhone.Text = "Số điện thoại:";
             // 
             // txtCustomerPhone
             // 
-            this.txtCustomerPhone.Location = new System.Drawing.Point(137, 245);
-            this.txtCustomerPhone.Name = "txtCustomerPhone";
-            this.txtCustomerPhone.Size = new System.Drawing.Size(250, 27);
-            this.txtCustomerPhone.TabIndex = 6;
+            txtCustomerPhone.BackColor = Color.White;
+            txtCustomerPhone.Location = new Point(206, 379);
+            txtCustomerPhone.Margin = new Padding(4);
+            txtCustomerPhone.Name = "txtCustomerPhone";
+            txtCustomerPhone.Size = new Size(373, 35);
+            txtCustomerPhone.TabIndex = 6;
             // 
             // lblDeliveryAddress
             // 
-            this.lblDeliveryAddress.AutoSize = true;
-            this.lblDeliveryAddress.Location = new System.Drawing.Point(12, 281);
-            this.lblDeliveryAddress.Name = "lblDeliveryAddress";
-            this.lblDeliveryAddress.Size = new System.Drawing.Size(119, 20);
-            this.lblDeliveryAddress.TabIndex = 7;
-            this.lblDeliveryAddress.Text = "Delivery Address:";
+            lblDeliveryAddress.AutoSize = true;
+            lblDeliveryAddress.Location = new Point(18, 433);
+            lblDeliveryAddress.Margin = new Padding(4, 0, 4, 0);
+            lblDeliveryAddress.Name = "lblDeliveryAddress";
+            lblDeliveryAddress.Size = new Size(181, 30);
+            lblDeliveryAddress.TabIndex = 7;
+            lblDeliveryAddress.Text = "Địa chỉ giao hàng:";
             // 
             // txtDeliveryAddress
             // 
-            this.txtDeliveryAddress.Location = new System.Drawing.Point(137, 278);
-            this.txtDeliveryAddress.Name = "txtDeliveryAddress";
-            this.txtDeliveryAddress.Size = new System.Drawing.Size(250, 27);
-            this.txtDeliveryAddress.TabIndex = 8;
+            txtDeliveryAddress.BackColor = Color.White;
+            txtDeliveryAddress.Location = new Point(206, 428);
+            txtDeliveryAddress.Margin = new Padding(4);
+            txtDeliveryAddress.Name = "txtDeliveryAddress";
+            txtDeliveryAddress.Size = new Size(373, 35);
+            txtDeliveryAddress.TabIndex = 8;
             // 
             // lblPaymentMethod
             // 
-            this.lblPaymentMethod.AutoSize = true;
-            this.lblPaymentMethod.Location = new System.Drawing.Point(12, 314);
-            this.lblPaymentMethod.Name = "lblPaymentMethod";
-            this.lblPaymentMethod.Size = new System.Drawing.Size(123, 20);
-            this.lblPaymentMethod.TabIndex = 9;
-            this.lblPaymentMethod.Text = "Payment Method:";
+            lblPaymentMethod.AutoSize = true;
+            lblPaymentMethod.Location = new Point(18, 482);
+            lblPaymentMethod.Margin = new Padding(4, 0, 4, 0);
+            lblPaymentMethod.Name = "lblPaymentMethod";
+            lblPaymentMethod.Size = new Size(172, 30);
+            lblPaymentMethod.TabIndex = 9;
+            lblPaymentMethod.Text = "Cách thanh toán:";
             // 
             // cmbPaymentMethod
             // 
-            this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPaymentMethod.FormattingEnabled = true;
-            this.cmbPaymentMethod.Items.AddRange(new object[] {
-            "Cash",
-            "Credit Card",
-            "Debit Card",
-            "Online Payment"});
-            this.cmbPaymentMethod.Location = new System.Drawing.Point(137, 311);
-            this.cmbPaymentMethod.Name = "cmbPaymentMethod";
-            this.cmbPaymentMethod.Size = new System.Drawing.Size(250, 28);
-            this.cmbPaymentMethod.TabIndex = 10;
+            cmbPaymentMethod.BackColor = Color.White;
+            cmbPaymentMethod.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbPaymentMethod.FormattingEnabled = true;
+            cmbPaymentMethod.Items.AddRange(new object[] { "Cash", "Credit Card", "Debit Card", "Online Payment" });
+            cmbPaymentMethod.Location = new Point(206, 477);
+            cmbPaymentMethod.Margin = new Padding(4);
+            cmbPaymentMethod.Name = "cmbPaymentMethod";
+            cmbPaymentMethod.Size = new Size(373, 38);
+            cmbPaymentMethod.TabIndex = 10;
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(12, 355);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(94, 29);
-            this.btnConfirm.TabIndex = 11;
-            this.btnConfirm.Text = "Confirm";
-            this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            btnConfirm.BackColor = Color.RosyBrown;
+            btnConfirm.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnConfirm.ForeColor = Color.White;
+            btnConfirm.Location = new Point(18, 532);
+            btnConfirm.Margin = new Padding(4);
+            btnConfirm.Name = "btnConfirm";
+            btnConfirm.Size = new Size(141, 44);
+            btnConfirm.TabIndex = 11;
+            btnConfirm.Text = "Confirm";
+            btnConfirm.UseVisualStyleBackColor = false;
+            btnConfirm.Click += btnConfirm_Click;
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(293, 355);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(94, 29);
-            this.btnBack.TabIndex = 12;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            btnBack.BackColor = Color.RosyBrown;
+            btnBack.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBack.ForeColor = Color.White;
+            btnBack.Location = new Point(440, 532);
+            btnBack.Margin = new Padding(4);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(141, 44);
+            btnBack.TabIndex = 12;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += btnBack_Click;
             // 
             // lblTotalAmount
             // 
-            this.lblTotalAmount.AutoSize = true;
-            this.lblTotalAmount.Location = new System.Drawing.Point(12, 390);
-            this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(94, 20);
-            this.lblTotalAmount.TabIndex = 13;
-            this.lblTotalAmount.Text = "Total Amount:";
-            // 
-            // txtTotalAmount
-            // 
-            this.txtTotalAmount.Location = new System.Drawing.Point(137, 387);
-            this.txtTotalAmount.Name = "txtTotalAmount";
-            this.txtTotalAmount.ReadOnly = true;
-            this.txtTotalAmount.Size = new System.Drawing.Size(250, 27);
-            this.txtTotalAmount.TabIndex = 14;
+            lblTotalAmount.AutoSize = true;
+            lblTotalAmount.Location = new Point(18, 585);
+            lblTotalAmount.Margin = new Padding(4, 0, 4, 0);
+            lblTotalAmount.Name = "lblTotalAmount";
+            lblTotalAmount.Size = new Size(133, 30);
+            lblTotalAmount.TabIndex = 13;
+            lblTotalAmount.Text = "Tổng số tiền:";
             // 
             // lblDiscount
             // 
-            this.lblDiscount.AutoSize = true;
-            this.lblDiscount.Location = new System.Drawing.Point(12, 423);
-            this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(67, 20);
-            this.lblDiscount.TabIndex = 15;
-            this.lblDiscount.Text = "Discount:";
-            // 
-            // txtDiscount
-            // 
-            this.txtDiscount.Location = new System.Drawing.Point(137, 420);
-            this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(250, 27);
-            this.txtDiscount.TabIndex = 16;
-            this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
+            lblDiscount.AutoSize = true;
+            lblDiscount.Location = new Point(18, 634);
+            lblDiscount.Margin = new Padding(4, 0, 4, 0);
+            lblDiscount.Name = "lblDiscount";
+            lblDiscount.Size = new Size(100, 30);
+            lblDiscount.TabIndex = 15;
+            lblDiscount.Text = "Discount:";
             // 
             // lblFinalAmount
             // 
-            this.lblFinalAmount.AutoSize = true;
-            this.lblFinalAmount.Location = new System.Drawing.Point(12, 456);
-            this.lblFinalAmount.Name = "lblFinalAmount";
-            this.lblFinalAmount.Size = new System.Drawing.Size(94, 20);
-            this.lblFinalAmount.TabIndex = 17;
-            this.lblFinalAmount.Text = "Final Amount:";
+            lblFinalAmount.AutoSize = true;
+            lblFinalAmount.Location = new Point(18, 684);
+            lblFinalAmount.Margin = new Padding(4, 0, 4, 0);
+            lblFinalAmount.Name = "lblFinalAmount";
+            lblFinalAmount.Size = new Size(159, 30);
+            lblFinalAmount.TabIndex = 17;
+            lblFinalAmount.Text = "Số tiền phải trả:";
+            // 
+            // txtTotalAmount
+            // 
+            txtTotalAmount.BackColor = Color.White;
+            txtTotalAmount.Location = new Point(206, 580);
+            txtTotalAmount.Margin = new Padding(4);
+            txtTotalAmount.Name = "txtTotalAmount";
+            txtTotalAmount.ReadOnly = true;
+            txtTotalAmount.Size = new Size(373, 35);
+            txtTotalAmount.TabIndex = 14;
+            // 
+            // txtDiscount
+            // 
+            txtDiscount.BackColor = Color.White;
+            txtDiscount.Location = new Point(206, 630);
+            txtDiscount.Margin = new Padding(4);
+            txtDiscount.Name = "txtDiscount";
+            txtDiscount.Size = new Size(373, 35);
+            txtDiscount.TabIndex = 16;
+            txtDiscount.TextChanged += txtDiscount_TextChanged;
             // 
             // txtFinalAmount
             // 
-            this.txtFinalAmount.Location = new System.Drawing.Point(137, 453);
-            this.txtFinalAmount.Name = "txtFinalAmount";
-            this.txtFinalAmount.ReadOnly = true;
-            this.txtFinalAmount.Size = new System.Drawing.Size(250, 27);
-            this.txtFinalAmount.TabIndex = 18;
+            txtFinalAmount.BackColor = Color.White;
+            txtFinalAmount.Location = new Point(206, 680);
+            txtFinalAmount.Margin = new Padding(4);
+            txtFinalAmount.Name = "txtFinalAmount";
+            txtFinalAmount.ReadOnly = true;
+            txtFinalAmount.Size = new Size(373, 35);
+            txtFinalAmount.TabIndex = 18;
             // 
             // Checkout
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 500);
-            this.Controls.Add(this.txtFinalAmount);
-            this.Controls.Add(this.lblFinalAmount);
-            this.Controls.Add(this.txtDiscount);
-            this.Controls.Add(this.lblDiscount);
-            this.Controls.Add(this.txtTotalAmount);
-            this.Controls.Add(this.lblTotalAmount);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnConfirm);
-            this.Controls.Add(this.cmbPaymentMethod);
-            this.Controls.Add(this.lblPaymentMethod);
-            this.Controls.Add(this.txtDeliveryAddress);
-            this.Controls.Add(this.lblDeliveryAddress);
-            this.Controls.Add(this.txtCustomerPhone);
-            this.Controls.Add(this.lblCustomerPhone);
-            this.Controls.Add(this.txtCustomerName);
-            this.Controls.Add(this.lblCustomerName);
-            this.Controls.Add(this.lblCustomerDetails);
-            this.Controls.Add(this.dgvOrderSummary);
-            this.Controls.Add(this.lblOrderSummary);
-            this.Name = "Checkout";
-            this.Text = "Checkout";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderSummary)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(607, 750);
+            Controls.Add(txtFinalAmount);
+            Controls.Add(lblFinalAmount);
+            Controls.Add(txtDiscount);
+            Controls.Add(lblDiscount);
+            Controls.Add(txtTotalAmount);
+            Controls.Add(lblTotalAmount);
+            Controls.Add(btnBack);
+            Controls.Add(btnConfirm);
+            Controls.Add(cmbPaymentMethod);
+            Controls.Add(lblPaymentMethod);
+            Controls.Add(txtDeliveryAddress);
+            Controls.Add(lblDeliveryAddress);
+            Controls.Add(txtCustomerPhone);
+            Controls.Add(lblCustomerPhone);
+            Controls.Add(txtCustomerName);
+            Controls.Add(lblCustomerName);
+            Controls.Add(lblCustomerDetails);
+            Controls.Add(dgvOrderSummary);
+            Controls.Add(lblOrderSummary);
+            Margin = new Padding(4);
+            Name = "Checkout";
+            Text = "Checkout";
+            ((System.ComponentModel.ISupportInitialize)dgvOrderSummary).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }

@@ -44,106 +44,114 @@
             // lblFullName
             // 
             lblFullName.AutoSize = true;
+            lblFullName.BackColor = Color.White;
             lblFullName.Location = new Point(12, 15);
             lblFullName.Name = "lblFullName";
-            lblFullName.Size = new Size(79, 20);
+            lblFullName.Size = new Size(81, 30);
             lblFullName.TabIndex = 0;
-            lblFullName.Text = "Full Name:";
+            lblFullName.Text = "Họ tên:";
             // 
             // lblPhoneNumber
             // 
             lblPhoneNumber.AutoSize = true;
-            lblPhoneNumber.Location = new Point(12, 45);
+            lblPhoneNumber.Location = new Point(12, 60);
             lblPhoneNumber.Name = "lblPhoneNumber";
-            lblPhoneNumber.Size = new Size(111, 20);
+            lblPhoneNumber.Size = new Size(55, 30);
             lblPhoneNumber.TabIndex = 2;
-            lblPhoneNumber.Text = "Phone Number:";
+            lblPhoneNumber.Text = "SĐT:";
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(12, 75);
+            lblEmail.Location = new Point(12, 101);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(49, 20);
+            lblEmail.Size = new Size(68, 30);
             lblEmail.TabIndex = 4;
             lblEmail.Text = "Email:";
             // 
             // lblIDNumber
             // 
             lblIDNumber.AutoSize = true;
-            lblIDNumber.Location = new Point(12, 105);
+            lblIDNumber.Location = new Point(12, 142);
             lblIDNumber.Name = "lblIDNumber";
-            lblIDNumber.Size = new Size(85, 20);
+            lblIDNumber.Size = new Size(68, 30);
             lblIDNumber.TabIndex = 6;
-            lblIDNumber.Text = "ID Number:";
+            lblIDNumber.Text = "Số ID:";
             // 
             // lblGender
             // 
             lblGender.AutoSize = true;
-            lblGender.Location = new Point(12, 135);
+            lblGender.Location = new Point(12, 183);
             lblGender.Name = "lblGender";
-            lblGender.Size = new Size(60, 20);
+            lblGender.Size = new Size(97, 30);
             lblGender.TabIndex = 8;
-            lblGender.Text = "Gender:";
+            lblGender.Text = "Giới tính:";
             // 
             // txtFullName
             // 
-            txtFullName.Location = new Point(155, 12);
+            txtFullName.Location = new Point(189, 19);
             txtFullName.Name = "txtFullName";
-            txtFullName.Size = new Size(200, 27);
+            txtFullName.Size = new Size(212, 35);
             txtFullName.TabIndex = 1;
             // 
             // txtPhoneNumber
             // 
-            txtPhoneNumber.Location = new Point(155, 42);
+            txtPhoneNumber.Location = new Point(189, 60);
             txtPhoneNumber.Name = "txtPhoneNumber";
-            txtPhoneNumber.Size = new Size(200, 27);
+            txtPhoneNumber.Size = new Size(212, 35);
             txtPhoneNumber.TabIndex = 3;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(155, 72);
+            txtEmail.Location = new Point(189, 101);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(200, 27);
+            txtEmail.Size = new Size(212, 35);
             txtEmail.TabIndex = 5;
             // 
             // txtIDNumber
             // 
-            txtIDNumber.Location = new Point(155, 102);
+            txtIDNumber.Location = new Point(189, 142);
             txtIDNumber.Name = "txtIDNumber";
-            txtIDNumber.Size = new Size(200, 27);
+            txtIDNumber.Size = new Size(212, 35);
             txtIDNumber.TabIndex = 7;
             // 
             // txtGender
             // 
-            txtGender.Location = new Point(155, 132);
+            txtGender.Location = new Point(189, 183);
             txtGender.Name = "txtGender";
-            txtGender.Size = new Size(200, 27);
+            txtGender.Size = new Size(212, 35);
             txtGender.TabIndex = 9;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(145, 170);
+            btnSave.BackColor = Color.RosyBrown;
+            btnSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSave.ForeColor = Color.White;
+            btnSave.Location = new Point(185, 237);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(75, 33);
+            btnSave.Size = new Size(105, 49);
             btnSave.TabIndex = 10;
             btnSave.Text = "Save";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(280, 170);
+            btnCancel.BackColor = Color.RosyBrown;
+            btnCancel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancel.ForeColor = Color.White;
+            btnCancel.Location = new Point(296, 237);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(75, 33);
+            btnCancel.Size = new Size(105, 49);
             btnCancel.TabIndex = 11;
             btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
             // UpdatePersonalInfo
             // 
-            ClientSize = new Size(391, 238);
+            BackColor = Color.White;
+            ClientSize = new Size(437, 319);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(txtGender);
@@ -157,7 +165,7 @@
             Controls.Add(txtFullName);
             Controls.Add(lblFullName);
             Name = "UpdatePersonalInfo";
-            Text = "Update Personal Information";
+            Text = "Cập nhật thông tin";
             ResumeLayout(false);
             PerformLayout();
         }
