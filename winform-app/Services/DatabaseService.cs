@@ -219,6 +219,53 @@ namespace winform_app.Services
 
             return branches;
         }
+        public List<Models.Category> GetCategory()
+        {
+            List<Models.Category> categories = new List<Models.Category>();
+
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = @"
+                    SELECT MENU_CATEGORY.CategoryID, MENU_CATEGORY.CategoryName
+                    FROM MENU_CATEGORY;";
+
+                SqlCommand command = new SqlCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Models.Category category = new Models.Category
+                        {
+                            CategoryID = reader.GetString(0),
+                            CategoryName = reader.GetString(1),
+                        };
+
+                        categories.Add(category);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"An error occurred: {ex.Message}");
+
+                }
+            }
+
+            return categories;
+        }
+        public string GetLatestMenuItemID()
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                SqlCommand command = new SqlCommand("SELECT TOP 1 ItemID FROM MENU_ITEM ORDER BY ItemID DESC", conn);
+                var result = command.ExecuteScalar();
+                return result != null ? result.ToString() : null;
+            }
+        }
         public List<Models.MenuItem> GetMenuItemsByBranch(string branchID)
         {
             List<Models.MenuItem> menuItems = new List<Models.MenuItem>();

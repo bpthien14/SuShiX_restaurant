@@ -8,17 +8,24 @@ INSERT INTO REGION (RegionID, RegionName) VALUES
 INSERT INTO BRANCH (BranchID, RegionID, BranchName, Address, BranchPhoneNumber, OpeningTime, ClosingTime, HasCarParking, HasBikeParking, DeliveryService, ManagerID) VALUES
 ('BR001', 0, 'HCM CN 1', '123 HCM Street', '0123456789', '08:00:00', '18:00:00', 1, 1, 1, 'S001'),
 ('BR002', 0, 'HCM CN 2', '456 HCM Street', '0987654321', '09:00:00', '19:00:00', 1, 1, 0, 'S002'),
-('BR003', 1, 'HN CN 1', '789 HN Street', '0123456789', '08:00:00', '18:00:00', 1, 0, 1, 'S003');
+('BR003', 1, 'HN CN 1', '789 HN Street', '0124356789', '08:00:00', '18:00:00', 1, 0, 1, 'S003'),
+('BR004', 1, 'HN CN 2', '123 HN Street', '0123546789', '08:00:00', '18:00:00', 1, 0, 1, 'S004'),
+('BR005', 2, 'GL CN 1', '123 GL Street', '0123656789', '08:00:00', '18:00:00', 1, 0, 1, 'S005'),
+('BR006', 2, 'GL CN 2', '789 GL Street', '0123454789', '08:00:00', '18:00:00', 1, 0, 1, 'S006');
 
 -- Insert data into USERS
 INSERT INTO USERS (UserID, Username, Password, Role) VALUES
-('U001', 'john_doe', 'password', 'Customer'),
-('U002', 'jane_smith', 'password', 'Customer');
+('U006', 'admin', '123', 'Admin'),
+('U001', 'john_doe', 'password', 'Manager'),
+('U002', 'jane_smith', 'password', 'Manager'),
+('U003', 'alice_brown', 'password', 'Manager'),
+('U004', 'a_nhua', 'password', 'Customer'),
+('U005', 'minh_tri', 'password', 'Customer');
 
 -- Insert data into CUSTOMER
 INSERT INTO CUSTOMER (CustomerID, FullName, PhoneNumber, Email, IDNumber, Gender, UserID) VALUES
-('C001', 'John Doe', '0123456789', 'john@example.com', '123456789', 'Male', 'U001'),
-('C002', 'Jane Smith', '0987654321', 'jane@example.com', '987654321', 'Female', 'U002');
+('C001', 'John Doe', '0123456789', 'john@example.com', '123456789', 'Male', 'U004'),
+('C002', 'Jane Smith', '0987654321', 'jane@example.com', '987654321', 'Female', 'U005');
 
 INSERT INTO DEPARTMENT (DepartmentID, DepartmentName)
 VALUES
@@ -96,35 +103,35 @@ INSERT INTO ORDER_INVOICE (InvoiceID, OrderID, CardID, TotalAmount, Discount, Fi
 
 
 -- Insert data into ONLINE_BOOKING
-INSERT INTO ONLINE_BOOKING (BookingID, CustomerID, BranchID, GuestCount, BookingDate, ArrivalTime, Notes) VALUES
-(1001, 'C001', 'BR001', 4, '2024-01-03', '12:00:00', 'Lunch reservation'),
-(1002, 'C002', 'BR002', 2, '2024-01-03', '19:00:00', 'Dinner with client'),
-(1003, 'C001', 'BR003', 5, '2024-01-04', '11:30:00', 'Family lunch'),
-(1004, 'C002', 'BR003', 3, '2024-01-04', '13:00:00', 'Business meeting'),
-(1005, 'C001', 'BR001', 6, '2024-01-05', '20:00:00', 'Birthday party'),
-(1006, 'C002', 'BR002', 8, '2024-01-05', '18:00:00', 'Group dinner');
+INSERT INTO ONLINE_BOOKING (CustomerID, BranchID, GuestCount, BookingDate, ArrivalTime, Notes) VALUES
+('C001', 'BR001', 4, '2024-01-03', '12:00:00', 'Lunch reservation'),
+('C002', 'BR002', 2, '2024-01-03', '19:00:00', 'Dinner with client'),
+('C001', 'BR003', 5, '2024-01-04', '11:30:00', 'Family lunch'),
+('C002', 'BR003', 3, '2024-01-04', '13:00:00', 'Business meeting'),
+('C001', 'BR001', 6, '2024-01-05', '20:00:00', 'Birthday party'),
+('C002', 'BR002', 8, '2024-01-05', '18:00:00', 'Group dinner');
 
 
 -- Insert data into ONLINE_BOOKING_ORDER
 INSERT INTO ONLINE_BOOKING_ORDER (BookingID, ItemID, Quantity) VALUES
-(1001, 'MI001', 3),
-(1001, 'MI002', 2),
-(1002, 'MI001', 1),
-(1002, 'MI002', 4),
-(1003, 'MI001', 5),
-(1003, 'MI002', 3),
-(1004, 'MI002', 6),
-(1005, 'MI001', 7),
-(1005, 'MI002', 4),
-(1006, 'MI001', 2),
-(1006, 'MI002', 6);
+(1, 'MI001', 3),
+(1, 'MI002', 2),
+(2, 'MI001', 1),
+(2, 'MI002', 4),
+(3, 'MI001', 5),
+(3, 'MI002', 3),
+(4, 'MI002', 6),
+(5, 'MI001', 7),
+(5, 'MI002', 4),
+(6, 'MI001', 2),
+(6, 'MI002', 6);
 
 
 -- Insert data into BOOKING_INVOICE
 INSERT INTO BOOKING_INVOICE (InvoiceID, BookingID, CardID, TotalAmount, Discount, FinalAmount, CreatedAt) VALUES
-('BINV001', 1001, 'CARD001', 25.00, 2.00, 23.00, '2024-01-03'),
-('BINV002', 1002, 'CARD002', 20.00, 1.50, 18.50, '2024-01-03'),
-('BINV003', 1003, 'CARD001', 40.00, 3.00, 37.00, '2024-01-04'),
-('BINV004', 1004, 'CARD002', 30.00, 2.50, 27.50, '2024-01-04'),
-('BINV005', 1005, 'CARD001', 60.00, 5.00, 55.00, '2024-01-05'),
-('BINV006', 1006, 'CARD002', 50.00, 4.00, 46.00, '2024-01-05');
+('BINV001', 1, 'CARD001', 25.00, 2.00, 23.00, '2024-01-03'),
+('BINV002', 2, 'CARD002', 20.00, 1.50, 18.50, '2024-01-03'),
+('BINV003', 3, 'CARD001', 40.00, 3.00, 37.00, '2024-01-04'),
+('BINV004', 4, 'CARD002', 30.00, 2.50, 27.50, '2024-01-04'),
+('BINV005', 5, 'CARD001', 60.00, 5.00, 55.00, '2024-01-05'),
+('BINV006', 6, 'CARD002', 50.00, 4.00, 46.00, '2024-01-05');

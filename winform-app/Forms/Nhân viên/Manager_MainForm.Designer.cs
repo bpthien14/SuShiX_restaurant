@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Manager_MainForm));
             menuStrip = new MenuStrip();
             quanLyMonAnToolStripMenuItem = new ToolStripMenuItem();
             thongKeDoanhThuTheoMonAnToolStripMenuItem = new ToolStripMenuItem();
             quanLyNhanSuToolStripMenuItem = new ToolStripMenuItem();
+            pictureBox1 = new PictureBox();
             menuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip
@@ -73,12 +76,25 @@
             quanLyNhanSuToolStripMenuItem.Text = "Quản lý nhân sự";
             quanLyNhanSuToolStripMenuItem.Click += quanLyNhanSuToolStripMenuItem_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1047, 674);
+            pictureBox1.Margin = new Padding(5, 6, 5, 6);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(57, 60);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 14;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // Manager_MainForm
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1162, 805);
+            Controls.Add(pictureBox1);
             Controls.Add(menuStrip);
             Name = "Manager_MainForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -86,6 +102,7 @@
             Load += Manager_MainForm_Load;
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -96,5 +113,6 @@
         private ToolStripMenuItem quanLyMonAnToolStripMenuItem;
         private ToolStripMenuItem thongKeDoanhThuTheoMonAnToolStripMenuItem;
         private ToolStripMenuItem quanLyNhanSuToolStripMenuItem;
+        private PictureBox pictureBox1;
     }
 }

@@ -38,7 +38,7 @@ namespace winform_app.Forms.Nhân_viên
                         return;
                     }
                 }
-                
+
                 // Create and show the new form
                 Admin_RevenueForm revenueForm = new Admin_RevenueForm
                 {
@@ -75,7 +75,7 @@ namespace winform_app.Forms.Nhân_viên
                         return;
                     }
                 }
-                
+
                 // Create and show the new form
                 Admin_RevenueFood revenueForm = new Admin_RevenueFood
                 {
@@ -127,6 +127,13 @@ namespace winform_app.Forms.Nhân_viên
             {
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+            this.Hide();
         }
     }
 }

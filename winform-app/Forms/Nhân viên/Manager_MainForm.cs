@@ -86,14 +86,14 @@ namespace winform_app.Forms.Nhân_viên
                 Manager_RevenueForm revenueForm = new Manager_RevenueForm(staff)
                 {
                     MdiParent = this,
-                    Dock = DockStyle.Fill, 
+                    Dock = DockStyle.Fill,
                     WindowState = FormWindowState.Maximized,
                     FormBorderStyle = FormBorderStyle.None
                 };
 
                 // Ensure proper docking and size handling
-                this.IsMdiContainer = true; 
-                this.LayoutMdi(MdiLayout.Cascade); 
+                this.IsMdiContainer = true;
+                this.LayoutMdi(MdiLayout.Cascade);
 
                 revenueForm.Show();
             }
@@ -107,7 +107,7 @@ namespace winform_app.Forms.Nhân_viên
         {
             ResetMenuItemBackColor();
             quanLyNhanSuToolStripMenuItem.BackColor = Color.LightGray;
-            
+
             try
             {
                 // Check if the form is already open
@@ -144,6 +144,13 @@ namespace winform_app.Forms.Nhân_viên
         private void Manager_MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+            this.Hide();
         }
     }
 }
