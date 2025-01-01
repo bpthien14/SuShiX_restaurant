@@ -87,10 +87,10 @@
             // lblRegionName
             // 
             lblRegionName.AutoSize = true;
-            lblRegionName.Location = new Point(24, 34);
-            lblRegionName.Margin = new Padding(6, 0, 6, 0);
+            lblRegionName.Location = new Point(16, 23);
+            lblRegionName.Margin = new Padding(4, 0, 4, 0);
             lblRegionName.Name = "lblRegionName";
-            lblRegionName.Size = new Size(144, 30);
+            lblRegionName.Size = new Size(64, 20);
             lblRegionName.TabIndex = 0;
             lblRegionName.Text = "Khu vực:";
             // 
@@ -98,20 +98,20 @@
             // 
             cmbRegionName.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbRegionName.FormattingEnabled = true;
-            cmbRegionName.Location = new Point(240, 27);
-            cmbRegionName.Margin = new Padding(6, 8, 6, 8);
+            cmbRegionName.Location = new Point(160, 18);
+            cmbRegionName.Margin = new Padding(4, 5, 4, 5);
             cmbRegionName.Name = "cmbRegionName";
-            cmbRegionName.Size = new Size(396, 38);
+            cmbRegionName.Size = new Size(265, 28);
             cmbRegionName.TabIndex = 1;
             cmbRegionName.SelectedIndexChanged += cmbRegionName_SelectedIndexChanged;
             // 
             // lblBranchName
             // 
             lblBranchName.AutoSize = true;
-            lblBranchName.Location = new Point(24, 104);
-            lblBranchName.Margin = new Padding(6, 0, 6, 0);
+            lblBranchName.Location = new Point(16, 69);
+            lblBranchName.Margin = new Padding(4, 0, 4, 0);
             lblBranchName.Name = "lblBranchName";
-            lblBranchName.Size = new Size(144, 30);
+            lblBranchName.Size = new Size(80, 20);
             lblBranchName.TabIndex = 2;
             lblBranchName.Text = "Chi Nhánh:";
             // 
@@ -119,30 +119,30 @@
             // 
             cmbBranchName.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbBranchName.FormattingEnabled = true;
-            cmbBranchName.Location = new Point(240, 98);
-            cmbBranchName.Margin = new Padding(6, 8, 6, 8);
+            cmbBranchName.Location = new Point(160, 65);
+            cmbBranchName.Margin = new Padding(4, 5, 4, 5);
             cmbBranchName.Name = "cmbBranchName";
-            cmbBranchName.Size = new Size(396, 38);
+            cmbBranchName.Size = new Size(265, 28);
             cmbBranchName.TabIndex = 3;
             cmbBranchName.SelectedIndexChanged += cmbBranchName_SelectedIndexChanged;
             // 
             // lblDeliveryType
             // 
             lblDeliveryType.AutoSize = true;
-            lblDeliveryType.Location = new Point(24, 172);
-            lblDeliveryType.Margin = new Padding(6, 0, 6, 0);
+            lblDeliveryType.Location = new Point(16, 115);
+            lblDeliveryType.Margin = new Padding(4, 0, 4, 0);
             lblDeliveryType.Name = "lblDeliveryType";
-            lblDeliveryType.Size = new Size(141, 30);
+            lblDeliveryType.Size = new Size(111, 20);
             lblDeliveryType.TabIndex = 4;
             lblDeliveryType.Text = "Loại giao hàng:";
             // 
             // rbPickup
             // 
             rbPickup.AutoSize = true;
-            rbPickup.Location = new Point(240, 168);
-            rbPickup.Margin = new Padding(6, 8, 6, 8);
+            rbPickup.Location = new Point(160, 112);
+            rbPickup.Margin = new Padding(4, 5, 4, 5);
             rbPickup.Name = "rbPickup";
-            rbPickup.Size = new Size(99, 34);
+            rbPickup.Size = new Size(80, 24);
             rbPickup.TabIndex = 5;
             rbPickup.TabStop = true;
             rbPickup.Text = "Đến lấy";
@@ -152,10 +152,10 @@
             // rbDelivery
             // 
             rbDelivery.AutoSize = true;
-            rbDelivery.Location = new Point(422, 168);
-            rbDelivery.Margin = new Padding(6, 8, 6, 8);
+            rbDelivery.Location = new Point(281, 112);
+            rbDelivery.Margin = new Padding(4, 5, 4, 5);
             rbDelivery.Name = "rbDelivery";
-            rbDelivery.Size = new Size(112, 34);
+            rbDelivery.Size = new Size(98, 24);
             rbDelivery.TabIndex = 6;
             rbDelivery.TabStop = true;
             rbDelivery.Text = "Giao hàng";
@@ -170,11 +170,11 @@
             gbDeliveryInfo.Controls.Add(txtCustomerPhone);
             gbDeliveryInfo.Controls.Add(lblAddress);
             gbDeliveryInfo.Controls.Add(txtAddress);
-            gbDeliveryInfo.Location = new Point(30, 222);
-            gbDeliveryInfo.Margin = new Padding(6, 8, 6, 8);
+            gbDeliveryInfo.Location = new Point(20, 148);
+            gbDeliveryInfo.Margin = new Padding(4, 5, 4, 5);
             gbDeliveryInfo.Name = "gbDeliveryInfo";
-            gbDeliveryInfo.Padding = new Padding(6, 8, 6, 8);
-            gbDeliveryInfo.Size = new Size(610, 231);
+            gbDeliveryInfo.Padding = new Padding(4, 5, 4, 5);
+            gbDeliveryInfo.Size = new Size(407, 154);
             gbDeliveryInfo.TabIndex = 7;
             gbDeliveryInfo.TabStop = false;
             gbDeliveryInfo.Text = "Thông tin giao hàng";
@@ -182,64 +182,64 @@
             // lblCustomerName
             // 
             lblCustomerName.AutoSize = true;
-            lblCustomerName.Location = new Point(12, 51);
-            lblCustomerName.Margin = new Padding(6, 0, 6, 0);
+            lblCustomerName.Location = new Point(8, 34);
+            lblCustomerName.Margin = new Padding(4, 0, 4, 0);
             lblCustomerName.Name = "lblCustomerName";
-            lblCustomerName.Size = new Size(169, 30);
+            lblCustomerName.Size = new Size(114, 20);
             lblCustomerName.TabIndex = 0;
             lblCustomerName.Text = "Tên khách hàng:";
             // 
             // txtCustomerName
             // 
-            txtCustomerName.Location = new Point(194, 44);
-            txtCustomerName.Margin = new Padding(6, 8, 6, 8);
+            txtCustomerName.Location = new Point(129, 29);
+            txtCustomerName.Margin = new Padding(4, 5, 4, 5);
             txtCustomerName.Name = "txtCustomerName";
-            txtCustomerName.Size = new Size(396, 35);
+            txtCustomerName.Size = new Size(265, 27);
             txtCustomerName.TabIndex = 1;
             // 
             // lblCustomerPhone
             // 
             lblCustomerPhone.AutoSize = true;
-            lblCustomerPhone.Location = new Point(12, 111);
-            lblCustomerPhone.Margin = new Padding(6, 0, 6, 0);
+            lblCustomerPhone.Location = new Point(8, 74);
+            lblCustomerPhone.Margin = new Padding(4, 0, 4, 0);
             lblCustomerPhone.Name = "lblCustomerPhone";
-            lblCustomerPhone.Size = new Size(172, 30);
+            lblCustomerPhone.Size = new Size(100, 20);
             lblCustomerPhone.TabIndex = 2;
             lblCustomerPhone.Text = "Số điện thoại:";
             // 
             // txtCustomerPhone
             // 
-            txtCustomerPhone.Location = new Point(194, 104);
-            txtCustomerPhone.Margin = new Padding(6, 8, 6, 8);
+            txtCustomerPhone.Location = new Point(129, 69);
+            txtCustomerPhone.Margin = new Padding(4, 5, 4, 5);
             txtCustomerPhone.Name = "txtCustomerPhone";
-            txtCustomerPhone.Size = new Size(396, 35);
+            txtCustomerPhone.Size = new Size(265, 27);
             txtCustomerPhone.TabIndex = 3;
             // 
             // lblAddress
             // 
             lblAddress.AutoSize = true;
-            lblAddress.Location = new Point(12, 171);
-            lblAddress.Margin = new Padding(6, 0, 6, 0);
+            lblAddress.Location = new Point(8, 114);
+            lblAddress.Margin = new Padding(4, 0, 4, 0);
             lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(92, 30);
+            lblAddress.Size = new Size(58, 20);
             lblAddress.TabIndex = 4;
             lblAddress.Text = "Địa chỉ:";
             // 
             // txtAddress
             // 
-            txtAddress.Location = new Point(194, 164);
-            txtAddress.Margin = new Padding(6, 8, 6, 8);
+            txtAddress.Location = new Point(129, 109);
+            txtAddress.Margin = new Padding(4, 5, 4, 5);
             txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(396, 35);
+            txtAddress.Size = new Size(265, 27);
             txtAddress.TabIndex = 5;
             // 
             // lblMenuCategory
             // 
             lblMenuCategory.AutoSize = true;
-            lblMenuCategory.Location = new Point(24, 483);
-            lblMenuCategory.Margin = new Padding(6, 0, 6, 0);
+            lblMenuCategory.Location = new Point(16, 322);
+            lblMenuCategory.Margin = new Padding(4, 0, 4, 0);
             lblMenuCategory.Name = "lblMenuCategory";
-            lblMenuCategory.Size = new Size(161, 30);
+            lblMenuCategory.Size = new Size(73, 20);
             lblMenuCategory.TabIndex = 8;
             lblMenuCategory.Text = "Phân loại:";
             // 
@@ -247,10 +247,10 @@
             // 
             cmbMenuCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMenuCategory.FormattingEnabled = true;
-            cmbMenuCategory.Location = new Point(240, 476);
-            cmbMenuCategory.Margin = new Padding(6, 8, 6, 8);
+            cmbMenuCategory.Location = new Point(160, 317);
+            cmbMenuCategory.Margin = new Padding(4, 5, 4, 5);
             cmbMenuCategory.Name = "cmbMenuCategory";
-            cmbMenuCategory.Size = new Size(396, 38);
+            cmbMenuCategory.Size = new Size(265, 28);
             cmbMenuCategory.TabIndex = 9;
             // 
             // btnSearchMenu
@@ -258,10 +258,10 @@
             btnSearchMenu.BackColor = Color.RosyBrown;
             btnSearchMenu.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSearchMenu.ForeColor = Color.White;
-            btnSearchMenu.Location = new Point(652, 476);
-            btnSearchMenu.Margin = new Padding(6, 8, 6, 8);
+            btnSearchMenu.Location = new Point(435, 317);
+            btnSearchMenu.Margin = new Padding(4, 5, 4, 5);
             btnSearchMenu.Name = "btnSearchMenu";
-            btnSearchMenu.Size = new Size(150, 42);
+            btnSearchMenu.Size = new Size(100, 28);
             btnSearchMenu.TabIndex = 10;
             btnSearchMenu.Text = "Tìm kiếm";
             btnSearchMenu.UseVisualStyleBackColor = false;
@@ -271,11 +271,10 @@
             // 
             dgvMenu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMenu.Columns.AddRange(new DataGridViewColumn[] { colAddToCart });
-            dgvMenu.Location = new Point(22, 540);
-            dgvMenu.Margin = new Padding(4, 4, 4, 4);
+            dgvMenu.Location = new Point(15, 360);
             dgvMenu.Name = "dgvMenu";
             dgvMenu.RowHeadersWidth = 51;
-            dgvMenu.Size = new Size(789, 225);
+            dgvMenu.Size = new Size(526, 150);
             dgvMenu.TabIndex = 11;
             dgvMenu.CellContentClick += dgvMenu_CellContentClick;
             // 
@@ -291,89 +290,87 @@
             // lblSelectedItems
             // 
             lblSelectedItems.AutoSize = true;
-            lblSelectedItems.Location = new Point(22, 770);
-            lblSelectedItems.Margin = new Padding(4, 0, 4, 0);
+            lblSelectedItems.Location = new Point(15, 513);
             lblSelectedItems.Name = "lblSelectedItems";
-            lblSelectedItems.Size = new Size(153, 30);
+            lblSelectedItems.Size = new Size(80, 20);
             lblSelectedItems.TabIndex = 12;
             lblSelectedItems.Text = "Chọn món:";
             // 
             // dgvSelectedItems
             // 
             dgvSelectedItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSelectedItems.Location = new Point(22, 825);
-            dgvSelectedItems.Margin = new Padding(4, 4, 4, 4);
+            dgvSelectedItems.Location = new Point(15, 550);
             dgvSelectedItems.Name = "dgvSelectedItems";
             dgvSelectedItems.RowHeadersWidth = 51;
-            dgvSelectedItems.Size = new Size(789, 150);
+            dgvSelectedItems.Size = new Size(526, 100);
             dgvSelectedItems.TabIndex = 13;
             dgvSelectedItems.CellContentClick += dgvSelectedItems_CellContentClick;
             // 
             // lblNotes
             // 
             lblNotes.AutoSize = true;
-            lblNotes.Location = new Point(24, 980);
-            lblNotes.Margin = new Padding(6, 0, 6, 0);
+            lblNotes.Location = new Point(16, 653);
+            lblNotes.Margin = new Padding(4, 0, 4, 0);
             lblNotes.Name = "lblNotes";
-            lblNotes.Size = new Size(73, 30);
+            lblNotes.Size = new Size(51, 20);
             lblNotes.TabIndex = 14;
             lblNotes.Text = "Notes:";
             // 
             // txtNotes
             // 
-            txtNotes.Location = new Point(20, 1017);
-            txtNotes.Margin = new Padding(6, 8, 6, 8);
+            txtNotes.Location = new Point(16, 678);
+            txtNotes.Margin = new Padding(4, 5, 4, 5);
             txtNotes.Multiline = true;
             txtNotes.Name = "txtNotes";
-            txtNotes.Size = new Size(676, 82);
+            txtNotes.Size = new Size(519, 56);
             txtNotes.TabIndex = 15;
             // 
             // lblTotalAmount
             // 
             lblTotalAmount.AutoSize = true;
-            lblTotalAmount.Location = new Point(20, 1108);
-            lblTotalAmount.Margin = new Padding(6, 0, 6, 0);
+            lblTotalAmount.Location = new Point(13, 739);
+            lblTotalAmount.Margin = new Padding(4, 0, 4, 0);
             lblTotalAmount.Name = "lblTotalAmount";
-            lblTotalAmount.Size = new Size(143, 30);
+            lblTotalAmount.Size = new Size(108, 20);
             lblTotalAmount.TabIndex = 16;
             lblTotalAmount.Text = "Tổng số lượng:";
             // 
             // lblDeliveryFee
             // 
             lblDeliveryFee.AutoSize = true;
-            lblDeliveryFee.Location = new Point(22, 1138);
-            lblDeliveryFee.Margin = new Padding(6, 0, 6, 0);
+            lblDeliveryFee.Location = new Point(15, 759);
+            lblDeliveryFee.Margin = new Padding(4, 0, 4, 0);
             lblDeliveryFee.Name = "lblDeliveryFee";
-            lblDeliveryFee.Size = new Size(130, 30);
+            lblDeliveryFee.Size = new Size(103, 20);
             lblDeliveryFee.TabIndex = 17;
             lblDeliveryFee.Text = "Phí giao hàng:";
             // 
             // lblDiscount
             // 
             lblDiscount.AutoSize = true;
-            lblDiscount.Location = new Point(22, 1168);
-            lblDiscount.Margin = new Padding(6, 0, 6, 0);
+            lblDiscount.Location = new Point(15, 779);
+            lblDiscount.Margin = new Padding(4, 0, 4, 0);
             lblDiscount.Name = "lblDiscount";
-            lblDiscount.Size = new Size(100, 30);
+            lblDiscount.Size = new Size(70, 20);
             lblDiscount.TabIndex = 18;
             lblDiscount.Text = "Discount:";
             // 
             // lblFinalAmount
             // 
             lblFinalAmount.AutoSize = true;
-            lblFinalAmount.Location = new Point(20, 1198);
-            lblFinalAmount.Margin = new Padding(6, 0, 6, 0);
+            lblFinalAmount.Location = new Point(13, 799);
+            lblFinalAmount.Margin = new Padding(4, 0, 4, 0);
             lblFinalAmount.Name = "lblFinalAmount";
-            lblFinalAmount.Size = new Size(142, 30);
+            lblFinalAmount.Size = new Size(100, 20);
             lblFinalAmount.TabIndex = 19;
             lblFinalAmount.Text = "Tổng giá tiền:";
             // 
             // btnBack
             // 
-            btnBack.Location = new Point(386, 1239);
-            btnBack.Margin = new Padding(6, 8, 6, 8);
+            btnBack.Location = new Point(314, 828);
+            btnBack.Margin = new Padding(4, 5, 4, 5);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(150, 52);
+            btnBack.Size = new Size(100, 35);
             btnBack.TabIndex = 20;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = true;
@@ -381,10 +378,10 @@
             // 
             // btnCheckout
             // 
-            btnCheckout.Location = new Point(548, 1239);
-            btnCheckout.Margin = new Padding(6, 8, 6, 8);
+            btnCheckout.Location = new Point(435, 828);
+            btnCheckout.Margin = new Padding(4, 5, 4, 5);
             btnCheckout.Name = "btnCheckout";
-            btnCheckout.Size = new Size(150, 52);
+            btnCheckout.Size = new Size(100, 35);
             btnCheckout.TabIndex = 21;
             btnCheckout.Text = "Checkout";
             btnCheckout.UseVisualStyleBackColor = true;
@@ -392,10 +389,10 @@
             // 
             // OrderDelivery
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(824, 1384);
+            ClientSize = new Size(555, 877);
             Controls.Add(btnCheckout);
             Controls.Add(btnBack);
             Controls.Add(lblFinalAmount);
@@ -418,7 +415,7 @@
             Controls.Add(lblBranchName);
             Controls.Add(cmbRegionName);
             Controls.Add(lblRegionName);
-            Margin = new Padding(6, 8, 6, 8);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "OrderDelivery";
             Text = "Đặt giao hàng";
             gbDeliveryInfo.ResumeLayout(false);

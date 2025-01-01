@@ -95,6 +95,12 @@ namespace winform_app.Forms.Khách_hàng
                 {
                     MessageBox.Show("Order confirmed and saved to the database!", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
+                    // Close the OrderDelivery form if it is open
+                    Form orderDeliveryForm = Application.OpenForms["OrderDelivery"];
+                    if (orderDeliveryForm != null)
+                    {
+                        orderDeliveryForm.Close();
+                    }
                 }
                 else
                 {

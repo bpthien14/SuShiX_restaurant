@@ -50,6 +50,8 @@ namespace winform_app.Forms.Khách_hàng
             {
                 MessageBox.Show("Customer information updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
+                KH_MainForm mainForm = new KH_MainForm(_user);
+                mainForm.Show();
             }
             else
             {
@@ -60,6 +62,8 @@ namespace winform_app.Forms.Khách_hàng
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+            KH_MainForm mainForm = new KH_MainForm(_user);
+            mainForm.Show();
         }
     }
 }

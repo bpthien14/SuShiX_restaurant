@@ -83,16 +83,25 @@ namespace winform_app.Forms.Khách_hàng
             if (_databaseService.BookTable(orderTable, out int bookingID))
             {
                 MessageBox.Show($"Booking successful! Your booking ID is {bookingID}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+                KH_MainForm mainForm = new KH_MainForm(_user);
+                mainForm.Show();
             }
             else
             {
                 MessageBox.Show("An error occurred while booking the table.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                KH_MainForm mainForm = new KH_MainForm(_user);
+                mainForm.Show();
             }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+            KH_MainForm mainForm = new KH_MainForm(_user);
+            mainForm.Show();
+
         }
     }
 }

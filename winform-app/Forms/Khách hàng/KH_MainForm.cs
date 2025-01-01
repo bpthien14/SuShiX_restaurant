@@ -13,6 +13,7 @@ using Microsoft.Data.SqlClient;
 using winform_app.Services;
 using winform_app.Models;
 using System.Drawing.Drawing2D;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 
 namespace winform_app.Forms.Khách_hàng
@@ -119,37 +120,42 @@ namespace winform_app.Forms.Khách_hàng
 
         private void buttonReserveTable_Click(object sender, EventArgs e)
         {
-            OrderTableForm orderTableForm = new OrderTableForm(currentUser);
-            orderTableForm.ShowDialog();
             this.Hide();
+            OrderTableForm orderTableForm = new OrderTableForm(currentUser);
+            orderTableForm.Show();
+
         }
 
         private void buttonFindBranch_Click(object sender, EventArgs e)
         {
-            FindBranchForm orderTableForm = new FindBranchForm(currentUser);
-            orderTableForm.ShowDialog();
             this.Hide();
+            FindBranchForm orderTableForm = new FindBranchForm(currentUser);
+            orderTableForm.Show();
+
 
         }
 
         private void buttonOrderTakeout_Click(object sender, EventArgs e)
         {
             OrderDelivery orderDelivery = new OrderDelivery(currentUser, this);
-            orderDelivery.ShowDialog();
+            orderDelivery.Show();
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
+            this.Hide();
             MainForm mainForm = new MainForm();
             mainForm.Show();
-            this.Hide();
+            
 
         }
 
         private void UpdatePersonalInfo_Click(object sender, EventArgs e)
         {
+            this.Hide();
             UpdatePersonalInfo updatePersonalInfoForm = new UpdatePersonalInfo(currentUser);
-            updatePersonalInfoForm.ShowDialog();
+
+            updatePersonalInfoForm.Show();
         }
 
     }
