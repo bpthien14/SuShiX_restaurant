@@ -84,26 +84,6 @@ END
 GO
 
 CREATE OR ALTER PROCEDURE sp_GetStaffStatistics
-    @BranchID VARCHAR(255),
-    @DepartmentID VARCHAR(255) = NULL
-AS
-BEGIN
-    SELECT 
-        s.StaffID,
-        s.FullName,
-        b.BranchName,
-        d.DepartmentName,
-        s.Salary
-    FROM STAFF s
-    JOIN BRANCH b ON s.BranchID = b.BranchID
-    JOIN DEPARTMENT d ON s.DepartmentID = d.DepartmentID
-    WHERE s.BranchID = @BranchID
-    AND (@DepartmentID IS NULL OR s.DepartmentID = @DepartmentID)
-    ORDER BY s.FullName;
-END
-GO
-
-CREATE OR ALTER PROCEDURE sp_GetStaffStatistics
     @BranchID VARCHAR(255) = NULL,   -- Allow NULL for BranchID
     @DepartmentID VARCHAR(255) = NULL, -- Allow NULL for DepartmentID
     @RegionID INT  
