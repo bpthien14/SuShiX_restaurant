@@ -18,6 +18,7 @@ namespace winform_app.Forms.Khách_hàng
             _user = user;
             _databaseService = new DatabaseService();
             LoadRegionNames();
+            LoadCustomerDetails();
         }
 
         private void LoadRegionNames()
@@ -42,6 +43,17 @@ namespace winform_app.Forms.Khách_hàng
             cmbBranchName.DataSource = branches;
             cmbBranchName.DisplayMember = "BranchName";
             cmbBranchName.ValueMember = "BranchID";
+        }
+
+        private void LoadCustomerDetails()
+        {
+            // Assuming you have a method to get the customer details by user ID
+            Customer customer = _databaseService.GetCustomerByUserID(_user.UserID);
+            if (customer != null)
+            {
+                txtCustomerName.Text = customer.FullName;
+                txtCustomerPhone.Text = customer.PhoneNumber;
+            }
         }
 
         private void btnBookTable_Click(object sender, EventArgs e)
@@ -81,7 +93,6 @@ namespace winform_app.Forms.Khách_hàng
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
     }
 }

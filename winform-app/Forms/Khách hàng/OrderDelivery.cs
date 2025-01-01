@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using winform_app.Models;
 using winform_app.Services;
@@ -18,15 +13,19 @@ namespace winform_app.Forms.Khách_hàng
         private DatabaseService _databaseService;
         private List<MenuItem> _menuItems;
         private List<OrderItem> _orderItems;
+        private string _customerID; // Thêm biến này để lưu CustomerID
+        private Form _mainForm;
 
-        public OrderDelivery(Users user)
+        public OrderDelivery(Users user, Form mainForm)
         {
             InitializeComponent();
             _user = user;
+            _mainForm = mainForm;
             _databaseService = new DatabaseService();
             _menuItems = new List<MenuItem>();
             _orderItems = new List<OrderItem>();
             LoadRegionNames();
+            FillCustomerDetails();
         }
 
         private void LoadRegionNames()
@@ -63,7 +62,6 @@ namespace winform_app.Forms.Khách_hàng
 
         private void LoadMenuCategories(string branchID)
         {
-            // Load menu categories based on the selected branch
             List<Category> categories = _databaseService.GetCategoriesByBranch(branchID);
             cmbMenuCategory.DataSource = categories;
             cmbMenuCategory.DisplayMember = "CategoryName";
@@ -79,7 +77,6 @@ namespace winform_app.Forms.Khách_hàng
 
         private void LoadMenuItems(string branchID, string categoryID)
         {
-            // Load menu items based on the selected branch and category
             _menuItems = _databaseService.GetMenuItemsByBranch(branchID).Where(item => item.CategoryID == categoryID).ToList();
             dgvMenu.DataSource = _menuItems;
         }
@@ -117,7 +114,6 @@ namespace winform_app.Forms.Khách_hàng
 
         private void dgvSelectedItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Handle quantity changes in the selected items grid
             if (e.ColumnIndex == dgvSelectedItems.Columns["colQuantity"].Index && e.RowIndex >= 0)
             {
                 DataGridViewTextBoxCell cell = (DataGridViewTextBoxCell)dgvSelectedItems.Rows[e.RowIndex].Cells[e.ColumnIndex];
@@ -168,13 +164,61 @@ namespace winform_app.Forms.Khách_hàng
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            _mainForm.Show();
             this.Close();
         }
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
-            // Handle checkout process
-            MessageBox.Show("Checkout process initiated.", "Checkout", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Gather booking details
+            OnlineBooking booking = new OnlineBooking
+            {
+                CustomerID = _customerID,
+                BranchID = cmbBranchName.SelectedValue.ToString(),
+                GuestCount = 1, // Placeholder value
+                BookingDate = DateTime.Now, // Chỉ lấy ngày tháng năm
+                GuestName = txtCustomerName.Text,
+                GuestPhone = txtCustomerPhone.Text,
+                DeliveryType = rbDelivery.Checked ? "Delivery" : "Pickup",
+                DeliveryAddress = rbDelivery.Checked ? txtAddress.Text : string.Empty,
+                DeliveryFee = rbDelivery.Checked ? 50000 : 0, // Placeholder delivery fee
+                Status = "PENDING"
+            };
+
+            // Create an OrderTable object
+            string nextOrderID = _databaseService.GetNextOrderID();
+            OrderTable order = new OrderTable
+            {
+                OrderID = nextOrderID,
+                OrderDate = DateTime.Now,
+                StaffID = "ST06357", // Assuming no staff ID for online orders
+                TableNumber = 0, // Assuming no table number for delivery orders
+                BranchID = cmbBranchName.SelectedValue.ToString(),
+                CustomerID = _customerID,
+                Notes = string.Empty,
+                GuestName = txtCustomerName.Text,
+                GuestPhone = txtCustomerPhone.Text,
+                OrderStatus = "PENDING"
+            };
+
+            // Open the Checkout form and pass the order items and booking details
+            Checkout checkoutForm = new Checkout(order, _orderItems, booking);
+            checkoutForm.ShowDialog();
+        }
+
+        private void FillCustomerDetails()
+        {
+            Customer customer = _databaseService.GetCustomerByUserID(_user.UserID);
+            if (customer != null)
+            {
+                txtCustomerName.Text = customer.FullName;
+                txtCustomerPhone.Text = customer.PhoneNumber;
+                _customerID = customer.CustomerID; // Lưu CustomerID để sử dụng sau
+            }
+            else
+            {
+                MessageBox.Show("Unable to retrieve customer details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
