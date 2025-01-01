@@ -88,42 +88,42 @@
             // 
             // txtFullName
             // 
-            txtFullName.Location = new Point(100, 12);
+            txtFullName.Location = new Point(155, 12);
             txtFullName.Name = "txtFullName";
             txtFullName.Size = new Size(200, 27);
             txtFullName.TabIndex = 1;
             // 
             // txtPhoneNumber
             // 
-            txtPhoneNumber.Location = new Point(100, 42);
+            txtPhoneNumber.Location = new Point(155, 42);
             txtPhoneNumber.Name = "txtPhoneNumber";
             txtPhoneNumber.Size = new Size(200, 27);
             txtPhoneNumber.TabIndex = 3;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(100, 72);
+            txtEmail.Location = new Point(155, 72);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(200, 27);
             txtEmail.TabIndex = 5;
             // 
             // txtIDNumber
             // 
-            txtIDNumber.Location = new Point(100, 102);
+            txtIDNumber.Location = new Point(155, 102);
             txtIDNumber.Name = "txtIDNumber";
             txtIDNumber.Size = new Size(200, 27);
             txtIDNumber.TabIndex = 7;
             // 
             // txtGender
             // 
-            txtGender.Location = new Point(100, 132);
+            txtGender.Location = new Point(155, 132);
             txtGender.Name = "txtGender";
             txtGender.Size = new Size(200, 27);
             txtGender.TabIndex = 9;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(90, 170);
+            btnSave.Location = new Point(145, 170);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 33);
             btnSave.TabIndex = 10;
@@ -133,7 +133,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(225, 170);
+            btnCancel.Location = new Point(280, 170);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 33);
             btnCancel.TabIndex = 11;
@@ -143,7 +143,7 @@
             // 
             // UpdatePersonalInfo
             // 
-            ClientSize = new Size(328, 238);
+            ClientSize = new Size(391, 238);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(txtGender);
