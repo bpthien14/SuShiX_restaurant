@@ -256,6 +256,16 @@ namespace winform_app.Services
 
             return categories;
         }
+        public string GetLatestMenuItemID()
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                SqlCommand command = new SqlCommand("SELECT TOP 1 ItemID FROM MENU_ITEM ORDER BY ItemID DESC", conn);
+                var result = command.ExecuteScalar();
+                return result != null ? result.ToString() : null;
+            }
+        }
         public List<Models.MenuItem> GetMenuItemsByBranch(string branchID)
         {
             List<Models.MenuItem> menuItems = new List<Models.MenuItem>();
