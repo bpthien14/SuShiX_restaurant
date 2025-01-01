@@ -31,6 +31,9 @@
     <Compile Update="Forms\Nhân viên\Admin_RevenueForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Nhân viên\InputBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Nhân viên\Manager_MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -174,5 +174,40 @@ namespace winform_app.Forms.Nhân_viên
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string? branchID = comboBoxChiNhanh.SelectedValue?.ToString();
+            string? departmentID = comboBoxBoPhan.SelectedValue?.ToString();
+
+            if (branchID == null)
+            {
+                MessageBox.Show("Xin hãy chọn chi nhánh cụ thể trước khi cập nhật lương nhân viên.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (departmentID == null)
+            {
+                MessageBox.Show("Xin hãy chọn bộ phận cụ thể trước khi cập nhật lương nhân viên.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            using (InputBoxForm inputBox = new InputBoxForm(departmentID, branchID))
+            {
+                if (inputBox.ShowDialog() == DialogResult.OK)
+                {
+                    double newSalary = (double)inputBox.Salary;
+
+                    bool success = _databaseService.UpdateDepartmentSalary(departmentID, branchID, newSalary);
+
+                    if (success)
+                    {
+                        MessageBox.Show("Cập nhật lương thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        buttonXemThongKe_Click(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập nhật lương thất bại.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }

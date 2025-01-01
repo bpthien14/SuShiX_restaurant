@@ -121,6 +121,26 @@ namespace winform_app.Services
 
             return branchName;
         }
+        public string GetDeptNameById(string departmentID)
+        {
+            try
+            {
+                using (SqlConnection conn = GetConnection())
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("SELECT DepartmentName FROM DEPARTMENT WHERE DepartmentID = @DepartmentID", conn);
+                    command.Parameters.AddWithValue("@DepartmentID", departmentID);
+                    var result = command.ExecuteScalar();
+                    return result != null ? result.ToString() : string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+                return string.Empty;
+            }
+        }
+
         public List<Models.Department> GetDepartments()
         {
             List<Models.Department> departments = new List<Models.Department>();
@@ -183,7 +203,7 @@ namespace winform_app.Services
 
             using (SqlConnection connection = GetConnection())
             {
-                string query = "SELECT BranchID, RegionID, BranchName, Address, BranchPhoneNumber, OpeningTime, ClosingTime, HasCarParking, HasBikeParking, DeliveryService, ManagerID FROM BRANCH WHERE RegionID = @RegionID";
+                string query = "SELECT BranchID, RegionID, BranchName, Address, BranchPhoneNumber, OpeningTime, ClosingTime, HasCarParking, HasBikeParking, DeliveryService, ManagerID FROM BRANCH WHERE @RegionID = -1 OR RegionID = @RegionID";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@RegionID", regionID);
 
@@ -791,7 +811,29 @@ namespace winform_app.Services
                 }
             }
         }
+        public bool UpdateDepartmentSalary(string departmentID, string branchID, double newSalary)
+        {
+            try
+            {
+                using (SqlConnection conn = GetConnection())
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("sp_UpdateDepartmentSalary", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@DepartmentID", departmentID);
+                    command.Parameters.AddWithValue("@BranchID", branchID);
+                    command.Parameters.AddWithValue("@NewSalary", newSalary);
 
-
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exception
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }

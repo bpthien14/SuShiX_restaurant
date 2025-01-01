@@ -170,6 +170,7 @@ partial class MainForm
         buttonFindBranch.TabIndex = 6;
         buttonFindBranch.Text = "Tìm chi nhánh";
         buttonFindBranch.UseVisualStyleBackColor = false;
+        buttonFindBranch.Click += buttonFindBranch_Click;
         // 
         // buttonReserveTable
         // 

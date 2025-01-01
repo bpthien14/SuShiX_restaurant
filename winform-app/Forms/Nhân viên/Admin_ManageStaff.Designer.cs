@@ -44,6 +44,7 @@
             label1 = new Label();
             buttonXuatExcel = new Button();
             buttonXemThongKe = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewNhanVien).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
@@ -71,7 +72,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.IndianRed;
-            label4.Location = new Point(356, 21);
+            label4.Location = new Point(264, 21);
             label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
             label4.Size = new Size(118, 30);
@@ -95,7 +96,7 @@
             // comboBoxChiNhanh
             // 
             comboBoxChiNhanh.FormattingEnabled = true;
-            comboBoxChiNhanh.Location = new Point(356, 57);
+            comboBoxChiNhanh.Location = new Point(264, 57);
             comboBoxChiNhanh.Margin = new Padding(5, 6, 5, 6);
             comboBoxChiNhanh.Name = "comboBoxChiNhanh";
             comboBoxChiNhanh.Size = new Size(205, 38);
@@ -119,7 +120,7 @@
             labelBoPhan.AutoSize = true;
             labelBoPhan.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelBoPhan.ForeColor = Color.IndianRed;
-            labelBoPhan.Location = new Point(704, 21);
+            labelBoPhan.Location = new Point(500, 21);
             labelBoPhan.Margin = new Padding(5, 0, 5, 0);
             labelBoPhan.Name = "labelBoPhan";
             labelBoPhan.Size = new Size(95, 30);
@@ -130,7 +131,7 @@
             // comboBoxBoPhan
             // 
             comboBoxBoPhan.FormattingEnabled = true;
-            comboBoxBoPhan.Location = new Point(704, 57);
+            comboBoxBoPhan.Location = new Point(500, 57);
             comboBoxBoPhan.Margin = new Padding(5, 6, 5, 6);
             comboBoxBoPhan.Name = "comboBoxBoPhan";
             comboBoxBoPhan.Size = new Size(205, 38);
@@ -209,12 +210,30 @@
             buttonXemThongKe.UseVisualStyleBackColor = false;
             buttonXemThongKe.Click += buttonXemThongKe_Click;
             // 
-            // NV_ManageStaff
+            // button1
+            // 
+            button1.BackColor = Color.RosyBrown;
+            button1.FlatAppearance.BorderColor = Color.RosyBrown;
+            button1.FlatAppearance.BorderSize = 2;
+            button1.FlatAppearance.MouseDownBackColor = Color.IndianRed;
+            button1.FlatAppearance.MouseOverBackColor = Color.IndianRed;
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(737, 49);
+            button1.Margin = new Padding(5, 6, 5, 6);
+            button1.Name = "button1";
+            button1.Size = new Size(261, 46);
+            button1.TabIndex = 42;
+            button1.Text = "Cập Nhật Lương";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // Admin_ManageStaff
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1135, 774);
+            Controls.Add(button1);
             Controls.Add(buttonXemThongKe);
             Controls.Add(buttonXuatExcel);
             Controls.Add(label1);
@@ -228,7 +247,7 @@
             Controls.Add(comboBoxKhuVuc);
             Controls.Add(dataGridViewNhanVien);
             Controls.Add(textBoxTimKiem);
-            Name = "NV_ManageStaff";
+            Name = "Admin_ManageStaff";
             Text = "Quản lý nhân sự";
             ((System.ComponentModel.ISupportInitialize)dataGridViewNhanVien).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -249,5 +268,6 @@
         private Label label1;
         private Button buttonXuatExcel;
         private Button buttonXemThongKe;
+        private Button button1;
     }
 }

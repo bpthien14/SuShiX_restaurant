@@ -105,5 +105,51 @@ BEGIN
       AND (@RegionID = -1  OR b.RegionID = @RegionID)
     ORDER BY s.Salary DESC;
 END;
+GO
+
+CREATE OR ALTER PROCEDURE sp_UpdateDepartmentSalary
+    @DepartmentID VARCHAR(255),
+    @BranchID VARCHAR(255),
+    @NewSalary DECIMAL(10,2)
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRANSACTION;
+            -- Kiểm tra bộ phận và chi nhánh có tồn tại
+            IF NOT EXISTS (SELECT 1 FROM DEPARTMENT WHERE DepartmentID = @DepartmentID)
+            BEGIN
+                RAISERROR('Bộ phận không tồn tại!', 16, 1);
+                RETURN;
+            END
+
+            IF NOT EXISTS (SELECT 1 FROM BRANCH WHERE BranchID = @BranchID)
+            BEGIN
+                RAISERROR('Chi nhánh không tồn tại!', 16, 1);
+                RETURN;
+            END
+
+            -- Cập nhật lương cho nhân viên
+            UPDATE STAFF
+            SET Salary = @NewSalary
+            WHERE DepartmentID = @DepartmentID 
+            AND BranchID = @BranchID;
+
+            -- Kiểm tra số lượng bản ghi đã cập nhật
+            IF @@ROWCOUNT = 0
+            BEGIN
+                RAISERROR('Không có nhân viên nào được cập nhật!', 16, 1);
+                RETURN;
+            END
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+        
+        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+        RAISERROR(@ErrorMessage, 16, 1);
+    END CATCH
+END
 
 

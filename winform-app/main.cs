@@ -4,6 +4,7 @@ using winform_app.Forms.Nhân_viên;
 using winform_app.Services;
 using winform_app.Models;
 using System.Drawing.Drawing2D;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace winform_app;
 
@@ -53,7 +54,7 @@ public partial class MainForm : Form
 
     private async void pictureBox1_Click(object sender, EventArgs e)
     {
-      
+
         if (panel1.Visible == false)
         {
             targetHeight = panel1.Height;
@@ -91,5 +92,13 @@ public partial class MainForm : Form
                 panel1.Height = 0;
             }
         }
+    }
+
+    private void buttonFindBranch_Click(object sender, EventArgs e)
+    {
+        Models.Users user = new Users();
+        FindBranchForm orderTableForm = new FindBranchForm(user);
+        orderTableForm.ShowDialog();
+        //this.Close();
     }
 }
