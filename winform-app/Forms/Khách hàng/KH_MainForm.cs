@@ -123,6 +123,7 @@ namespace winform_app.Forms.Khách_hàng
             this.Hide();
             OrderTableForm orderTableForm = new OrderTableForm(currentUser);
             orderTableForm.Show();
+            LoadCustomerDashboard();
 
         }
 
@@ -131,6 +132,7 @@ namespace winform_app.Forms.Khách_hàng
             this.Hide();
             FindBranchForm orderTableForm = new FindBranchForm(currentUser);
             orderTableForm.Show();
+            LoadCustomerDashboard();
 
 
         }
@@ -139,6 +141,7 @@ namespace winform_app.Forms.Khách_hàng
         {
             OrderDelivery orderDelivery = new OrderDelivery(currentUser, this);
             orderDelivery.Show();
+            LoadCustomerDashboard();
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -146,6 +149,7 @@ namespace winform_app.Forms.Khách_hàng
             this.Hide();
             MainForm mainForm = new MainForm();
             mainForm.Show();
+
             
 
         }
@@ -156,6 +160,7 @@ namespace winform_app.Forms.Khách_hàng
             UpdatePersonalInfo updatePersonalInfoForm = new UpdatePersonalInfo(currentUser);
 
             updatePersonalInfoForm.Show();
+            LoadCustomerDashboard();
         }
 
     }

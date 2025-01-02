@@ -1,0 +1,16 @@
+DepartmentID,DepartmentName
+DEPT_BOD,Ban Giám đốc
+DEPT_MGR,Quản lý Chi nhánh
+DEPT_ADM,Hành chính
+DEPT_HR,Nhân sự
+DEPT_FIN,Tài chính - Kế toán
+DEPT_KIT,Bếp
+DEPT_SVC,Phục vụ
+DEPT_BAR,Quầy bar
+DEPT_CSR,Chăm sóc khách hàng
+DEPT_MKT,Marketing
+DEPT_IT,Công nghệ thông tin
+DEPT_SEC,Bảo vệ
+DEPT_LOG,Kho vận
+DEPT_PUR,Thu mua
+DEPT_QC,Kiểm soát chất lượng

@@ -1,0 +1,10 @@
+CategoryID,CategoryName
+CAT_SUSHI,Sushi
+CAT_SASHIMI,Sashimi
+CAT_MAKI,Maki Rolls
+CAT_TEMAKI,Temaki (Hand Rolls)
+CAT_APPETIZER,Appetizers
+CAT_SOUP,Soups & Noodles
+CAT_BENTO,Bento Sets
+CAT_DRINKS,Drinks
+CAT_DESSERT,Desserts

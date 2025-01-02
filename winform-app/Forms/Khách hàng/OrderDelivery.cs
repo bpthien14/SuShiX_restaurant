@@ -191,7 +191,7 @@ namespace winform_app.Forms.Khách_hàng
             {
                 OrderID = nextOrderID,
                 OrderDate = DateTime.Now,
-                StaffID = "ST06357", // Assuming no staff ID for online orders
+                StaffID = "140cdc39-22ed-42be-9ca1-149b01990bac", // Assuming no staff ID for online orders
                 TableNumber = 0, // Assuming no table number for delivery orders
                 BranchID = cmbBranchName.SelectedValue.ToString(),
                 CustomerID = _customerID,

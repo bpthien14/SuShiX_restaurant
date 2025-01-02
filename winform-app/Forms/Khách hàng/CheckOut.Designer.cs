@@ -195,7 +195,7 @@
             cmbPaymentMethod.BackColor = Color.White;
             cmbPaymentMethod.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPaymentMethod.FormattingEnabled = true;
-            cmbPaymentMethod.Items.AddRange(new object[] { "Cash", "Credit Card", "Debit Card", "Online Payment" });
+            cmbPaymentMethod.Items.AddRange(new object[] { "Cash", "Credit Card", "MOMO", "Bank Transfer" }); 
             cmbPaymentMethod.Location = new Point(206, 477);
             cmbPaymentMethod.Margin = new Padding(4);
             cmbPaymentMethod.Name = "cmbPaymentMethod";

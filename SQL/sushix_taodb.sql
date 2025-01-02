@@ -6,6 +6,25 @@ CREATE TABLE REGION (
     RegionName VARCHAR(255)
 );
 
+CREATE TABLE USERS (
+    UserID VARCHAR(255) PRIMARY KEY,
+    Username VARCHAR(255),
+    Password VARCHAR(255),
+    Role VARCHAR(50)
+);
+
+CREATE TABLE CUSTOMER (
+    CustomerID VARCHAR(255) PRIMARY KEY,
+    FullName VARCHAR(255),
+    PhoneNumber VARCHAR(255),
+    Email VARCHAR(255),
+    IDNumber VARCHAR(20),
+    Gender VARCHAR(10),
+    UserID VARCHAR(255),
+    FOREIGN KEY (UserID) REFERENCES USERS(UserID)
+);
+
+-- Cách 1: Tạm thời bỏ khóa ngoại ManagerID khi tạo bảng, thêm sau bằng ALTER TABLE
 CREATE TABLE BRANCH (
     BranchID VARCHAR(255) PRIMARY KEY,
     RegionID INT,
@@ -40,8 +59,14 @@ CREATE TABLE STAFF (
     PhoneNumber VARCHAR(20),
     UserID VARCHAR(255),
     FOREIGN KEY (DepartmentID) REFERENCES DEPARTMENT(DepartmentID),
-    FOREIGN KEY (BranchID) REFERENCES BRANCH(BranchID)
+    FOREIGN KEY (BranchID) REFERENCES BRANCH(BranchID),
+    FOREIGN KEY (UserID) REFERENCES USERS(UserID)
 );
+
+-- Thêm khóa ngoại sau khi đã có dữ liệu
+ALTER TABLE BRANCH
+ADD CONSTRAINT FK_Branch_Manager 
+FOREIGN KEY (ManagerID) REFERENCES STAFF(StaffID);
 
 CREATE TABLE STAFF_WORK_HISTORY (
     HistoryID INT PRIMARY KEY,
@@ -53,23 +78,6 @@ CREATE TABLE STAFF_WORK_HISTORY (
     FOREIGN KEY (BranchID) REFERENCES BRANCH(BranchID)
 );
 
-CREATE TABLE USERS (
-    UserID VARCHAR(255) PRIMARY KEY,
-    Username VARCHAR(255),
-    Password VARCHAR(255),
-    Role VARCHAR(50)
-);
-
-CREATE TABLE CUSTOMER (
-    CustomerID VARCHAR(255) PRIMARY KEY,
-    FullName VARCHAR(255),
-    PhoneNumber VARCHAR(255),
-    Email VARCHAR(255),
-    IDNumber VARCHAR(20),
-    Gender VARCHAR(10),
-    UserID VARCHAR(255),
-    FOREIGN KEY (UserID) REFERENCES USERS(UserID)
-);
 
 CREATE TABLE MEMBERSHIP_CARD (
     CardID VARCHAR(255) PRIMARY KEY,
@@ -136,7 +144,7 @@ CREATE TABLE ONLINE_BOOKING (
     Notes VARCHAR(255),
     GuestName VARCHAR(255),
     GuestPhone VARCHAR(255),
-    DeliveryType VARCHAR(50),
+    DeliveryType VARCHAR(50),   --  'DINE_IN', 'DELIVERY', 'TAKEAWAY'
     DeliveryAddress VARCHAR(255),
     DeliveryFee FLOAT DEFAULT 0,
     Status VARCHAR(50) DEFAULT 'PENDING',  -- PENDING, CONFIRMED, CANCELLED
@@ -148,66 +156,29 @@ CREATE TABLE ONLINE_BOOKING_ORDER (
     BookingID INT,
     ItemID VARCHAR(255),
     Quantity INT,
+    UnitPrice FLOAT,              -- Thêm giá tại thời điểm đặt
+    Notes VARCHAR(255),
     PRIMARY KEY (BookingID, ItemID),
     FOREIGN KEY (BookingID) REFERENCES ONLINE_BOOKING(BookingID),
     FOREIGN KEY (ItemID) REFERENCES MENU_ITEM(ItemID)
 );
 
-CREATE TABLE ORDER_TABLE (
-    OrderID VARCHAR(255) PRIMARY KEY,
-    OrderDate DATE,
-    StaffID VARCHAR(255),
-    TableNumber INT,
-    BranchID VARCHAR(255),
-    CustomerID VARCHAR(255),
-    FOREIGN KEY (StaffID) REFERENCES STAFF(StaffID),
-    FOREIGN KEY (BranchID) REFERENCES BRANCH(BranchID),
-    FOREIGN KEY (CustomerID) REFERENCES CUSTOMER(CustomerID)
-);
-
-CREATE TABLE ORDER_DETAIL (
-    OrderID VARCHAR(255),
-    ItemID VARCHAR(255),
-    Quantity INT,
-    PRIMARY KEY (OrderID, ItemID),
-    FOREIGN KEY (OrderID) REFERENCES ORDER_TABLE(OrderID),
-    FOREIGN KEY (ItemID) REFERENCES MENU_ITEM(ItemID)
-);
-
-CREATE TABLE ORDER_INVOICE (
-    InvoiceID VARCHAR(255) PRIMARY KEY,
-    OrderID VARCHAR(255),
-    CardID VARCHAR(255),
-    TotalAmount FLOAT,
-    Discount FLOAT,
-    FinalAmount FLOAT,
-    CreatedAt DATE,
-    FOREIGN KEY (OrderID) REFERENCES ORDER_TABLE(OrderID),
-    FOREIGN KEY (CardID) REFERENCES MEMBERSHIP_CARD(CardID)
-);
 
 CREATE TABLE BOOKING_INVOICE (
-    InvoiceID VARCHAR(255) PRIMARY KEY,
+    InvoiceID INT IDENTITY(1,1) PRIMARY KEY,  -- Đổi thành IDENTITY
     BookingID INT,
     CardID VARCHAR(255),
     TotalAmount FLOAT,
-    Discount FLOAT,
+    Discount FLOAT DEFAULT 0,
+    ServiceCharge FLOAT DEFAULT 0,
+    DeliveryFee FLOAT DEFAULT 0,
     FinalAmount FLOAT,
-    CreatedAt DATE,
+    PaymentMethod VARCHAR(50),
+    PaymentStatus VARCHAR(50) DEFAULT 'PENDING',
+    CreatedAt DATETIME DEFAULT GETDATE(),
     FOREIGN KEY (BookingID) REFERENCES ONLINE_BOOKING(BookingID),
     FOREIGN KEY (CardID) REFERENCES MEMBERSHIP_CARD(CardID)
 );
 
 
-CREATE TABLE REVIEW (
-    ReviewID VARCHAR(255) PRIMARY KEY,
-    InvoiceID VARCHAR(255),
-    ServiceScore INT,
-    LocationScore INT,
-    FoodQualityScore INT,
-    PriceScore INT,
-    AmbianceScore INT,
-    Comment VARCHAR(255),
-    FOREIGN KEY (InvoiceID) REFERENCES INVOICE(InvoiceID)
-);
 
