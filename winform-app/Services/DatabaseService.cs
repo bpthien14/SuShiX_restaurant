@@ -332,7 +332,7 @@ namespace winform_app.Services
 
             return menuItems;
         }
-        public DataTable GetRevenueStatisticsByBranch(DateTime startDate, DateTime endDate, string branchID)
+        public DataTable GetRevenueStatisticsByBranch(DateTime startDate, DateTime endDate, string? branchID)
         {
             DataTable revenueStats = new DataTable();
 
@@ -342,7 +342,7 @@ namespace winform_app.Services
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@StartDate", startDate);
                 command.Parameters.AddWithValue("@EndDate", endDate);
-                command.Parameters.AddWithValue("@BranchID", branchID);
+                command.Parameters.AddWithValue("@BranchID", string.IsNullOrEmpty(branchID) ? (object)DBNull.Value : branchID);
 
                 try
                 {
@@ -351,7 +351,7 @@ namespace winform_app.Services
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error: {ex.Message}");
+                    Debug.WriteLine($"Error: {ex.Message}");
                 }
             }
 

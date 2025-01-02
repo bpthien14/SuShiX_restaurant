@@ -121,9 +121,19 @@ namespace winform_app.Forms.Nhân_viên
                 {
                     bool kt = false;
                     conn.Open();
-                    SqlCommand insertCommand = new SqlCommand("INSERT INTO MENU_ITEM (ItemID, CategoryID, ItemName, CurrentPrice, DeliveryAvailable) VALUES (@ItemID, @CategoryID, @ItemName, @CurrentPrice, @DeliveryAvailable)", conn);
-                    SqlCommand insertAvailabilityCommand = new SqlCommand("INSERT INTO MENU_ITEM_AVAILABILITY (BranchID, ItemID, IsAvailable) VALUES (@BranchID, @ItemID, 1)", conn);
-                    SqlCommand updateCommand = new SqlCommand("UPDATE MENU_ITEM SET CategoryID = @CategoryID, ItemName = @ItemName, CurrentPrice = @CurrentPrice, DeliveryAvailable = @DeliveryAvailable WHERE ItemID = @ItemID", conn);
+
+                    SqlCommand insertCommand = new SqlCommand(
+                            "DECLARE @NewItemID VARCHAR(255); " +
+                            "SET @NewItemID = (SELECT 'ITEM_' + LOWER(LEFT(NEWID(), 8))); " +
+                            "INSERT INTO MENU_ITEM (ItemID, CategoryID, ItemName, CurrentPrice, DeliveryAvailable) " +
+                            "VALUES (@NewItemID, @CategoryID, @ItemName, @CurrentPrice, @DeliveryAvailable); " +
+                            "SELECT @NewItemID;", conn);
+
+                    SqlCommand insertAvailabilityCommand = new SqlCommand(
+                        "INSERT INTO MENU_ITEM_AVAILABILITY (BranchID, ItemID, IsAvailable) VALUES (@BranchID, @ItemID, 1)", conn);
+
+                    SqlCommand updateCommand = new SqlCommand(
+                        "UPDATE MENU_ITEM SET CategoryID = @CategoryID, ItemName = @ItemName, CurrentPrice = @CurrentPrice, DeliveryAvailable = @DeliveryAvailable WHERE ItemID = @ItemID", conn);
 
                     foreach (DataGridViewRow row in dataGridViewKetQua.Rows)
                     {
@@ -179,9 +189,6 @@ namespace winform_app.Forms.Nhân_viên
                         {
                             insertCommand.Parameters.Clear();
 
-                            string latestItemID = _databaseService.GetLatestMenuItemID();
-                            itemID = GenerateNewItemID(latestItemID);
-
                             bool ktCategory = false;
                             foreach (Models.Category _category in _categories)
                             {
@@ -199,17 +206,18 @@ namespace winform_app.Forms.Nhân_viên
                                 continue;
                             }
 
-                            insertCommand.Parameters.AddWithValue("@ItemID", itemID);
                             insertCommand.Parameters.AddWithValue("@ItemName", itemName);
                             insertCommand.Parameters.AddWithValue("@CurrentPrice", currentPrice);
                             insertCommand.Parameters.AddWithValue("@DeliveryAvailable", deliveryAvailable);
+
+                            // Execute the insert command and get the new ItemID
+                            itemID = insertCommand.ExecuteScalar().ToString();
 
                             insertAvailabilityCommand.Parameters.Clear();
                             insertAvailabilityCommand.Parameters.AddWithValue("@BranchID", _staff.BranchID);
                             insertAvailabilityCommand.Parameters.AddWithValue("@ItemID", itemID);
 
-                            // Execute the insert command
-                            insertCommand.ExecuteNonQuery();
+                            // Execute the insert availability command
                             insertAvailabilityCommand.ExecuteNonQuery();
                             row.Cells["RowState"].Value = "Unchanged";
                             kt = true;

@@ -30,6 +30,8 @@ namespace winform_app.Forms.Nhân_viên
         {
             List<Models.Region> regions = _databaseService.GetRegions();
 
+            regions.Insert(0, new Models.Region { RegionID = -1, RegionName = "Tất cả khu vực" });
+
             comboBoxKhuVuc.DisplayMember = "RegionName";
             comboBoxKhuVuc.ValueMember = "RegionID";
             comboBoxKhuVuc.DataSource = regions;
@@ -37,6 +39,8 @@ namespace winform_app.Forms.Nhân_viên
         private void LoadBranches(int regionID)
         {
             List<Models.Branch> branches = _databaseService.GetBranchesByRegion(regionID);
+
+            branches.Insert(0, new Models.Branch { BranchID = null, BranchName = "Tất cả chi nhánh" });
 
             comboBoxChiNhanh.DisplayMember = "BranchName";
             comboBoxChiNhanh.ValueMember = "BranchID";
@@ -64,12 +68,12 @@ namespace winform_app.Forms.Nhân_viên
         {
             DateTime startDate = dateTimePickerTuNgay.Value;
             DateTime endDate = dateTimePickerDenNgay.Value;
-            string branchID = comboBoxChiNhanh.SelectedValue?.ToString();
-            if (string.IsNullOrEmpty(branchID))
-            {
-                MessageBox.Show("Please select a branch.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            string? branchID = comboBoxChiNhanh.SelectedValue?.ToString();
+            //if (string.IsNullOrEmpty(branchID))
+            //{
+            //    MessageBox.Show("Please select a branch.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
 
             try
             {
@@ -88,7 +92,7 @@ namespace winform_app.Forms.Nhân_viên
         {
             DateTime startDate = dateTimePickerTuNgay.Value;
             DateTime endDate = dateTimePickerDenNgay.Value;
-            string branchID = comboBoxChiNhanh.SelectedValue?.ToString();
+            string? branchID = comboBoxChiNhanh.SelectedValue?.ToString();
             DataTable revenueData = _databaseService.GetRevenueStatisticsByBranch(startDate, endDate, branchID);
 
             if (revenueData != null)
