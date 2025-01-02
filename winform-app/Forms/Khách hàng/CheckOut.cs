@@ -11,15 +11,13 @@ namespace winform_app.Forms.Khách_hàng
     public partial class Checkout : Form
     {
         private DatabaseService _databaseService;
-        private OrderTable _order;
         private List<OrderItem> _orderItems;
         private OnlineBooking _booking;
 
-        public Checkout(OrderTable order, List<OrderItem> orderItems, OnlineBooking booking)
+        public Checkout(List<OrderItem> orderItems, OnlineBooking booking)
         {
             InitializeComponent();
             _databaseService = new DatabaseService();
-            _order = order;
             _orderItems = orderItems;
             _booking = booking;
             LoadOrderDetails();
@@ -87,10 +85,10 @@ namespace winform_app.Forms.Khách_hàng
             if (double.TryParse(txtDiscount.Text, NumberStyles.Currency, CultureInfo.CurrentCulture, out double discount) &&
                 double.TryParse(txtFinalAmount.Text, NumberStyles.Currency, CultureInfo.CurrentCulture, out double finalAmount))
             {
-                Console.WriteLine("Attempting to save order...");
-                Console.WriteLine($"OrderID: {_order.OrderID}, CustomerID: {_order.CustomerID}, FinalAmount: {finalAmount}");
+                string paymentMethod = cmbPaymentMethod.SelectedItem.ToString();
+                string cardID = txtCardID.Text == null ? txtCardID.Text : null;
 
-                bool success = _databaseService.SaveOrderAndBooking(_order, _orderItems, _booking, discount, finalAmount);
+                bool success = _databaseService.SaveOrderAndBooking(_orderItems, _booking, discount, finalAmount, paymentMethod, cardID);
                 if (success)
                 {
                     MessageBox.Show("Order confirmed and saved to the database!", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);

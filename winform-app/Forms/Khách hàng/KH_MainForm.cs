@@ -53,7 +53,6 @@ namespace winform_app.Forms.Khách_hàng
             button.Region = new System.Drawing.Region(path);
         }
 
-
         private async void pictureBox1_Click(object sender, EventArgs e)
         {
             if (panel1.Visible == false)
@@ -98,7 +97,7 @@ namespace winform_app.Forms.Khách_hàng
         {
             var dashboard = _databaseService.GetCustomerDashboard(currentUser.UserID);
             labelGreeting.Text = $"Xin chào, {currentUser.Username}";
-            
+
             if (dashboard.CardType.ToUpper() == "GOLD")
             {
                 labelMembership.BackColor = Color.Gold;
@@ -122,26 +121,47 @@ namespace winform_app.Forms.Khách_hàng
         {
             this.Hide();
             OrderTableForm orderTableForm = new OrderTableForm(currentUser);
+            orderTableForm.FormClosed += (s, args) =>
+            {
+                this.Show();
+                LoadCustomerDashboard();
+            };
             orderTableForm.Show();
-            LoadCustomerDashboard();
-
         }
 
         private void buttonFindBranch_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FindBranchForm orderTableForm = new FindBranchForm(currentUser);
-            orderTableForm.Show();
-            LoadCustomerDashboard();
-
-
+            FindBranchForm findBranchForm = new FindBranchForm(currentUser);
+            findBranchForm.FormClosed += (s, args) =>
+            {
+                this.Show();
+                LoadCustomerDashboard();
+            };
+            findBranchForm.Show();
         }
 
         private void buttonOrderTakeout_Click(object sender, EventArgs e)
         {
             OrderDelivery orderDelivery = new OrderDelivery(currentUser, this);
+            orderDelivery.FormClosed += (s, args) =>
+            {
+                this.Show();
+                LoadCustomerDashboard();
+            };
             orderDelivery.Show();
-            LoadCustomerDashboard();
+        }
+
+        private void UpdatePersonalInfo_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UpdatePersonalInfo updatePersonalInfoForm = new UpdatePersonalInfo(currentUser);
+            updatePersonalInfoForm.FormClosed += (s, args) =>
+            {
+                this.Show();
+                LoadCustomerDashboard();
+            };
+            updatePersonalInfoForm.Show();
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -149,19 +169,6 @@ namespace winform_app.Forms.Khách_hàng
             this.Hide();
             MainForm mainForm = new MainForm();
             mainForm.Show();
-
-            
-
         }
-
-        private void UpdatePersonalInfo_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            UpdatePersonalInfo updatePersonalInfoForm = new UpdatePersonalInfo(currentUser);
-
-            updatePersonalInfoForm.Show();
-            LoadCustomerDashboard();
-        }
-
     }
 }

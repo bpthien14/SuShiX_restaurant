@@ -14,13 +14,11 @@ namespace winform_app.Forms.Khách_hàng
         private List<MenuItem> _menuItems;
         private List<OrderItem> _orderItems;
         private string _customerID; // Thêm biến này để lưu CustomerID
-        private Form _mainForm;
 
         public OrderDelivery(Users user, Form mainForm)
         {
             InitializeComponent();
-            _user = user;
-            _mainForm = mainForm;
+            _user = user;           
             _databaseService = new DatabaseService();
             _menuItems = new List<MenuItem>();
             _orderItems = new List<OrderItem>();
@@ -164,7 +162,6 @@ namespace winform_app.Forms.Khách_hàng
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            _mainForm.Show();
             this.Close();
         }
 
@@ -185,24 +182,8 @@ namespace winform_app.Forms.Khách_hàng
                 Status = "PENDING"
             };
 
-            // Create an OrderTable object
-            string nextOrderID = _databaseService.GetNextOrderID();
-            OrderTable order = new OrderTable
-            {
-                OrderID = nextOrderID,
-                OrderDate = DateTime.Now,
-                StaffID = "140cdc39-22ed-42be-9ca1-149b01990bac", // Assuming no staff ID for online orders
-                TableNumber = 0, // Assuming no table number for delivery orders
-                BranchID = cmbBranchName.SelectedValue.ToString(),
-                CustomerID = _customerID,
-                Notes = string.Empty,
-                GuestName = txtCustomerName.Text,
-                GuestPhone = txtCustomerPhone.Text,
-                OrderStatus = "PENDING"
-            };
-
             // Open the Checkout form and pass the order items and booking details
-            Checkout checkoutForm = new Checkout(order, _orderItems, booking);
+            Checkout checkoutForm = new Checkout(_orderItems, booking);
             checkoutForm.ShowDialog();
         }
 

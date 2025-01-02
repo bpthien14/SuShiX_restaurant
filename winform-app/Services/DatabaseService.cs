@@ -36,7 +36,10 @@ namespace winform_app.Services
 
             using (SqlConnection connection = GetConnection())
             {
-                string query = "SELECT RegionID, RegionName FROM REGION";
+                string query = @"
+                    SELECT DISTINCT REGION.RegionID, REGION.RegionName 
+                    FROM REGION 
+                    JOIN BRANCH ON REGION.RegionID = BRANCH.RegionID";
                 SqlCommand command = new SqlCommand(query, connection);
 
                 try
@@ -488,12 +491,12 @@ namespace winform_app.Services
 
                                 if (reader.NextResult() && reader.Read())
                                 {
-                                    dashboard.PendingBookings = Convert.ToInt32(reader["PendingBookings"]);
+                                    dashboard.PendingBookings = Convert.ToInt32(reader["PendingDineInBookings"]);
                                 }
 
                                 if (reader.NextResult() && reader.Read())
                                 {
-                                    dashboard.ProcessingOrders = Convert.ToInt32(reader["PendingOrderCount"]);
+                                    dashboard.ProcessingOrders = Convert.ToInt32(reader["PendingDeliveryCount"]);
                                 }
                             }
                             else
@@ -656,7 +659,7 @@ namespace winform_app.Services
 
             return categories;
         }
-        public bool SaveOrderAndBooking(OrderTable order, List<OrderItem> orderItems, OnlineBooking booking, double discount, double finalAmount)
+        public bool SaveOrderAndBooking(List<OrderItem> orderItems, OnlineBooking booking, double discount, double finalAmount, string paymentMethod, string cardID = null)
         {
             using (var connection = GetConnection())
             {
@@ -684,15 +687,9 @@ namespace winform_app.Services
                         command.Parameters.AddWithValue("@DeliveryFee", booking.DeliveryFee);
                         command.Parameters.AddWithValue("@Status", booking.Status);
 
-                        // Order parameters
-                        command.Parameters.AddWithValue("@OrderID", order.OrderID);
-                        command.Parameters.AddWithValue("@OrderDate", order.OrderDate);
-                        command.Parameters.AddWithValue("@StaffID", order.StaffID ?? (object)DBNull.Value);
-                        command.Parameters.AddWithValue("@TableNumber", order.TableNumber);
-
-                        // Invoice parameters
-                        command.Parameters.AddWithValue("@Discount", discount);
-                        command.Parameters.AddWithValue("@FinalAmount", finalAmount);
+                        // Payment parameters
+                        command.Parameters.AddWithValue("@CardID", cardID ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@PaymentMethod", paymentMethod);
 
                         // OrderItems as structured table parameter
                         var orderItemsTable = new DataTable();
@@ -725,6 +722,7 @@ namespace winform_app.Services
                 }
             }
         }
+
         public Customer GetCustomerByUserID(string userID)
         {
             Customer customer = null;

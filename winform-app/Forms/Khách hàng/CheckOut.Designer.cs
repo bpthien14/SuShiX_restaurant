@@ -59,6 +59,8 @@
             txtTotalAmount = new TextBox();
             txtDiscount = new TextBox();
             txtFinalAmount = new TextBox();
+            txtCardID = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvOrderSummary).BeginInit();
             SuspendLayout();
             // 
@@ -67,10 +69,9 @@
             lblOrderSummary.AutoSize = true;
             lblOrderSummary.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblOrderSummary.ForeColor = Color.IndianRed;
-            lblOrderSummary.Location = new Point(18, 14);
-            lblOrderSummary.Margin = new Padding(4, 0, 4, 0);
+            lblOrderSummary.Location = new Point(12, 9);
             lblOrderSummary.Name = "lblOrderSummary";
-            lblOrderSummary.Size = new Size(186, 30);
+            lblOrderSummary.Size = new Size(130, 20);
             lblOrderSummary.TabIndex = 0;
             lblOrderSummary.Text = "Tóm tắt đơn hàng";
             // 
@@ -78,12 +79,10 @@
             // 
             dgvOrderSummary.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvOrderSummary.Columns.AddRange(new DataGridViewColumn[] { colItemName, colQuantity, colTotalAmount });
-            dgvOrderSummary.Location = new Point(18, 48);
-            dgvOrderSummary.Margin = new Padding(4);
+            dgvOrderSummary.Location = new Point(12, 32);
             dgvOrderSummary.Name = "dgvOrderSummary";
             dgvOrderSummary.RowHeadersWidth = 51;
-            dgvOrderSummary.RowTemplate.Height = 29;
-            dgvOrderSummary.Size = new Size(549, 225);
+            dgvOrderSummary.Size = new Size(366, 150);
             dgvOrderSummary.TabIndex = 1;
             dgvOrderSummary.CellContentClick += dgvOrderSummary_CellContentClick;
             // 
@@ -116,77 +115,69 @@
             lblCustomerDetails.AutoSize = true;
             lblCustomerDetails.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCustomerDetails.ForeColor = Color.IndianRed;
-            lblCustomerDetails.Location = new Point(13, 292);
-            lblCustomerDetails.Margin = new Padding(4, 0, 4, 0);
+            lblCustomerDetails.Location = new Point(9, 195);
             lblCustomerDetails.Name = "lblCustomerDetails";
-            lblCustomerDetails.Size = new Size(222, 30);
+            lblCustomerDetails.Size = new Size(159, 20);
             lblCustomerDetails.TabIndex = 2;
             lblCustomerDetails.Text = "Thông tin khách hàng";
             // 
             // lblCustomerName
             // 
             lblCustomerName.AutoSize = true;
-            lblCustomerName.Location = new Point(18, 333);
-            lblCustomerName.Margin = new Padding(4, 0, 4, 0);
+            lblCustomerName.Location = new Point(12, 222);
             lblCustomerName.Name = "lblCustomerName";
-            lblCustomerName.Size = new Size(81, 30);
+            lblCustomerName.Size = new Size(57, 20);
             lblCustomerName.TabIndex = 3;
             lblCustomerName.Text = "Họ tên:";
             // 
             // txtCustomerName
             // 
             txtCustomerName.BackColor = Color.White;
-            txtCustomerName.Location = new Point(206, 329);
-            txtCustomerName.Margin = new Padding(4);
+            txtCustomerName.Location = new Point(137, 219);
             txtCustomerName.Name = "txtCustomerName";
-            txtCustomerName.Size = new Size(373, 35);
+            txtCustomerName.Size = new Size(250, 27);
             txtCustomerName.TabIndex = 4;
             // 
             // lblCustomerPhone
             // 
             lblCustomerPhone.AutoSize = true;
-            lblCustomerPhone.Location = new Point(18, 383);
-            lblCustomerPhone.Margin = new Padding(4, 0, 4, 0);
+            lblCustomerPhone.Location = new Point(12, 255);
             lblCustomerPhone.Name = "lblCustomerPhone";
-            lblCustomerPhone.Size = new Size(140, 30);
+            lblCustomerPhone.Size = new Size(100, 20);
             lblCustomerPhone.TabIndex = 5;
             lblCustomerPhone.Text = "Số điện thoại:";
             // 
             // txtCustomerPhone
             // 
             txtCustomerPhone.BackColor = Color.White;
-            txtCustomerPhone.Location = new Point(206, 379);
-            txtCustomerPhone.Margin = new Padding(4);
+            txtCustomerPhone.Location = new Point(137, 253);
             txtCustomerPhone.Name = "txtCustomerPhone";
-            txtCustomerPhone.Size = new Size(373, 35);
+            txtCustomerPhone.Size = new Size(250, 27);
             txtCustomerPhone.TabIndex = 6;
             // 
             // lblDeliveryAddress
             // 
             lblDeliveryAddress.AutoSize = true;
-            lblDeliveryAddress.Location = new Point(18, 433);
-            lblDeliveryAddress.Margin = new Padding(4, 0, 4, 0);
+            lblDeliveryAddress.Location = new Point(12, 289);
             lblDeliveryAddress.Name = "lblDeliveryAddress";
-            lblDeliveryAddress.Size = new Size(181, 30);
+            lblDeliveryAddress.Size = new Size(129, 20);
             lblDeliveryAddress.TabIndex = 7;
             lblDeliveryAddress.Text = "Địa chỉ giao hàng:";
             // 
             // txtDeliveryAddress
             // 
             txtDeliveryAddress.BackColor = Color.White;
-            txtDeliveryAddress.Location = new Point(206, 428);
-            txtDeliveryAddress.Margin = new Padding(4);
+            txtDeliveryAddress.Location = new Point(137, 285);
             txtDeliveryAddress.Name = "txtDeliveryAddress";
-            txtDeliveryAddress.Size = new Size(373, 35);
+            txtDeliveryAddress.Size = new Size(250, 27);
             txtDeliveryAddress.TabIndex = 8;
             // 
             // lblPaymentMethod
             // 
             lblPaymentMethod.AutoSize = true;
-            lblPaymentMethod.Location = new Point(18, 482);
-            lblPaymentMethod.Margin = new Padding(4, 0, 4, 0);
+            lblPaymentMethod.Location = new Point(12, 321);
             lblPaymentMethod.Name = "lblPaymentMethod";
-            lblPaymentMethod.Size = new Size(172, 30);
+            lblPaymentMethod.Size = new Size(119, 20);
             lblPaymentMethod.TabIndex = 9;
             lblPaymentMethod.Text = "Cách thanh toán:";
             // 
@@ -195,11 +186,10 @@
             cmbPaymentMethod.BackColor = Color.White;
             cmbPaymentMethod.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPaymentMethod.FormattingEnabled = true;
-            cmbPaymentMethod.Items.AddRange(new object[] { "Cash", "Credit Card", "MOMO", "Bank Transfer" }); 
-            cmbPaymentMethod.Location = new Point(206, 477);
-            cmbPaymentMethod.Margin = new Padding(4);
+            cmbPaymentMethod.Items.AddRange(new object[] { "Cash", "Credit Card", "MOMO", "Bank Transfer" });
+            cmbPaymentMethod.Location = new Point(137, 318);
             cmbPaymentMethod.Name = "cmbPaymentMethod";
-            cmbPaymentMethod.Size = new Size(373, 38);
+            cmbPaymentMethod.Size = new Size(250, 28);
             cmbPaymentMethod.TabIndex = 10;
             // 
             // btnConfirm
@@ -207,10 +197,9 @@
             btnConfirm.BackColor = Color.RosyBrown;
             btnConfirm.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConfirm.ForeColor = Color.White;
-            btnConfirm.Location = new Point(18, 532);
-            btnConfirm.Margin = new Padding(4);
+            btnConfirm.Location = new Point(9, 394);
             btnConfirm.Name = "btnConfirm";
-            btnConfirm.Size = new Size(141, 44);
+            btnConfirm.Size = new Size(94, 29);
             btnConfirm.TabIndex = 11;
             btnConfirm.Text = "Confirm";
             btnConfirm.UseVisualStyleBackColor = false;
@@ -221,10 +210,9 @@
             btnBack.BackColor = Color.RosyBrown;
             btnBack.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBack.ForeColor = Color.White;
-            btnBack.Location = new Point(440, 532);
-            btnBack.Margin = new Padding(4);
+            btnBack.Location = new Point(293, 394);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(141, 44);
+            btnBack.Size = new Size(94, 29);
             btnBack.TabIndex = 12;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = false;
@@ -233,69 +221,83 @@
             // lblTotalAmount
             // 
             lblTotalAmount.AutoSize = true;
-            lblTotalAmount.Location = new Point(18, 585);
-            lblTotalAmount.Margin = new Padding(4, 0, 4, 0);
+            lblTotalAmount.Location = new Point(9, 435);
             lblTotalAmount.Name = "lblTotalAmount";
-            lblTotalAmount.Size = new Size(133, 30);
+            lblTotalAmount.Size = new Size(94, 20);
             lblTotalAmount.TabIndex = 13;
             lblTotalAmount.Text = "Tổng số tiền:";
             // 
             // lblDiscount
             // 
             lblDiscount.AutoSize = true;
-            lblDiscount.Location = new Point(18, 634);
-            lblDiscount.Margin = new Padding(4, 0, 4, 0);
+            lblDiscount.Location = new Point(12, 468);
             lblDiscount.Name = "lblDiscount";
-            lblDiscount.Size = new Size(100, 30);
+            lblDiscount.Size = new Size(70, 20);
             lblDiscount.TabIndex = 15;
             lblDiscount.Text = "Discount:";
             // 
             // lblFinalAmount
             // 
             lblFinalAmount.AutoSize = true;
-            lblFinalAmount.Location = new Point(18, 684);
-            lblFinalAmount.Margin = new Padding(4, 0, 4, 0);
+            lblFinalAmount.Location = new Point(9, 501);
             lblFinalAmount.Name = "lblFinalAmount";
-            lblFinalAmount.Size = new Size(159, 30);
+            lblFinalAmount.Size = new Size(113, 20);
             lblFinalAmount.TabIndex = 17;
             lblFinalAmount.Text = "Số tiền phải trả:";
             // 
             // txtTotalAmount
             // 
             txtTotalAmount.BackColor = Color.White;
-            txtTotalAmount.Location = new Point(206, 580);
-            txtTotalAmount.Margin = new Padding(4);
+            txtTotalAmount.Location = new Point(128, 432);
             txtTotalAmount.Name = "txtTotalAmount";
             txtTotalAmount.ReadOnly = true;
-            txtTotalAmount.Size = new Size(373, 35);
+            txtTotalAmount.Size = new Size(250, 27);
             txtTotalAmount.TabIndex = 14;
             // 
             // txtDiscount
             // 
             txtDiscount.BackColor = Color.White;
-            txtDiscount.Location = new Point(206, 630);
-            txtDiscount.Margin = new Padding(4);
+            txtDiscount.Location = new Point(128, 465);
             txtDiscount.Name = "txtDiscount";
-            txtDiscount.Size = new Size(373, 35);
+            txtDiscount.Size = new Size(250, 27);
             txtDiscount.TabIndex = 16;
             txtDiscount.TextChanged += txtDiscount_TextChanged;
             // 
             // txtFinalAmount
             // 
             txtFinalAmount.BackColor = Color.White;
-            txtFinalAmount.Location = new Point(206, 680);
-            txtFinalAmount.Margin = new Padding(4);
+            txtFinalAmount.Location = new Point(128, 498);
             txtFinalAmount.Name = "txtFinalAmount";
             txtFinalAmount.ReadOnly = true;
-            txtFinalAmount.Size = new Size(373, 35);
+            txtFinalAmount.Size = new Size(250, 27);
             txtFinalAmount.TabIndex = 18;
+            // 
+            // txtCardID
+            // 
+            txtCardID.BackColor = Color.White;
+            txtCardID.Location = new Point(137, 352);
+            txtCardID.Name = "txtCardID";
+            txtCardID.ReadOnly = true;
+            txtCardID.Size = new Size(250, 27);
+            txtCardID.TabIndex = 19;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 355);
+            label1.Name = "label1";
+            label1.Size = new Size(58, 20);
+            label1.TabIndex = 20;
+            label1.Text = "Số thẻ :";
             // 
             // Checkout
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(607, 750);
+            ClientSize = new Size(405, 556);
+            Controls.Add(label1);
+            Controls.Add(txtCardID);
             Controls.Add(txtFinalAmount);
             Controls.Add(lblFinalAmount);
             Controls.Add(txtDiscount);
@@ -315,12 +317,14 @@
             Controls.Add(lblCustomerDetails);
             Controls.Add(dgvOrderSummary);
             Controls.Add(lblOrderSummary);
-            Margin = new Padding(4);
             Name = "Checkout";
             Text = "Checkout";
             ((System.ComponentModel.ISupportInitialize)dgvOrderSummary).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
+
+        private TextBox txtCardID;
+        private Label label1;
     }
 }

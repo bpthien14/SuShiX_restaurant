@@ -4,42 +4,27 @@ CREATE OR ALTER PROCEDURE sp_GetRevenueStatisticsByBranch
     @BranchID VARCHAR(255)
 AS
 BEGIN
-    SELECT RevenueData.BranchName AS N'Chi Nhánh', 
-           CAST(RevenueData.RevenueDate AS DATE) AS N'Ngày', 
-           COUNT(*) AS N'Số đơn', 
-           ROUND(SUM(RevenueData.TotalRevenue), 2) AS N'Tổng Doanh Thu', 
-           ROUND(AVG(RevenueData.TotalRevenue), 2) AS N'Trung Bình'
-    FROM (
-        SELECT BRANCH.BranchName, 
-               ORDER_INVOICE.CreatedAt AS RevenueDate, 
-               ORDER_INVOICE.FinalAmount AS TotalRevenue
-        FROM ORDER_INVOICE
-        JOIN ORDER_TABLE ON ORDER_INVOICE.OrderID = ORDER_TABLE.OrderID
-        JOIN BRANCH ON ORDER_TABLE.BranchID = BRANCH.BranchID
-        WHERE CAST(ORDER_INVOICE.CreatedAt AS DATE) BETWEEN @StartDate AND @EndDate
-        AND BRANCH.BranchID = @BranchID
-
-        UNION ALL
-
-        SELECT BRANCH.BranchName, 
-               BOOKING_INVOICE.CreatedAt AS RevenueDate, 
-               BOOKING_INVOICE.FinalAmount AS TotalRevenue
-        FROM BOOKING_INVOICE
-        JOIN ONLINE_BOOKING ON BOOKING_INVOICE.BookingID = ONLINE_BOOKING.BookingID
-        JOIN BRANCH ON ONLINE_BOOKING.BranchID = BRANCH.BranchID
-        WHERE CAST(BOOKING_INVOICE.CreatedAt AS DATE) BETWEEN @StartDate AND @EndDate
-        AND BRANCH.BranchID = @BranchID
-    ) AS RevenueData
-    GROUP BY RevenueData.BranchName, RevenueData.RevenueDate
-    ORDER BY RevenueData.RevenueDate;
-END
+    SELECT 
+        b.BranchName AS N'Chi Nhánh',
+        CAST(bi.CreatedAt AS DATE) AS N'Ngày',
+        COUNT(*) AS N'Số đơn',
+        ROUND(SUM(bi.FinalAmount), 2) AS N'Tổng Doanh Thu',
+        ROUND(AVG(bi.FinalAmount), 2) AS N'Trung Bình'
+    FROM BOOKING_INVOICE bi
+    JOIN ONLINE_BOOKING ob ON bi.BookingID = ob.BookingID
+    JOIN BRANCH b ON ob.BranchID = b.BranchID
+    WHERE CAST(bi.CreatedAt AS DATE) BETWEEN @StartDate AND @EndDate
+    AND (@BranchID IS NULL OR b.BranchID = @BranchID)
+    GROUP BY b.BranchName, CAST(bi.CreatedAt AS DATE)
+    ORDER BY CAST(bi.CreatedAt AS DATE);
+END;
 GO
 
 CREATE OR ALTER PROCEDURE sp_GetMenuItemStatus
     @BranchID VARCHAR(255),
     @FromDate DATE,
     @ToDate DATE,
-	@ItemID VARCHAR(255)
+    @ItemID VARCHAR(255)
 AS
 BEGIN
     WITH ItemStats AS (
@@ -47,32 +32,33 @@ BEGIN
         SELECT 
             mi.ItemID,
             mi.ItemName,
-			ot.OrderDate,
-            SUM(od.Quantity) as TotalQuantity,
-            SUM(od.Quantity * mi.CurrentPrice) as TotalRevenue,
+            CAST(ob.BookingDate AS DATE) as OrderDate,
+            SUM(obo.Quantity) as TotalQuantity,
+            SUM(obo.Quantity * obo.UnitPrice) as TotalRevenue,
             -- Tính phần trăm đóng góp vào tổng doanh thu
-            (SUM(od.Quantity * mi.CurrentPrice) * 100.0 / 
-             SUM(SUM(od.Quantity * mi.CurrentPrice)) OVER()) as RevenuePercentage,
+            (SUM(obo.Quantity * obo.UnitPrice) * 100.0 / 
+             SUM(SUM(obo.Quantity * obo.UnitPrice)) OVER()) as RevenuePercentage,
             -- Xếp hạng theo doanh thu
-            ROW_NUMBER() OVER(ORDER BY SUM(od.Quantity * mi.CurrentPrice) DESC) as RankByRevenue,
+            ROW_NUMBER() OVER(ORDER BY SUM(obo.Quantity * obo.UnitPrice) DESC) as RankByRevenue,
             -- Tổng số món để tính phân vị
             COUNT(*) OVER() as TotalItems
         FROM MENU_ITEM mi
-        JOIN ORDER_DETAIL od ON mi.ItemID = od.ItemID
-        JOIN ORDER_TABLE ot ON od.OrderID = ot.OrderID
-        JOIN BRANCH b ON ot.BranchID = b.BranchID
-        WHERE (@BranchID IS NULL OR ot.BranchID = @BranchID)
-		And (@ItemID IS NULL OR mi.ItemID = @ItemID)
-        AND ot.OrderDate BETWEEN @FromDate AND @ToDate
-        GROUP BY mi.ItemID, mi.ItemName, ot.OrderDate
+        JOIN ONLINE_BOOKING_ORDER obo ON mi.ItemID = obo.ItemID
+        JOIN ONLINE_BOOKING ob ON obo.BookingID = ob.BookingID
+        JOIN BRANCH b ON ob.BranchID = b.BranchID
+        WHERE (@BranchID IS NULL OR ob.BranchID = @BranchID)
+        AND (@ItemID IS NULL OR mi.ItemID = @ItemID)
+        AND ob.BookingDate BETWEEN @FromDate AND @ToDate
+        AND ob.Status != 'CANCELLED'  -- Không tính đơn đã hủy
+        GROUP BY mi.ItemID, mi.ItemName, CAST(ob.BookingDate AS DATE)
     )
     SELECT 
-		RankByRevenue AS N'Xếp hạng',
-		OrderDate AS N'Ngày',
+        RankByRevenue AS N'Xếp hạng',
+        OrderDate AS N'Ngày',
         ItemName AS N'Tên Món',
         TotalQuantity AS N'Số lượng bán',
         ROUND(TotalRevenue, 2) AS N'Tổng Doanh Thu',
-		ROUND(RevenuePercentage, 2) N'Doanh thu Trung Bình',
+        ROUND(RevenuePercentage, 2) AS N'Doanh thu Trung Bình',
         CASE 
             WHEN RankByRevenue <= (TotalItems * 0.2) THEN N'Món chạy' -- Top 20%
             WHEN RankByRevenue > (TotalItems * 0.8) THEN N'Món chậm' -- Bottom 20%
@@ -80,8 +66,7 @@ BEGIN
         END AS N'Đánh giá'
     FROM ItemStats
     ORDER BY RankByRevenue;
-END
-GO
+END;
 
 CREATE OR ALTER PROCEDURE sp_GetStaffStatistics
     @BranchID VARCHAR(255) = NULL,   -- Allow NULL for BranchID
@@ -151,5 +136,25 @@ BEGIN
         RAISERROR(@ErrorMessage, 16, 1);
     END CATCH
 END
+go
+CREATE OR ALTER PROCEDURE sp_CheckLogin_Staff
+    @LoginInput NVARCHAR(50),
+    @Password NVARCHAR(100)
+AS
+BEGIN
+    SELECT 
+        s.StaffID, 
+		s.BranchID,
+        s.FullName, 
+        s.PhoneNumber,
+        u.UserID, 
+        u.Role
+    FROM STAFF s
+    JOIN USERS u ON s.UserID = u.UserID
+    WHERE (s.PhoneNumber = @LoginInput OR u.Username = @LoginInput)
+      AND u.Password = @Password
+      AND (u.Role = 'Manager' OR u.Role = 'admin');
+END;
+GO
 
 

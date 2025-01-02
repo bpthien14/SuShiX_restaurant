@@ -78,8 +78,6 @@ namespace winform_app.Forms.Khách_hàng
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-            KH_MainForm mainForm = new KH_MainForm(_user);
-            mainForm.Show();
         }
     }
 }
